@@ -1,0 +1,27 @@
+Asıl Logo Ekleme
+Asıl Slider Görselleri Ekleme
+
+
+
+
+
+
+
+
+Eklenmesi Gereken Bölümler
+
+-Menü
+-Paket Oluşturma Formu ve Ödeme Ekranı
+
+-Detaylı Menü?
+-F4U Nedir, Biz Kimiz
+-SSS
+
+
+
+
+
+
+
+
+İngilizce Dil Ekleme

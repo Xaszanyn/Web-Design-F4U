@@ -1,0 +1,36 @@
+#feature {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 5rem 0 10rem;
+  padding: 0 5rem;
+  font-style: italic;
+}
+
+#feature > div:not(:last-of-type) {
+  margin-bottom: 5rem;
+}
+
+#feature > div {
+  display: flex;
+  align-items: center;
+}
+
+#feature > div:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+#feature > div:nth-of-type(even) i {
+  margin-right: 0;
+  margin-left: 5rem;
+}
+
+#feature > div:nth-of-type(even) span {
+  text-align: right;
+}
+
+#feature i {
+  font-size: 15rem;
+  margin-right: 5rem;
+
+  color: var(--light-green);
+}

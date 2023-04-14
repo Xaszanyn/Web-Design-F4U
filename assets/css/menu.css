@@ -1,0 +1,55 @@
+#menu {
+  padding: 0 5rem;
+}
+
+h3 {
+  font-size: 6.5rem;
+  margin-bottom: 5rem;
+}
+
+#menu > div {
+  display: flex;
+  margin-bottom: 10rem;
+}
+
+#menu > div > div:first-of-type {
+  width: 35%;
+}
+
+#menu img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5rem;
+}
+
+#menu > div > div:last-of-type {
+  width: 65%;
+  font-size: 3.5rem;
+  padding-left: 5rem;
+  text-align: justify;
+}
+
+h4 {
+  font-size: 5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+#menu a {
+  font-size: 3rem;
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 5rem;
+}
+
+#menu > div:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+#menu > div:nth-of-type(even) > div:last-of-type {
+  padding-left: 0rem;
+  padding-right: 5rem;
+}

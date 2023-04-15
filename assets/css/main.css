@@ -4,6 +4,8 @@
 @import url("./header.css");
 @import url("./feature.css");
 @import url("./menu.css");
+@import url("./order.css");
+@import url("./footer.css");
 
 * {
   margin: 0;
@@ -23,11 +25,12 @@ html {
 
   --white: #fff;
   --light-gray: #efefef;
-  --black: #070707;
+  --black: #0f0f1f;
   --green: #39aa36;
-  --blue: #3f6fef;
+  --blue: #3f5fcf;
 
   --light-green: #3aaa36cf;
+  --pale-green: #3aaa364f;
 
   --fast: 0.3s;
 }
@@ -40,6 +43,15 @@ html {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+select {
+  outline: none;
+}
+
+.center {
+  display: flex;
+  align-items: center;
 }
 
 /*

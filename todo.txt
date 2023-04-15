@@ -10,8 +10,7 @@ Asıl Slider Görselleri Ekleme
 
 Eklenmesi Gereken Bölümler
 
--Menü
--Paket Oluşturma Formu ve Ödeme Ekranı
+
 
 -Detaylı Menü?
 -F4U Nedir, Biz Kimiz
@@ -19,7 +18,8 @@ Eklenmesi Gereken Bölümler
 
 
 
-
+ömrü hayatımda görmediğim bug
+chrome web toolsda Menü Labeli, footer pleri ve h3ler değişiyor
 
 
 

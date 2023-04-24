@@ -3,7 +3,7 @@ Asıl Slider Görselleri Ekleme
 
 
 
-
+oto slider geçişi ve onclickler
 
 
 

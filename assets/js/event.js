@@ -7,3 +7,13 @@ window.addEventListener("scroll", (event) => {
     navigation.classList.add("small");
   }
 });
+
+city.addEventListener("change", (event) => {
+  district.disabled = false;
+  district.selectedIndex = 0;
+
+  districts.forEach((option) => {
+    if (option.classList.contains(city.value)) option.hidden = false;
+    else option.hidden = true;
+  });
+});

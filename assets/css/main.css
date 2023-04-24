@@ -6,6 +6,8 @@
 @import url("./menu.css");
 @import url("./order.css");
 @import url("./footer.css");
+@import url("./modal.css");
+@import url("./responsive.css");
 
 * {
   margin: 0;
@@ -26,13 +28,17 @@ html {
   --white: #fff;
   --light-gray: #efefef;
   --black: #0f0f1f;
+  --gray: #afafcf;
   --green: #39aa36;
   --blue: #3f5fcf;
 
   --light-green: #3aaa36cf;
   --pale-green: #3aaa364f;
 
+  --fade: #0f0f1f9f;
+
   --fast: 0.3s;
+  --delay: 0s ease 0.3s;
 }
 
 .center {
@@ -49,16 +55,6 @@ select {
   outline: none;
 }
 
-.center {
-  display: flex;
-  align-items: center;
+ul {
+  list-style: none;
 }
-
-/*
-
-
-  --white: #fff;
-  --gray: #9f9f9f;
-  --yellow: #dddd01;
-
-*/

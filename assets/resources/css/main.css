@@ -1,0 +1,37 @@
+@import url("./variables.css");
+@import url("./mobile.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1vw;
+  color: var(--black);
+  font-family: Inter, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+button,
+input {
+  outline: none;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+button {
+  border: none;
+}
+
+hr {
+  width: 100%;
+  height: 0;
+  border: 0.5rem solid var(--gray);
+}

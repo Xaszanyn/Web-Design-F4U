@@ -1,0 +1,73 @@
+SLİDER
+4LÜ SLOGAN
+FİT4U METNİ
+
+
+FOOTER
+
+
+KİTLE ENDEKSİ (SİZE EN UYGUN MENÜ)
+MENÜLER
+MENÜ AKORDİYONU
+
+
+
+SİPARİŞ FORMU
+
+
+
+daha fazla şimdilik blank kalacak
+
+---------
+
+
+BURDAN SONRA BACKENDE RUSH ATACAN FRONT BİTMEDİ AMA ŞARTLAR MALUM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+eski
+
+-----------
+
+Asıl Logo Ekleme
+Asıl Slider Görselleri Ekleme
+
+
+
+oto slider geçişi ve onclickler
+
+
+
+
+Eklenmesi Gereken Bölümler
+
+
+
+-Detaylı Menü?
+-F4U Nedir, Biz Kimiz
+-SSS
+
+
+
+ömrü hayatımda görmediğim bug
+chrome web toolsda Menü Labeli, footer pleri ve h3ler değişiyor
+
+
+
+
+İngilizce Dil Ekleme

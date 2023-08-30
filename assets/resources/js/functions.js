@@ -24,3 +24,29 @@ function closePopUp() {
   } catch {}
   popUp.classList.remove("displayed");
 }
+
+function slideGoLeft(event) {
+  event.preventDefault();
+
+  slideTime = 0;
+
+  slideLeft.classList.add("active");
+  setTimeout(() => slideLeft.classList.remove("active"), 200);
+
+  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / 100);
+
+  slide.style.transform = `translateX(-${(current ? current - 1 : parseInt(slide.dataset.slides - 1)) * 100}rem)`;
+}
+
+function slideGoRight(event) {
+  if (event) event.preventDefault();
+
+  slideTime = 0;
+
+  slideRight.classList.add("active");
+  setTimeout(() => slideRight.classList.remove("active"), 200);
+
+  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / 100);
+
+  slide.style.transform = `translateX(-${(current == parseInt(slide.dataset.slides - 1) ? 0 : current + 1) * 100}rem)`;
+}

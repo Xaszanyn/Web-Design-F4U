@@ -9,6 +9,10 @@
 
 html {
   font-size: 1vw;
+}
+
+body {
+  overflow-x: hidden;
   color: var(--black);
   font-family: Inter, sans-serif;
 }

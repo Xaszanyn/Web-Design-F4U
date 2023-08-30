@@ -54,3 +54,9 @@ popUp.addEventListener("touchstart", (event) => {
     load(button, section);
   });
 });
+
+slideLeft.addEventListener("click", slideGoLeft);
+slideLeft.addEventListener("touchstart", slideGoLeft);
+
+slideRight.addEventListener("click", slideGoRight);
+slideRight.addEventListener("touchstart", slideGoRight);

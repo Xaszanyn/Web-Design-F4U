@@ -1,9 +1,8 @@
-SLİDER
 4LÜ SLOGAN
 FİT4U METNİ
 
 
-FOOTER
+
 
 
 KİTLE ENDEKSİ (SİZE EN UYGUN MENÜ)
@@ -24,10 +23,13 @@ daha fazla şimdilik blank kalacak
 BURDAN SONRA BACKENDE RUSH ATACAN FRONT BİTMEDİ AMA ŞARTLAR MALUM
 
 
+_____________________________________________________________________________________
 
+giriş, üyelik, şifre unutma fonksiyonları
 
+footer telefon adres mail insta detay doldurup linkle
 
-
+_____________________________________________________________________________________
 
 
 

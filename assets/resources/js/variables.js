@@ -16,4 +16,7 @@ const [home, menus, order, more] = main.querySelectorAll("main > section");
 const slide = document.querySelector("#slide > div");
 const [slideLeft, slideRight] = document.querySelectorAll("#slide button");
 
+const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMoreButton, menuLanguageButton] =
+  document.querySelectorAll("#menu button");
+
 var slideTime = 0;

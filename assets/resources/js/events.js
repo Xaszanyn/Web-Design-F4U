@@ -60,3 +60,43 @@ slideLeft.addEventListener("touchstart", slideGoLeft);
 
 slideRight.addEventListener("click", slideGoRight);
 slideRight.addEventListener("touchstart", slideGoRight);
+
+[
+  [menuHomeButton, home, homeButton],
+  [menuMenusButton, menus, menusButton],
+  [menuOrderButton, order, orderButton],
+  [menuMoreButton, more, moreButton],
+].forEach(([button, section, buttonDisplay]) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    closePopUp();
+    load(buttonDisplay, section);
+  });
+  button.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    closePopUp();
+    load(buttonDisplay, section);
+  });
+});
+
+[[loginButton, login]].forEach(([button, popUp]) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    openPopUp(popUp);
+  });
+  button.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    openPopUp(popUp);
+  });
+});
+
+menuLoginButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  closePopUp();
+  setTimeout(() => openPopUp(login), 200);
+});
+menuLoginButton.addEventListener("touchstart", (event) => {
+  event.preventDefault();
+  closePopUp();
+  setTimeout(() => openPopUp(login), 200);
+});

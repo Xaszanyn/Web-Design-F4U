@@ -191,6 +191,16 @@ main > section.displayed {
   display: block;
 }
 
+main > section > p {
+  margin: 15rem 5rem;
+}
+
+main > section > img {
+  display: block;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
 /* =========={ Login }========================================================================================== */
 
 #login input {
@@ -350,4 +360,47 @@ footer p {
 
 #slide .slide-5 {
   background-image: var(--slide-5);
+}
+
+/* =========={ Main Page }========================================================================================== */
+
+#highlighteds {
+  margin: 15rem 0;
+  color: var(--green);
+}
+
+#highlighteds p {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+#highlighteds p:last-of-type {
+  margin-bottom: 0;
+}
+
+#highlighteds p:nth-of-type(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+#highlighteds i {
+  font-size: 12rem;
+  margin: 3rem;
+}
+
+/* =========={ Menü }========================================================================================== */
+
+#menu button {
+  display: block;
+  background-color: transparent;
+  font-size: 5rem;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+}
+
+#menu button i {
+  color: var(--blue);
 }

@@ -23,7 +23,8 @@ DAHA FAZLA SIRF CONTENT THUMB
 KİTLE ENDEKSİ (SİZE EN UYGUN MENÜ)
 
 
-
+H3LER
+H4 İLETİŞİM SİL
 
 
 SİPARİŞ FORMU
@@ -49,7 +50,7 @@ ________________________________________________________________________________
 
 
 
-
+ÇEVİRİ FONKSİYONU
 
 
 
@@ -58,37 +59,13 @@ ________________________________________________________________________________
 
 
 eski
-
 -----------
 
-
-
-
-
-
-oto slider geçişi ve onclickler
-
-
-
-
 Eklenmesi Gereken Bölümler
-
-
 
 -Detaylı Menü?
 -F4U Nedir, Biz Kimiz
 -SSS
-
-
-
-ömrü hayatımda görmediğim bug
-chrome web toolsda Menü Labeli, footer pleri ve h3ler değişiyor
-
-
-
-
-İngilizce Dil Ekleme
-
 
 
 

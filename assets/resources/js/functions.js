@@ -1,3 +1,16 @@
+function assign(element, action, self = false) {
+  element.addEventListener("click", (event) => {
+    if (self && event.target != self) return;
+    event.preventDefault();
+    action(event);
+  });
+  element.addEventListener("touchstart", (event) => {
+    if (self && event.target != self) return;
+    event.preventDefault();
+    action(event);
+  });
+}
+
 function load(button, section) {
   loading.classList.add("loading");
 
@@ -49,4 +62,15 @@ function slideGoRight(event) {
   let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / 100);
 
   slide.style.transform = `translateX(-${(current == parseInt(slide.dataset.slides - 1) ? 0 : current + 1) * 100}rem)`;
+}
+
+function translate(index) {
+  switch (index) {
+    case 0:
+      console.log("Türkçe");
+      break;
+    case 1:
+      console.log("English");
+      break;
+  }
 }

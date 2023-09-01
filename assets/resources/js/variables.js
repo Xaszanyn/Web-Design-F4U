@@ -21,6 +21,6 @@ const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMo
 
 const [languageTr, languageEn] = document.querySelectorAll("#language button");
 
-const allMenus = document.querySelectorAll(".menu");
+const menuHeadings = document.querySelectorAll(".menu-heading");
 
 var slideTime = 0;

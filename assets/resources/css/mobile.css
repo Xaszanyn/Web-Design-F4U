@@ -40,7 +40,7 @@ nav {
   border-bottom: 1rem solid var(--gray);
   transition: height var(--fast);
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 500;
   z-index: 90;
 }
 
@@ -52,7 +52,7 @@ h1 {
   display: none;
 }
 
-h2 {
+nav > span {
   font-size: 4rem;
   color: var(--green);
   font-style: italic;
@@ -94,7 +94,7 @@ h2 {
   display: flex;
   align-items: center;
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 500;
   z-index: 90;
 }
 
@@ -161,6 +161,7 @@ h2 {
 
 #pop-up h4 {
   margin-bottom: 3rem;
+  font-weight: 500;
 }
 
 #pop-up .close {
@@ -185,6 +186,7 @@ main {
 main > section {
   display: none;
   min-height: calc(100vh - 60rem);
+  padding-bottom: 5rem;
 }
 
 main > section.displayed {
@@ -199,6 +201,13 @@ main > section > img {
   display: block;
   margin: 0 auto;
   padding: 0 5rem;
+}
+
+main > section > h2 {
+  font-size: 8rem;
+  font-weight: 200;
+  text-align: center;
+  margin: 5rem 0 10rem;
 }
 
 /* =========={ Login }========================================================================================== */
@@ -243,7 +252,7 @@ main > section > img {
 #login button {
   font-size: 4rem;
   background-color: var(--blue);
-  font-weight: bold;
+  font-weight: 500;
   color: var(--white);
   padding: 1rem 5rem;
   border-radius: 10rem;
@@ -279,6 +288,7 @@ footer {
 
 footer h4 {
   margin-bottom: 5rem;
+  font-weight: 500;
 }
 
 footer span {
@@ -420,34 +430,65 @@ footer p {
 
 .menu {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 3rem;
+  margin: 0 3rem 5rem;
+  padding: 3rem 3rem 0;
+  border: 1rem solid transparent;
+  border-radius: 2rem;
+  box-shadow: 0.5rem 0.5rem 3rem var(--dark-gray);
+  transition: padding var(--fast), border-color var(--fast);
+}
+
+.menu:last-of-type {
+  margin-bottom: 0;
+}
+
+.menu.expanded {
   padding: 3rem;
-  background-color: var(--reddish);
+  border-color: var(--green);
 }
 
 .menu .expand {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 2rem;
+  transition: transform var(--fast);
 }
 
-.menu > img {
+.menu.expanded .expand {
+  transform: rotate(-90deg);
+}
+
+.menu .menu-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.menu .menu-heading > img {
   width: 35rem;
   padding-right: 3rem;
   height: auto;
 }
 
-.menu .menu-heading {
+.menu .menu-heading > div {
   width: 53rem;
 }
 
-.menu .menu-heading h4 {
+.menu .menu-heading > div h4 {
   margin-bottom: 2rem;
+  font-weight: 600;
 }
 
 .menu .menu-body {
-  display: none;
+  overflow-y: hidden;
+  max-height: 0;
+  transition: max-height var(--fast);
+}
+
+.menu.expanded .menu-body {
+  max-height: 300rem;
+}
+
+.menu .menu-body hr {
+  margin-bottom: 3rem;
 }

@@ -1,14 +1,16 @@
-function assign(element, action, self = false) {
+function assign(element, action, self = false, press = false) {
   element.addEventListener("click", (event) => {
     if (self && event.target != self) return;
     event.preventDefault();
     action(event);
   });
-  element.addEventListener("touchstart", (event) => {
-    if (self && event.target != self) return;
-    event.preventDefault();
-    action(event);
-  });
+
+  if (!press)
+    element.addEventListener("touchstart", (event) => {
+      if (self && event.target != self) return;
+      event.preventDefault();
+      action(event);
+    });
 }
 
 function load(button, section) {

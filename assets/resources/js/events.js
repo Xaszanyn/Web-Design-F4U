@@ -51,8 +51,11 @@ assign(languageTr, (event) => {
   closePopUp();
   translate(0);
 });
-
 assign(languageEn, (event) => {
   closePopUp();
   translate(1);
 });
+
+menuHeadings.forEach((menus) =>
+  assign(menus, (event) => menus.parentElement.classList.toggle("expanded"), false, true)
+);

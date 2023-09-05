@@ -5,7 +5,7 @@ const main = document.querySelector("main");
 const navigation = document.querySelector("nav");
 
 const popUp = document.querySelector("#pop-up");
-const popUpClose = document.querySelectorAll("#pop-up .close");
+const popUpsCloses = document.querySelectorAll("#pop-up .close");
 
 const [loginButton, menuButton] = document.querySelectorAll("#navigation > div");
 const [login, menu, language] = popUp.querySelectorAll("#pop-up > section");
@@ -22,5 +22,8 @@ const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMo
 const [languageTr, languageEn] = document.querySelectorAll("#language button");
 
 const menuHeadings = document.querySelectorAll(".menu-heading");
+
+const blogs = document.querySelectorAll(".blog");
+const blogsCloses = document.querySelectorAll(".blog .close");
 
 var slideTime = 0;

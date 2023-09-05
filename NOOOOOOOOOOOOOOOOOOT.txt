@@ -1,42 +1,40 @@
 
-MENÜLER VE AKORDİYON
 
-SİPARİŞ FORM PLACEHOLDER
-
-DAHA FAZLA SIRF CONTENT THUMB
+SİPARİŞ FORMU
 
 
 
+ÜYE OL & ŞİFREMİ UNUTTUM KISIMLARINI YAP
+ÜYE OL İLE GİRİŞ YAPI MENÜDEN AYIR
 
 
+------------
+| SONRALAR |
+------------
 
-
-
-
-
-
-
+Kitle Endeksi (Size En Uygun Menü)
+İngilizce Çeviri
 
 
 
 
-KİTLE ENDEKSİ (SİZE EN UYGUN MENÜ)
+
+
+
+
+
+
+img "alt" kısımları
+localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap
+
+
 
 
 H3LER
 H4 İLETİŞİM SİL
 
 
-SİPARİŞ FORMU
 
-
-
-daha fazla şimdilik blank kalacak
-
----------
-
-
-BURDAN SONRA BACKENDE RUSH ATACAN FRONT BİTMEDİ AMA ŞARTLAR MALUM
 
 
 _____________________________________________________________________________________
@@ -50,22 +48,6 @@ ________________________________________________________________________________
 
 
 
-ÇEVİRİ FONKSİYONU
-
-
-
-
-
-
-
-eski
------------
-
-Eklenmesi Gereken Bölümler
-
--Detaylı Menü?
--F4U Nedir, Biz Kimiz
--SSS
 
 
 
@@ -74,8 +56,10 @@ Eklenmesi Gereken Bölümler
 
 
 
-F4U TARAFI
-----------
+--------------
+| F4U TARAFI |
+--------------
+
 Orijinal Logo       -temp
 Slide Görselleri    -temp
 

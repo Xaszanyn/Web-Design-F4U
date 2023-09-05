@@ -3,7 +3,7 @@ window.addEventListener("scroll", (event) => {
   else document.body.classList.remove("initial");
 });
 
-popUpClose.forEach((close) => {
+popUpsCloses.forEach((close) => {
   assign(close, closePopUp);
 });
 
@@ -56,6 +56,12 @@ assign(languageEn, (event) => {
   translate(1);
 });
 
-menuHeadings.forEach((menus) =>
-  assign(menus, (event) => menus.parentElement.classList.toggle("expanded"), false, true)
+menuHeadings.forEach((menuHeading) =>
+  assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
 );
+
+blogs.forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
+
+blogsCloses.forEach((close) => {
+  assign(close, closePopUp);
+});

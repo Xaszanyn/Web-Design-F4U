@@ -136,7 +136,7 @@ nav > span {
   transition: opacity var(--fast), padding-top var(--fast), left var(--delay);
 }
 
-#pop-up.displayed {
+#pop-up.active {
   padding-top: 0;
   left: -5rem;
   opacity: 1;
@@ -189,7 +189,7 @@ main > section {
   padding-bottom: 5rem;
 }
 
-main > section.displayed {
+main > section.active {
   display: block;
 }
 
@@ -198,9 +198,9 @@ main > section > p {
 }
 
 main > section > img {
-  display: block;
-  margin: 0 auto;
-  padding: 0 5rem;
+  margin: 0 5rem;
+  width: 90rem;
+  border-radius: 3rem;
 }
 
 main > section > h2 {
@@ -286,8 +286,9 @@ footer {
   padding: 5rem;
 }
 
-footer h4 {
+footer h2 {
   margin-bottom: 5rem;
+  font-size: 6rem;
   font-weight: 500;
 }
 
@@ -324,7 +325,7 @@ footer p {
 
 #slide button {
   position: absolute;
-  width: 20rem;
+  width: 15rem;
   height: 100%;
   top: 0;
   font-size: 10rem;
@@ -377,13 +378,14 @@ footer p {
 #highlighteds {
   margin: 15rem 0;
   color: var(--green);
+  padding: 0 3rem;
 }
 
 #highlighteds p {
   display: flex;
   align-items: center;
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 10rem;
 }
 
 #highlighteds p:last-of-type {
@@ -395,9 +397,18 @@ footer p {
   text-align: right;
 }
 
-#highlighteds i {
+#highlighteds p i {
   font-size: 12rem;
-  margin: 3rem;
+}
+
+#highlighteds p:nth-of-type(odd) i {
+  margin-left: 2rem;
+  margin-right: 3rem;
+}
+
+#highlighteds p:nth-of-type(even) i {
+  margin-right: 2rem;
+  margin-left: 3rem;
 }
 
 /* =========={ Menu, Language }================================================================================ */
@@ -432,10 +443,9 @@ footer p {
   position: relative;
   margin: 0 3rem 5rem;
   padding: 3rem 3rem 0;
-  border: 1rem solid transparent;
-  border-radius: 2rem;
+  border-radius: 3rem;
   box-shadow: 0.5rem 0.5rem 3rem var(--dark-gray);
-  transition: padding var(--fast), border-color var(--fast);
+  transition: padding var(--fast), box-shadow var(--fast);
 }
 
 .menu:last-of-type {
@@ -443,8 +453,8 @@ footer p {
 }
 
 .menu.expanded {
+  box-shadow: 0 0 3rem var(--green);
   padding: 3rem;
-  border-color: var(--green);
 }
 
 .menu .expand {
@@ -467,7 +477,6 @@ footer p {
 .menu .menu-heading > img {
   width: 35rem;
   padding-right: 3rem;
-  height: auto;
 }
 
 .menu .menu-heading > div {
@@ -486,9 +495,134 @@ footer p {
 }
 
 .menu.expanded .menu-body {
-  max-height: 300rem;
+  max-height: 500rem;
 }
 
 .menu .menu-body hr {
+  margin-bottom: 4rem;
+}
+
+.menu .menu-body h5 {
+  font-size: 8rem;
+  color: var(--blue);
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+
+.menu .menu-body p {
+  margin-bottom: 4rem;
+}
+
+.menu .menu-body img,
+.menu .menu-body video,
+.menu .menu-body iframe {
+  width: 100%;
+  margin-bottom: 4rem;
+  border-radius: 3rem;
+}
+
+.menu .menu-body iframe {
+  height: 50rem;
+}
+
+.menu .menu-body h6 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 4rem;
+}
+
+/* =========={ More }========================================================================================== */
+
+.blog {
+  margin: 0 3rem 5rem;
+  padding: 3rem;
+  box-shadow: 0.5rem 0.5rem 3rem var(--dark-gray);
+  border-radius: 3rem;
+  overflow: auto;
+}
+
+.blog:last-of-type {
+  margin-bottom: 0;
+}
+
+.blog h4 {
   margin-bottom: 3rem;
+}
+
+.blog > img {
+  float: left;
+  width: 45rem;
+  height: 40rem;
+  margin: 0 3rem 3rem 0;
+  border-radius: 3rem;
+  object-fit: cover;
+}
+
+.blog .blog-content {
+  position: fixed;
+  width: 100rem;
+  height: calc(100vh - 18rem);
+  left: 0;
+  bottom: calc(18rem - 105vh);
+  background-color: var(--white);
+  z-index: 110;
+  transition: bottom var(--fast);
+  overflow-y: scroll;
+  padding: 5rem;
+}
+
+.blog .close {
+  position: fixed;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  padding: 2rem 2.5rem;
+  border-radius: 10rem;
+  color: var(--red);
+  background-color: var(--fade-black);
+  transition: top var(--fast);
+}
+
+.blog.displayed .blog-content {
+  bottom: 0;
+}
+
+.blog.displayed .close {
+  top: 5rem;
+}
+
+.blog .blog-content h5 {
+  font-size: 10rem;
+  font-weight: 300;
+  margin-bottom: 10rem;
+  color: var(--blue);
+}
+
+.blog .blog-content p {
+  margin-bottom: 5rem;
+}
+
+.blog .blog-content img,
+.blog .blog-content video,
+.blog .blog-content iframe {
+  width: 100%;
+  margin-bottom: 5rem;
+  border-radius: 3rem;
+}
+
+.blog .blog-content iframe {
+  height: 50rem;
+}
+
+.blog .blog-content hr {
+  margin-bottom: 5rem;
+}
+
+.blog .blog-content h6 {
+  font-size: 6rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 5rem;
 }

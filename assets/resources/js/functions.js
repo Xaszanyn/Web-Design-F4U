@@ -16,12 +16,12 @@ function assign(element, action, self = false, press = false) {
 function load(button, section) {
   loading.classList.add("loading");
 
-  document.querySelector("main > section.displayed").classList.remove("displayed");
+  document.querySelector("main > section.active").classList.remove("active");
 
   document.querySelector("#navigation-bottom > div.selected").classList.remove("selected");
   button.classList.add("selected");
 
-  section.classList.add("displayed");
+  section.classList.add("active");
 
   setTimeout(() => {
     loading.classList.remove("loading");
@@ -30,14 +30,15 @@ function load(button, section) {
 
 function openPopUp(section) {
   section.classList.add("displayed");
-  popUp.classList.add("displayed");
+  popUp.classList.add("active");
 }
 
 function closePopUp() {
-  try {
-    popUp.querySelector(".displayed").classList.remove("displayed");
-  } catch {}
-  popUp.classList.remove("displayed");
+  let section = document.querySelector(".displayed");
+
+  if (section) section.classList.remove("displayed");
+
+  popUp.classList.remove("active");
 }
 
 function slideGoLeft(event) {

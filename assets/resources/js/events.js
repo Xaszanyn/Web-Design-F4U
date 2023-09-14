@@ -20,41 +20,15 @@ assign(moreButton, (event) => load(moreButton, more));
 assign(slideLeft, slideGoLeft);
 assign(slideRight, slideGoRight);
 
-assign(menuHomeButton, (event) => {
-  closePopUp();
-  load(homeButton, home);
-});
-assign(menuMenusButton, (event) => {
-  closePopUp();
-  load(menusButton, menus);
-});
-assign(menuOrderButton, (event) => {
-  closePopUp();
-  load(orderButton, order);
-});
-assign(menuMoreButton, (event) => {
-  closePopUp();
-  load(moreButton, more);
-});
+assign(menuHomeButton, (event) => closePopUpThenLoad(homeButton, home));
+assign(menuMenusButton, (event) => closePopUpThenLoad(menusButton, menus));
+assign(menuOrderButton, (event) => closePopUpThenLoad(orderButton, order));
+assign(menuMoreButton, (event) => closePopUpThenLoad(moreButton, more));
+assign(menuLoginButton, (event) => openAnotherPopUp(login));
+assign(menuLanguageButton, (event) => openAnotherPopUp(language));
 
-assign(menuLoginButton, (event) => {
-  closePopUp();
-  setTimeout(() => openPopUp(login), 200);
-});
-
-assign(menuLanguageButton, (event) => {
-  closePopUp();
-  setTimeout(() => openPopUp(language), 200);
-});
-
-assign(languageTr, (event) => {
-  closePopUp();
-  translate(0);
-});
-assign(languageEn, (event) => {
-  closePopUp();
-  translate(1);
-});
+assign(languageTr, (event) => translate(0));
+assign(languageEn, (event) => translate(1));
 
 menuHeadings.forEach((menuHeading) =>
   assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
@@ -65,3 +39,8 @@ blogs.forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
 blogsCloses.forEach((close) => {
   assign(close, closePopUp);
 });
+
+assign(registerFromLogin, (event) => openAnotherPopUp(register));
+assign(loginFromRegister, (event) => openAnotherPopUp(login));
+
+assign(registerFirst, registerFirstPhase);

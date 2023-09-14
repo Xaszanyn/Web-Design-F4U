@@ -210,9 +210,10 @@ main > section > h2 {
   margin: 5rem 0 10rem;
 }
 
-/* =========={ Login }========================================================================================== */
+/* =========={ Login, Register }========================================================================================== */
 
-#login input {
+#login input,
+#register input {
   width: 100%;
   border: 1rem solid var(--gray);
   font-size: 4rem;
@@ -221,27 +222,28 @@ main > section > h2 {
   padding: 1rem 3rem 1rem 8rem;
 }
 
-#login input:focus {
+#login input:focus,
+#register input:focus {
   border: 1rem solid var(--blue);
 }
 
-#login input:focus + i {
-  color: var(--blue);
-}
-
-#login > div {
+#login > div,
+#register > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10rem;
 }
 
-#login > div > div {
+#login > div > div,
+#register > div > div {
   position: relative;
   margin-bottom: 3rem;
 }
 
-#login > div > div i {
+#login > div > div i,
+#register > div > div i {
+  color: var(--blue);
   position: absolute;
   top: 50%;
   left: 3rem;
@@ -249,7 +251,8 @@ main > section > h2 {
   transition: color var(--fast);
 }
 
-#login button {
+#login button,
+#register button {
   font-size: 4rem;
   background-color: var(--blue);
   font-weight: 500;
@@ -259,22 +262,26 @@ main > section > h2 {
   margin-bottom: 3rem;
 }
 
-#login button i {
+#login button i,
+#register button i {
   margin-right: 0.5rem;
 }
 
-#login hr {
+#login hr,
+#register hr {
   margin-bottom: 3rem;
 }
 
-#login span {
+#login span,
+#register span {
   display: block;
   font-size: 4rem;
   text-decoration: double;
   margin-bottom: 2rem;
 }
 
-#login span:last-of-type {
+#login span:last-of-type,
+#register span:last-of-type {
   margin-bottom: 0;
 }
 
@@ -625,4 +632,24 @@ footer p {
   font-weight: 600;
   color: var(--green);
   margin-bottom: 5rem;
+}
+
+/* =========={ Notification }========================================================================================== */
+
+#notification {
+  position: fixed;
+  z-index: 120;
+  top: -25rem;
+  left: 5rem;
+  width: 90rem;
+  font-size: 4rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--blue);
+  transition: top var(--slow);
+}
+
+#notification.displayed {
+  top: 5rem;
 }

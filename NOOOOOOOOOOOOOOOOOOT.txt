@@ -20,7 +20,11 @@ Kitle Endeksi (Size En Uygun Menü)
 
 
 
+input focuslarını kapat mobilde klavye açık kalıyor
+document.querySelector(":focus")
 
+
+notify() localization
 
 
 

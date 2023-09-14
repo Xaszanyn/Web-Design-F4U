@@ -1,3 +1,5 @@
+/* =========={ General }========================================================================================== */
+
 function assign(element, action, self = false, press = false) {
   element.addEventListener("click", (event) => {
     if (self && event.target != self) return;
@@ -12,6 +14,8 @@ function assign(element, action, self = false, press = false) {
       action(event);
     });
 }
+
+/* =========={ UI }========================================================================================== */
 
 function load(button, section) {
   loading.classList.add("loading");
@@ -41,6 +45,16 @@ function closePopUp() {
   popUp.classList.remove("active");
 }
 
+function openAnotherPopUp(section) {
+  closePopUp();
+  setTimeout(() => openPopUp(section), 200);
+}
+
+function closePopUpThenLoad(button, section) {
+  closePopUp();
+  load(button, section);
+}
+
 function slideGoLeft(event) {
   event.preventDefault();
 
@@ -67,7 +81,17 @@ function slideGoRight(event) {
   slide.style.transform = `translateX(-${(current == parseInt(slide.dataset.slides - 1) ? 0 : current + 1) * 100}rem)`;
 }
 
+function notify(message) {
+  notification.textContent = message;
+  notification.classList.add("displayed");
+  setTimeout(() => notification.classList.remove("displayed"), 2500);
+}
+
+/* =========={ Utility }========================================================================================== */
+
 function translate(index) {
+  closePopUp();
+
   switch (index) {
     case 0:
       console.log("Türkçe");
@@ -76,4 +100,40 @@ function translate(index) {
       console.log("English");
       break;
   }
+}
+
+/* =========={ Connection }========================================================================================== */
+
+async function post(endpoint, body) {
+  let response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+
+  console.log(await response.text());
+  console.log(await response.json());
+
+  return await response.json();
+}
+
+async function registerFirstPhase(event) {
+  if (!registerEmail.value) {
+    notify("Lütfen e-posta adresinizi giriniz.");
+    return;
+  }
+
+  let response = await post("services/register/register.php", { email: registerEmail.value });
+
+  switch (response.status) {
+    case "email_invalid":
+      notify("Lütfen geçerli bir e-posta adresi giriniz.");
+      break;
+    case "email_used":
+      break;
+    case "success":
+      break;
+  }
+
+  console.log("AAAAA");
 }

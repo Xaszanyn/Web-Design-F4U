@@ -27,6 +27,9 @@ document.querySelector(":focus")
 notify() localization
 
 
+registiration yarım kalınca oluşan bugların fixi
+
+
 
 img "alt" kısımları
 localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap

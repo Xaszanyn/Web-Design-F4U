@@ -32,7 +32,7 @@ const registerFromLogin = document.querySelector("#register-from-login");
 const loginFromRegister = document.querySelector("#login-from-register");
 
 const registerPhase = document.querySelector("#register-phase");
-const registerEmail = document.querySelector("#register-first-phase input");
+const registerEmail = document.querySelector("#register-phase.first > :first-of-type input");
 const registerFirst = document.querySelector("#register-first");
 
 var slideTime = 0;

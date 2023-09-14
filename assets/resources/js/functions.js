@@ -105,16 +105,17 @@ function translate(index) {
 /* =========={ Connection }========================================================================================== */
 
 async function post(endpoint, body) {
-  let response = await fetch(endpoint, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-
-  console.log(await response.text());
-  console.log(await response.json());
-
-  return await response.json();
+  try {
+    return await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((response) => response.json());
+  } catch {
+    return {
+      status: "error",
+    };
+  }
 }
 
 async function registerFirstPhase(event) {
@@ -126,6 +127,9 @@ async function registerFirstPhase(event) {
   let response = await post("services/register/register.php", { email: registerEmail.value });
 
   switch (response.status) {
+    case "error":
+      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      break;
     case "email_invalid":
       notify("Lütfen geçerli bir e-posta adresi giriniz.");
       break;

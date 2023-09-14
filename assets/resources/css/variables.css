@@ -13,6 +13,7 @@
 
   --instant: 0.2s;
   --fast: 0.3s;
+  --delayed-fast: 0.3s 0.3s;
   --slow: 0.5s;
 
   --delay: 0s 0.3s;

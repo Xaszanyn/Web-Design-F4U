@@ -31,6 +31,7 @@ const notification = document.querySelector("#notification");
 const registerFromLogin = document.querySelector("#register-from-login");
 const loginFromRegister = document.querySelector("#login-from-register");
 
+const registerPhase = document.querySelector("#register-phase");
 const registerEmail = document.querySelector("#register-first-phase input");
 const registerFirst = document.querySelector("#register-first");
 

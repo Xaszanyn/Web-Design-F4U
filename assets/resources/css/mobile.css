@@ -228,7 +228,7 @@ main > section > h2 {
 }
 
 #login > div,
-#register > div {
+#register #register-phase > div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,13 +236,13 @@ main > section > h2 {
 }
 
 #login > div > div,
-#register > div > div {
+#register #register-phase > div > div {
   position: relative;
   margin-bottom: 3rem;
 }
 
 #login > div > div i,
-#register > div > div i {
+#register #register-phase > div > div i {
   color: var(--blue);
   position: absolute;
   top: 50%;
@@ -283,6 +283,47 @@ main > section > h2 {
 #login span:last-of-type,
 #register span:last-of-type {
   margin-bottom: 0;
+}
+
+#register-phase {
+  position: relative;
+  transition: height var(--slow);
+}
+
+#register-phase > div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: red;
+  opacity: 0;
+  transition: opacity var(--fast);
+}
+
+#register-phase.first {
+  height: 30rem;
+}
+
+#register-phase.first > :first-of-type {
+  opacity: 1;
+  transition: opacity var(--delayed-fast);
+}
+
+#register-phase.second {
+  height: 55rem;
+}
+
+#register-phase.second > :nth-of-type(2) {
+  opacity: 1;
+  transition: opacity var(--delayed-fast);
+}
+
+#register-phase.third {
+  height: 30rem;
+}
+
+#register-phase.third > :last-of-type {
+  opacity: 1;
+  transition: opacity var(--delayed-fast);
 }
 
 /* =========={ Footer }========================================================================================== */

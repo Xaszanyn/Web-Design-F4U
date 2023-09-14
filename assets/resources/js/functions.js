@@ -130,10 +130,13 @@ async function registerFirstPhase(event) {
       notify("Lütfen geçerli bir e-posta adresi giriniz.");
       break;
     case "email_used":
+      notify("Bu e-posta adresi kullanımda, lütfen yeni bir e-posta adresi giriniz.");
       break;
     case "success":
+      registerPhase.classList.remove("first");
+      registerPhase.classList.add("second");
       break;
   }
-
-  console.log("AAAAA");
 }
+
+function test() {}

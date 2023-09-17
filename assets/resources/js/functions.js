@@ -196,11 +196,11 @@ async function registerThirdPhase(event) {
 
   let response = await post("services/register.php", {
     phase: "create",
-    code: register.secondCode.value,
-    name: register.name.value,
-    address: register.address.value,
-    phone: register.phone.value,
-    password: register.password.value,
+    code: registerSection.secondCode.value,
+    name: registerSection.name.value,
+    address: registerSection.address.value,
+    phone: registerSection.phone.value,
+    password: registerSection.password.value,
   });
 
   if (DEBUG) console.log(response);

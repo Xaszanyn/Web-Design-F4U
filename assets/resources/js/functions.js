@@ -124,7 +124,9 @@ async function registerFirstPhase(event) {
     return;
   }
 
-  let response = await post("services/register/register.php", { email: registerEmail.value });
+  let response = await post("services/register/register.php", { phase: "register", email: registerEmail.value });
+
+  console.log(response);
 
   switch (response.status) {
     case "error":

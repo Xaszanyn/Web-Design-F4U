@@ -119,10 +119,6 @@ async function post(endpoint, body) {
 }
 
 async function registerFirstPhase(event) {
-  registerPhase.classList.remove("first");
-  registerPhase.classList.add("second");
-  return;
-
   if (!registerEmail.value) {
     notify("Lütfen e-posta adresinizi giriniz.");
     return;

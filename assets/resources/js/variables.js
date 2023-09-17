@@ -1,3 +1,5 @@
+const DEBUG = true;
+
 const loading = document.querySelector("#loading");
 
 const main = document.querySelector("main");
@@ -31,16 +33,18 @@ const notification = document.querySelector("#notification");
 const registerFromLogin = document.querySelector("#register-from-login");
 const loginFromRegister = document.querySelector("#login-from-register");
 
-const registerPhase = document.querySelector("#register-phase");
-const registerEmail = document.querySelector("#register-phase > :first-of-type input");
-const registerFirst = document.querySelector("#register-first");
-const registerCode = document.querySelector("#register-phase > :nth-of-type(2) input");
-const registerSecond = document.querySelector("#register-second");
-const registerSecondCode = document.querySelector("#register-phase > :last-of-type > input[type='hidden']");
-const registerName = document.querySelector("#register-phase > :last-of-type > :first-of-type > input");
-const registerAddress = document.querySelector("#register-phase > :last-of-type > :nth-of-type(2) > textarea");
-const registerPhone = document.querySelector("#register-phase > :last-of-type > :nth-of-type(3) > input");
-const registerPassword = document.querySelector("#register-phase > :last-of-type > :last-of-type > input");
-const registerThird = document.querySelector("#register-third");
+const registerSection = {
+  phase: document.querySelector("#register-phase"),
+  email: document.querySelector("#register-phase > :first-of-type input"),
+  first: document.querySelector("#register-first"),
+  code: document.querySelector("#register-phase > :nth-of-type(2) input"),
+  second: document.querySelector("#register-second"),
+  secondCode: document.querySelector("#register-phase > :last-of-type > input[type='hidden']"),
+  name: document.querySelector("#register-phase > :last-of-type > :first-of-type > input"),
+  phone: document.querySelector("#register-phase > :last-of-type > :nth-of-type(2) > input"),
+  address: document.querySelector("#register-phase > :last-of-type > :nth-of-type(3) > textarea"),
+  password: document.querySelector("#register-phase > :last-of-type > :last-of-type > input"),
+  third: document.querySelector("#register-third"),
+};
 
 var slideTime = 0;

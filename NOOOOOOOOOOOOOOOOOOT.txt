@@ -15,7 +15,7 @@ SİPARİŞ FORMU
 Kitle Endeksi (Size En Uygun Menü)
 İngilizce Çeviri
 
-
+Üyelik giriş şifreunuttum kısımları için form validasyon kontrolü
 
 
 

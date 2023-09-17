@@ -43,6 +43,6 @@ blogsCloses.forEach((close) => {
 assign(registerFromLogin, (event) => openAnotherPopUp(register));
 assign(loginFromRegister, (event) => openAnotherPopUp(login));
 
-assign(registerFirst, registerFirstPhase);
-assign(registerSecond, registerSecondPhase);
-assign(registerThird, registerThirdPhase);
+assign(registerSection.first, registerFirstPhase);
+assign(registerSection.second, registerSecondPhase);
+assign(registerSection.third, registerThirdPhase);

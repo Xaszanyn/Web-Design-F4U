@@ -213,7 +213,9 @@ main > section > h2 {
 /* =========={ Login, Register }========================================================================================== */
 
 #login input,
-#register input {
+#register input,
+#register textarea {
+  display: block;
   width: 100%;
   border: 1rem solid var(--gray);
   font-size: 4rem;
@@ -223,8 +225,13 @@ main > section > h2 {
 }
 
 #login input:focus,
-#register input:focus {
+#register input:focus,
+#register textarea:focus {
   border: 1rem solid var(--blue);
+}
+
+#register textarea {
+  border-radius: 5rem;
 }
 
 #login > div,
@@ -238,6 +245,7 @@ main > section > h2 {
 #login > div > div,
 #register #register-phase > div > div {
   position: relative;
+  width: 100%;
   margin-bottom: 3rem;
 }
 
@@ -288,6 +296,7 @@ main > section > h2 {
 #register-phase {
   position: relative;
   transition: height var(--slow);
+  height: 40rem;
 }
 
 #register-phase > div {
@@ -298,31 +307,30 @@ main > section > h2 {
   transition: opacity var(--fast);
 }
 
-#register-phase.first {
-  height: 30rem;
-}
-
 #register-phase.first > :first-of-type {
   opacity: 1;
   transition: opacity var(--delayed-fast);
+  z-index: 110;
 }
 
 #register-phase.second {
-  height: 55rem;
+  height: 25rem;
 }
 
 #register-phase.second > :nth-of-type(2) {
   opacity: 1;
   transition: opacity var(--delayed-fast);
+  z-index: 110;
 }
 
 #register-phase.third {
-  height: 30rem;
+  height: 70rem;
 }
 
 #register-phase.third > :last-of-type {
   opacity: 1;
   transition: opacity var(--delayed-fast);
+  z-index: 110;
 }
 
 /* =========={ Footer }========================================================================================== */

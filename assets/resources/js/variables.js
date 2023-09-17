@@ -32,7 +32,15 @@ const registerFromLogin = document.querySelector("#register-from-login");
 const loginFromRegister = document.querySelector("#login-from-register");
 
 const registerPhase = document.querySelector("#register-phase");
-const registerEmail = document.querySelector("#register-phase.first > :first-of-type input");
+const registerEmail = document.querySelector("#register-phase > :first-of-type input");
 const registerFirst = document.querySelector("#register-first");
+const registerCode = document.querySelector("#register-phase > :nth-of-type(2) input");
+const registerSecond = document.querySelector("#register-second");
+const registerSecondCode = document.querySelector("#register-phase > :last-of-type > input[type='hidden']");
+const registerName = document.querySelector("#register-phase > :last-of-type > :first-of-type > input");
+const registerAddress = document.querySelector("#register-phase > :last-of-type > :nth-of-type(2) > textarea");
+const registerPhone = document.querySelector("#register-phase > :last-of-type > :nth-of-type(3) > input");
+const registerPassword = document.querySelector("#register-phase > :last-of-type > :last-of-type > input");
+const registerThird = document.querySelector("#register-third");
 
 var slideTime = 0;

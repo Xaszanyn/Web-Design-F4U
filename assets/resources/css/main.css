@@ -28,11 +28,16 @@ iframe {
 }
 
 button,
-input {
+input,
+textarea {
   outline: none;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
+}
+
+textarea {
+  resize: none;
 }
 
 button {

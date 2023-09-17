@@ -119,12 +119,16 @@ async function post(endpoint, body) {
 }
 
 async function registerFirstPhase(event) {
+  registerPhase.classList.remove("first");
+  registerPhase.classList.add("second");
+  return;
+
   if (!registerEmail.value) {
     notify("Lütfen e-posta adresinizi giriniz.");
     return;
   }
 
-  let response = await post("services/register/register.php", { phase: "register", email: registerEmail.value });
+  let response = await post("services/register.php", { phase: "register", email: registerEmail.value });
 
   console.log(response);
 
@@ -143,6 +147,41 @@ async function registerFirstPhase(event) {
       registerPhase.classList.add("second");
       break;
   }
+}
+
+async function registerSecondPhase(event) {
+  if (!registerCode.value) {
+    notify("Lütfen doğrulama kodunu giriniz.");
+    return;
+  }
+
+  let response = await post("services/register.php", { phase: "confirm", code: registerCode.value });
+
+  console.log(response);
+
+  registerSecondCode.value = response.code;
+
+  switch (response.status) {
+    case "error":
+      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      break;
+    case "timeout":
+      notify("Doğrulama kodu zaman aşımına uğradı.");
+      break;
+    case "maximum_attempt":
+      notify("Deneme hakkınızı doldurdunuz.");
+      break;
+    case "success":
+      registerPhase.classList.remove("second");
+      registerPhase.classList.add("third");
+      break;
+  }
+}
+
+async function registerThirdPhase(event) {
+  registerPhase.classList.remove("third");
+  registerPhase.classList.add("first");
+  return;
 }
 
 function test() {}

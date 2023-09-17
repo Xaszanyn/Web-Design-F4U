@@ -44,3 +44,5 @@ assign(registerFromLogin, (event) => openAnotherPopUp(register));
 assign(loginFromRegister, (event) => openAnotherPopUp(login));
 
 assign(registerFirst, registerFirstPhase);
+assign(registerSecond, registerSecondPhase);
+assign(registerThird, registerThirdPhase);

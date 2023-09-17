@@ -110,7 +110,14 @@ async function post(endpoint, body) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }).then((response) => response.json());
+    }).then((response) => {
+      if (DEBUG) {
+        console.log("FROM POST()");
+        console.log(response);
+      }
+
+      return response.json();
+    });
   } catch {
     return {
       status: "error",

@@ -23,8 +23,6 @@ const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMo
 
 const [languageTr, languageEn] = document.querySelectorAll("#language button");
 
-const menuHeadings = document.querySelectorAll(".menu-heading");
-
 const blogs = document.querySelectorAll(".blog");
 const blogsCloses = document.querySelectorAll(".blog .close");
 

@@ -36,10 +36,6 @@ assign(menuLanguageButton, (event) => openAnotherPopUp(language));
 assign(languageTr, (event) => translate(0));
 assign(languageEn, (event) => translate(1));
 
-menuHeadings.forEach((menuHeading) =>
-  assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
-);
-
 blogs.forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
 
 blogsCloses.forEach((close) => {

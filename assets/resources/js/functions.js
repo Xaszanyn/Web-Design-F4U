@@ -269,4 +269,10 @@ async function getMenus() {
 
     menus.appendChild(content);
   });
+
+  document
+    .querySelectorAll(".menu-heading")
+    .forEach((menuHeading) =>
+      assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
+    );
 }

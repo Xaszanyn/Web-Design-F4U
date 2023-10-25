@@ -13,7 +13,10 @@ assign(loginButton, (event) => openPopUp(login));
 assign(menuButton, (event) => openPopUp(menu));
 
 assign(homeButton, (event) => load(homeButton, home));
-assign(menusButton, (event) => load(menusButton, menus));
+assign(menusButton, (event) => {
+  getMenus();
+  load(menusButton, menus);
+});
 assign(orderButton, (event) => load(orderButton, order));
 assign(moreButton, (event) => load(moreButton, more));
 
@@ -21,7 +24,10 @@ assign(slideLeft, slideGoLeft);
 assign(slideRight, slideGoRight);
 
 assign(menuHomeButton, (event) => closePopUpThenLoad(homeButton, home));
-assign(menuMenusButton, (event) => closePopUpThenLoad(menusButton, menus));
+assign(menuMenusButton, (event) => {
+  getMenus();
+  closePopUpThenLoad(menusButton, menus);
+});
 assign(menuOrderButton, (event) => closePopUpThenLoad(orderButton, order));
 assign(menuMoreButton, (event) => closePopUpThenLoad(moreButton, more));
 assign(menuLoginButton, (event) => openAnotherPopUp(login));

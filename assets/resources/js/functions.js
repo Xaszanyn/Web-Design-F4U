@@ -244,14 +244,29 @@ async function registerThirdPhase(event) {
 }
 
 async function getMenus() {
-  let menus = await get("services/menus.php");
+  menus.innerHTML = `<h2>Menüler</h2>`;
 
-  if (menus.status == "error") {
-    // error mes
+  let data = await get("services/menus.php");
+
+  if (data.status == "error") {
+    let error = document.createElement("p");
+
+    error.style.color = "var(--red)";
+    error.style.textAlign = "center";
+    error.innerHTML = "Menüler getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz";
+
+    menus.appendChild(error);
+
     return;
   }
 
-  menus.forEach((menu) => {
-    console.log(menu);
+  data.forEach((menu) => {
+    let content = document.createElement("div");
+
+    content.className = "menu";
+
+    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p></div></div><div class="menu-body"><hr />${menu.content}</div>`;
+
+    menus.appendChild(content);
   });
 }

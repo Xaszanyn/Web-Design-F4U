@@ -104,6 +104,16 @@ function translate(index) {
 
 /* =========={ Connection }========================================================================================== */
 
+async function get(endpoint) {
+  try {
+    return await fetch(endpoint).then((response) => response.json());
+  } catch {
+    return {
+      status: "error",
+    };
+  }
+}
+
 async function post(endpoint, body) {
   try {
     return await fetch(endpoint, {
@@ -231,4 +241,17 @@ async function registerThirdPhase(event) {
       closePopUp();
       break;
   }
+}
+
+async function getMenus() {
+  let menus = await get("services/menus.php");
+
+  if (menus.status == "error") {
+    // error mes
+    return;
+  }
+
+  menus.forEach((menu) => {
+    console.log(menu);
+  });
 }

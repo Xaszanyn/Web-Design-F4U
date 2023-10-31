@@ -701,3 +701,8 @@ footer p {
 #notification.displayed {
   top: 5rem;
 }
+
+.fetch-error {
+  color: var(--red);
+  text-align: center;
+}

@@ -1,5 +1,3 @@
-const DEBUG = true;
-
 const loading = document.querySelector("#loading");
 
 const main = document.querySelector("main");
@@ -22,9 +20,6 @@ const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMo
   document.querySelectorAll("#menu button");
 
 const [languageTr, languageEn] = document.querySelectorAll("#language button");
-
-const blogs = document.querySelectorAll(".blog");
-const blogsCloses = document.querySelectorAll(".blog .close");
 
 const notification = document.querySelector("#notification");
 

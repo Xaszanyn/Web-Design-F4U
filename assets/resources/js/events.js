@@ -18,7 +18,10 @@ assign(menusButton, (event) => {
   load(menusButton, menus);
 });
 assign(orderButton, (event) => load(orderButton, order));
-assign(moreButton, (event) => load(moreButton, more));
+assign(moreButton, (event) => {
+  getContents();
+  load(moreButton, more);
+});
 
 assign(slideLeft, slideGoLeft);
 assign(slideRight, slideGoRight);
@@ -29,18 +32,15 @@ assign(menuMenusButton, (event) => {
   closePopUpThenLoad(menusButton, menus);
 });
 assign(menuOrderButton, (event) => closePopUpThenLoad(orderButton, order));
-assign(menuMoreButton, (event) => closePopUpThenLoad(moreButton, more));
+assign(menuMoreButton, (event) => {
+  getContents();
+  closePopUpThenLoad(moreButton, more);
+});
 assign(menuLoginButton, (event) => openAnotherPopUp(login));
 assign(menuLanguageButton, (event) => openAnotherPopUp(language));
 
 assign(languageTr, (event) => translate(0));
 assign(languageEn, (event) => translate(1));
-
-blogs.forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
-
-blogsCloses.forEach((close) => {
-  assign(close, closePopUp);
-});
 
 assign(registerFromLogin, (event) => openAnotherPopUp(register));
 assign(loginFromRegister, (event) => openAnotherPopUp(login));

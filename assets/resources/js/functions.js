@@ -136,8 +136,6 @@ async function registerFirstPhase(event) {
 
   let response = await post("services/register.php", { phase: "register", email: registerSection.email.value });
 
-  if (DEBUG) console.log(response);
-
   switch (response.status) {
     case "error":
       notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
@@ -162,8 +160,6 @@ async function registerSecondPhase(event) {
   }
 
   let response = await post("services/register.php", { phase: "confirm", code: registerSection.code.value });
-
-  if (DEBUG) console.log(response);
 
   registerSection.secondCode.value = response.code;
 
@@ -213,8 +209,6 @@ async function registerThirdPhase(event) {
     password: registerSection.password.value,
   });
 
-  if (DEBUG) console.log(response);
-
   switch (response.status) {
     case "error":
       notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
@@ -251,8 +245,8 @@ async function getMenus() {
   if (data.status == "error") {
     let error = document.createElement("p");
 
-    error.style.color = "var(--red)";
-    error.style.textAlign = "center";
+    error.className = "fetch-error";
+
     error.innerHTML = "Menüler getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz";
 
     menus.appendChild(error);
@@ -275,4 +269,36 @@ async function getMenus() {
     .forEach((menuHeading) =>
       assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
     );
+}
+
+async function getContents() {
+  more.innerHTML = `<h2>Daha Fazla</h2>`;
+
+  let data = await get("services/contents.php");
+
+  if (data.status == "error") {
+    let error = document.createElement("p");
+
+    error.className = "fetch-error";
+
+    error.innerHTML = "İçerikler getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz";
+
+    more.appendChild(error);
+
+    return;
+  }
+
+  data.forEach((content) => {
+    let blog = document.createElement("div");
+
+    blog.className = "blog";
+
+    blog.innerHTML = `<h4>${content.title}</h4><img src="./assets/images/temporary/${content.picture}" /><p>${content.description}</p><i class="fa-solid fa-xmark close"></i><div class="blog-content">${content.content}</div>`;
+
+    more.appendChild(blog);
+  });
+
+  document.querySelectorAll(".blog").forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
+
+  document.querySelectorAll(".blog .close").forEach((close) => assign(close, closePopUp));
 }

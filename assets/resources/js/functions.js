@@ -136,6 +136,8 @@ async function registerFirstPhase(event) {
 
   let response = await post("services/register.php", { phase: "register", email: registerSection.email.value });
 
+  console.log(response);
+
   switch (response.status) {
     case "error":
       notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
@@ -160,6 +162,8 @@ async function registerSecondPhase(event) {
   }
 
   let response = await post("services/register.php", { phase: "confirm", code: registerSection.code.value });
+
+  console.log(response);
 
   registerSection.secondCode.value = response.code;
 
@@ -208,6 +212,8 @@ async function registerThirdPhase(event) {
     phone: registerSection.phone.value,
     password: registerSection.password.value,
   });
+
+  console.log(response);
 
   switch (response.status) {
     case "error":

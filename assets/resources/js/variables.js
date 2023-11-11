@@ -40,4 +40,11 @@ const registerSection = {
   third: document.querySelector("#register-third"),
 };
 
+const loginUserButton = document.querySelector("#login button");
+
+const loginSection = {
+  email: document.querySelector("#login input[type='text']"),
+  password: document.querySelector("#login input[type='password']"),
+};
+
 var slideTime = 0;

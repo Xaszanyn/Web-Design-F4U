@@ -128,6 +128,8 @@ async function post(endpoint, body) {
   }
 }
 
+/* =========={ Register }======================================== */
+
 async function registerFirstPhase(event) {
   if (!registerSection.email.value) {
     notify("Lütfen e-posta adresinizi giriniz.");
@@ -242,6 +244,39 @@ async function registerThirdPhase(event) {
       break;
   }
 }
+
+/* =========={ Login }======================================== */
+
+async function loginUser(event) {
+  if (!loginSection.email.value) {
+    notify("Lütfen e-posta adresinizi giriniz.");
+    return;
+  } else if (!loginSection.password.value) {
+    notify("Lütfen şifrenizi giriniz.");
+    return;
+  }
+
+  let response = await post("services/login.php", {
+    email: loginSection.email.value,
+    password: loginSection.password.value,
+  });
+
+  console.log(response);
+
+  switch (response.status) {
+    case "error":
+      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      break;
+    case "user_invalid":
+      notify("E-posta veya şifre hatalı, lütfen tekrar deneyiniz.");
+      break;
+    case "success":
+      alert(JSON.stringify(response));
+      break;
+  }
+}
+
+/* =========={ Public }======================================== */
 
 async function getMenus() {
   menus.innerHTML = `<h2>Menüler</h2>`;

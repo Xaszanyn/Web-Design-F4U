@@ -48,3 +48,5 @@ assign(loginFromRegister, (event) => openAnotherPopUp(login));
 assign(registerSection.first, registerFirstPhase);
 assign(registerSection.second, registerSecondPhase);
 assign(registerSection.third, registerThirdPhase);
+
+assign(loginUserButton, loginUser);

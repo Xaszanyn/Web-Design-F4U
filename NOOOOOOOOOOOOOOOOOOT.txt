@@ -8,6 +8,7 @@ INPUT VE TEXTAREALARIN VALUELERİN TEMİZLİĞİ LAZIM
 ***
 functions.js de getMenus funcunda image pathlar temporary üzerine habarın olsun
 getContents aynı şekilde
+adminapnel aynı şekilde
 ***
 
 

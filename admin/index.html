@@ -4,32 +4,154 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F4U Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.tiny.cloud/1/z73rzu47ldxeaiwrsozbmoe8vfn0msr5p9uadhin7a8uq7cw/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <style>
+      @media (max-width: 768px) {
+        .container {
+          max-width: unset;
+        }
+      }
+
+      body {
+        background-color: #ddd;
+      }
+
+      table img {
+        max-width: 200px;
+        max-height: 100px;
+      }
+
+      table button {
+        margin: 5px;
+      }
+
+      td {
+        vertical-align: middle;
+      }
+    </style>
   </head>
   <body>
-    <div id="editor"></div>
-
-    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script> -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <nav class="bg-primary p-2">
+      <h2 class="text-light">F4U Admin İçerik Editörü</h2>
+    </nav>
+    <main class="container">
+      <div class="mt-5 p-2 bg-white rounded">
+        <button type="button" class="btn btn-primary">İçerik Ekle <i class="fa-solid fa-plus"></i></button>
+        <button type="button" class="btn btn-secondary" onclick="reload()">
+          İçerikleri Yenile <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+      <table class="table mt-3">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Resim</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Özet</th>
+            <th scope="col">Düzenle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
+            <td>Lorem ipsum</td>
+            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
+            <td>Lorem ipsum</td>
+            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
+            <td>Lorem ipsum</td>
+            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <section>
+        <textarea></textarea>
+      </section>
+    </main>
 
     <script>
-      ClassicEditor.create(document.querySelector("#editor"), {
-        toolbar: [
-          "heading",
-          "|",
-          "bold",
-          "italic",
-          "|",
-          "link",
-          "bulletedList",
-          "insertImage",
-          "mediaEmbed",
-          "|",
-          "undo",
-          "redo",
-        ],
+      tinymce.init({
+        selector: "textarea",
+        plugins:
+          "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks checklist mediaembed advcode editimage powerpaste inlinecss",
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
       });
+    </script>
+    <script src="https://kit.fontawesome.com/3b47d68fb0.js" crossorigin="anonymous"></script>
+    <script>
+      const tbody = document.querySelector("tbody");
 
-      // "insertTable"
+      const response = [
+        {
+          id: 5,
+          title: "Lorem, ipsum dolor?",
+          picture: "m1.webp",
+          description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...",
+          content:
+            '<h5>Ba\u015fl\u0131k Title<\/h5>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae cupiditate dignissimos mollitia, distinctio aut error\r\n  ea maxime quos suscipit autem sit consequuntur eligendi iusto facere a labore vel accusantium voluptatibus?\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/s3.jpg" \/>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores commodi, laboriosam eaque quidem alias eos nostrum\r\n  pariatur quia assumenda ullam libero sunt, aliquid eligendi enim? Placeat aspernatur laudantium nemo distinctio.\r\n<\/p>\r\n<video controls="">\r\n  <source src=".\/assets\/images\/temporary\/video.mp4" type="video\/mp4" \/>\r\n<\/video>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quam nam illo hic quos eveniet, iure, obcaecati,\r\n  omnis ab eaque non! Quas esse tenetur, corporis praesentium eos laboriosam quisquam quia?\r\n<\/p>\r\n<hr \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel, similique accusantium autem accusamus qui ea\r\n  quam veniam eum doloremque magni aperiam expedita eligendi molestias numquam neque sed hic suscipit.\r\n<\/p>\r\n<h6>Alt Ba\u015fl\u0131k Subtitle<\/h6>\r\n<p>\r\n  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus iure ipsa mollitia quae quos dicta eaque quibusdam\r\n  minima ipsam delectus amet repudiandae illo laboriosam, nulla aperiam facilis totam temporibus et.\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/m3.jpg" \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas molestiae voluptatem molestias impedit repellat\r\n  voluptatum eaque placeat sed. Inventore eum autem consectetur aliquam voluptate quis molestias ipsum placeat, ad\r\n  consequuntur.\r\n<\/p>',
+        },
+        { title: "title", picture: "picture", description: "desc", content: "content" },
+      ];
+
+      async function reload() {
+        // fetch
+
+        let response = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
+
+        console.log(response);
+
+        tbody.innerHTML = "";
+
+        response.forEach((content, i) => {
+          tbody.innerHTML += `<tr><th scope="row" data-index="${content.id}">${
+            i + 1
+          }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
+            content.title
+          }</td><td>${
+            content.description
+          }</td><td><button class="btn btn-warning btn-sm" onclick="editItem">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
+        });
+      }
+
+      reload();
+
+      function deleteItem() {
+        alert("del");
+      }
+
+      function editItem() {
+        alert("edit");
+      }
     </script>
   </body>
 </html>

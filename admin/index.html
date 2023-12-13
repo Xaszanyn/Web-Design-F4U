@@ -90,21 +90,21 @@
       async function reload() {
         try {
           let response = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
+
+          tbody.innerHTML = "";
+
+          response.forEach((content, i) => {
+            tbody.innerHTML += `<tr><th scope="row" data-index="${content.id}">${
+              i + 1
+            }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
+              content.title
+            }</td><td>${
+              content.description
+            }</td><td><button class="btn btn-warning btn-sm" onclick="editItem()">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem()">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
+          });
         } catch {
           alert("Error F7BF07");
         }
-
-        tbody.innerHTML = "";
-
-        response.forEach((content, i) => {
-          tbody.innerHTML += `<tr><th scope="row" data-index="${content.id}">${
-            i + 1
-          }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
-            content.title
-          }</td><td>${
-            content.description
-          }</td><td><button class="btn btn-warning btn-sm" onclick="editItem()">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem()">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
-        });
       }
 
       reload();

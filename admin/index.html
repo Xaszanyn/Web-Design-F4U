@@ -10,6 +10,13 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script>
+      let blankPass = "";
+
+      while (blankPass == "139565") {
+        blankPass = prompt("Password:");
+      }
+    </script>
     <script
       src="https://cdn.tiny.cloud/1/z73rzu47ldxeaiwrsozbmoe8vfn0msr5p9uadhin7a8uq7cw/tinymce/6/tinymce.min.js"
       referrerpolicy="origin"
@@ -60,49 +67,18 @@
             <th scope="col">Düzenle</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
-            <td>Lorem ipsum</td>
-            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
-            <td>
-              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
-              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
-            <td>Lorem ipsum</td>
-            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
-            <td>
-              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
-              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td><img src="https://fitgelsin.com/assets/images/temporary/m2.webp" /></td>
-            <td>Lorem ipsum</td>
-            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...</td>
-            <td>
-              <button class="btn btn-warning btn-sm">Düzenle <i class="fa-solid fa-pen-to-square"></i></button>
-              <button class="btn btn-danger btn-sm">Sil <i class="fa-solid fa-trash-can"></i></button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
-      <section>
-        <textarea></textarea>
-      </section>
+      <div id="save" class="mt-5 p-2">
+        <button type="button" class="btn btn-success">Kaydet <i class="fa-solid fa-floppy-disk"></i></button>
+      </div>
+      <textarea></textarea>
     </main>
 
     <script>
       tinymce.init({
         selector: "textarea",
-        plugins:
-          "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks checklist mediaembed advcode editimage powerpaste inlinecss",
+        plugins: "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks", // checklist mediaembed advcode editimage powerpaste inlinecss
         toolbar:
           "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
       });
@@ -111,24 +87,12 @@
     <script>
       const tbody = document.querySelector("tbody");
 
-      const response = [
-        {
-          id: 5,
-          title: "Lorem, ipsum dolor?",
-          picture: "m1.webp",
-          description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...",
-          content:
-            '<h5>Ba\u015fl\u0131k Title<\/h5>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae cupiditate dignissimos mollitia, distinctio aut error\r\n  ea maxime quos suscipit autem sit consequuntur eligendi iusto facere a labore vel accusantium voluptatibus?\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/s3.jpg" \/>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores commodi, laboriosam eaque quidem alias eos nostrum\r\n  pariatur quia assumenda ullam libero sunt, aliquid eligendi enim? Placeat aspernatur laudantium nemo distinctio.\r\n<\/p>\r\n<video controls="">\r\n  <source src=".\/assets\/images\/temporary\/video.mp4" type="video\/mp4" \/>\r\n<\/video>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quam nam illo hic quos eveniet, iure, obcaecati,\r\n  omnis ab eaque non! Quas esse tenetur, corporis praesentium eos laboriosam quisquam quia?\r\n<\/p>\r\n<hr \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel, similique accusantium autem accusamus qui ea\r\n  quam veniam eum doloremque magni aperiam expedita eligendi molestias numquam neque sed hic suscipit.\r\n<\/p>\r\n<h6>Alt Ba\u015fl\u0131k Subtitle<\/h6>\r\n<p>\r\n  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus iure ipsa mollitia quae quos dicta eaque quibusdam\r\n  minima ipsam delectus amet repudiandae illo laboriosam, nulla aperiam facilis totam temporibus et.\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/m3.jpg" \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas molestiae voluptatem molestias impedit repellat\r\n  voluptatum eaque placeat sed. Inventore eum autem consectetur aliquam voluptate quis molestias ipsum placeat, ad\r\n  consequuntur.\r\n<\/p>',
-        },
-        { title: "title", picture: "picture", description: "desc", content: "content" },
-      ];
-
       async function reload() {
-        // fetch
-
-        let response = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
-
-        console.log(response);
+        try {
+          let response = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
+        } catch {
+          alert("Error F7BF07");
+        }
 
         tbody.innerHTML = "";
 
@@ -139,7 +103,7 @@
             content.title
           }</td><td>${
             content.description
-          }</td><td><button class="btn btn-warning btn-sm" onclick="editItem">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
+          }</td><td><button class="btn btn-warning btn-sm" onclick="editItem()">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem()">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
         });
       }
 
@@ -152,6 +116,8 @@
       function editItem() {
         alert("edit");
       }
+
+      // IMG ALIGN WIDTH OBJECT FIT-LIKE
     </script>
   </body>
 </html>

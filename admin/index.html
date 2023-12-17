@@ -185,6 +185,8 @@
       getContents();
 
       async function deleteContent(id) {
+        if (!confirm("Silmek istediğinizden emin misiniz?")) return;
+
         try {
           let response = await fetch("https://fitgelsin.com/services/admin.php", {
             method: "POST",

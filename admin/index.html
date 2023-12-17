@@ -44,6 +44,48 @@
       td {
         vertical-align: middle;
       }
+
+      #create-section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 80%);
+      }
+
+      #create-section.closed {
+        display: none;
+      }
+
+      #create-section .container {
+        background-color: white;
+        max-height: 90vh;
+        overflow-y: scroll;
+        padding: 25px;
+        position: relative;
+      }
+
+      #upload-image {
+        display: block;
+      }
+
+      #create-footer {
+        display: flex;
+      }
+      #create-footer button:first-of-type {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #create-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
     </style>
   </head>
   <body>
@@ -53,7 +95,7 @@
     <main class="container">
       <div class="mt-5 p-2 bg-white rounded">
         <button type="button" class="btn btn-primary">İçerik Ekle <i class="fa-solid fa-plus"></i></button>
-        <button type="button" class="btn btn-secondary" onclick="reload()">
+        <button type="button" class="btn btn-secondary" onclick="getContents()">
           İçerikleri Yenile <i class="fa-solid fa-rotate-right"></i>
         </button>
       </div>
@@ -69,10 +111,24 @@
         </thead>
         <tbody></tbody>
       </table>
-      <div id="save" class="mt-5 p-2">
-        <button type="button" class="btn btn-success">Kaydet <i class="fa-solid fa-floppy-disk"></i></button>
-      </div>
-      <textarea></textarea>
+      <section id="create-section" class="closed">
+        <div class="container">
+          <h3>İçerik Ekle</h3>
+          <h5 class="mt-5">Başlık</h5>
+          <input type="text" />
+          <h5 class="mt-4">Resim</h5>
+          <button id="upload-image">Resim Seç</button>
+          <h5 class="mt-4">İçerik</h5>
+          <div class="mt-4">
+            <textarea></textarea>
+          </div>
+          <button id="create-close" class="rounded-circle"><i class="fa-solid fa-xmark"></i></button>
+          <div id="create-footer" class="mt-4 p-2">
+            <button type="button" class="btn btn-danger">Vazgeç <i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="btn btn-success">Kaydet <i class="fa-solid fa-floppy-disk"></i></button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script>
@@ -85,39 +141,72 @@
     </script>
     <script src="https://kit.fontawesome.com/3b47d68fb0.js" crossorigin="anonymous"></script>
     <script>
-      const tbody = document.querySelector("tbody");
+      const table = document.querySelector("tbody");
 
-      async function reload() {
+      var contents = [];
+
+      function reload() {
+        table.innerHTML = "";
+
+        contents.forEach((content, i) => {
+          table.innerHTML += `<tr><th scope="row" data-index="${content.id}">${
+            i + 1
+          }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
+            content.title
+          }</td><td>${content.description}</td><td><button class="btn btn-warning btn-sm" onclick="editItem(${
+            content.id
+          })">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteContent(${
+            content.id
+          })">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
+        });
+      }
+
+      async function getContents() {
         try {
-          let response = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
-
-          tbody.innerHTML = "";
-
-          response.forEach((content, i) => {
-            tbody.innerHTML += `<tr><th scope="row" data-index="${content.id}">${
-              i + 1
-            }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
-              content.title
-            }</td><td>${
-              content.description
-            }</td><td><button class="btn btn-warning btn-sm" onclick="editItem()">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteItem()">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
-          });
+          contents = await fetch("https://fitgelsin.com/services/contents.php").then((response) => response.json());
         } catch {
-          alert("Error F7BF07");
+          alert("Error!"); // !!!!!!!!!!!!!!!!!!!!!!!!!! //
+          contents = [
+            {
+              id: "1",
+              title: "Lorem, ipsum dolor?",
+              picture: "m1.webp",
+              description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto et sunt architecto enim...",
+              content:
+                '<h5>Ba\u015fl\u0131k Title<\/h5>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae cupiditate dignissimos mollitia, distinctio aut error\r\n  ea maxime quos suscipit autem sit consequuntur eligendi iusto facere a labore vel accusantium voluptatibus?\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/s3.jpg" \/>\r\n<p>\r\n  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores commodi, laboriosam eaque quidem alias eos nostrum\r\n  pariatur quia assumenda ullam libero sunt, aliquid eligendi enim? Placeat aspernatur laudantium nemo distinctio.\r\n<\/p>\r\n<video controls="">\r\n  <source src=".\/assets\/images\/temporary\/video.mp4" type="video\/mp4" \/>\r\n<\/video>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quam nam illo hic quos eveniet, iure, obcaecati,\r\n  omnis ab eaque non! Quas esse tenetur, corporis praesentium eos laboriosam quisquam quia?\r\n<\/p>\r\n<hr \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel, similique accusantium autem accusamus qui ea\r\n  quam veniam eum doloremque magni aperiam expedita eligendi molestias numquam neque sed hic suscipit.\r\n<\/p>\r\n<h6>Alt Ba\u015fl\u0131k Subtitle<\/h6>\r\n<p>\r\n  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus iure ipsa mollitia quae quos dicta eaque quibusdam\r\n  minima ipsam delectus amet repudiandae illo laboriosam, nulla aperiam facilis totam temporibus et.\r\n<\/p>\r\n<img src=".\/assets\/images\/temporary\/m3.jpg" \/>\r\n<p>\r\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas molestiae voluptatem molestias impedit repellat\r\n  voluptatum eaque placeat sed. Inventore eum autem consectetur aliquam voluptate quis molestias ipsum placeat, ad\r\n  consequuntur.\r\n<\/p>',
+            },
+            { id: 2, title: "title", picture: "picture", description: "desc", content: "content" },
+          ];
         }
+
+        reload();
       }
 
-      reload();
+      getContents();
 
-      function deleteItem() {
-        alert("del");
+      async function deleteContent(id) {
+        try {
+          let response = await fetch("https://fitgelsin.com/services/admin.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              code: 139565,
+              action: "delete-content",
+              id: id,
+            }),
+          }).then((response) => response.json());
+
+          if (response.status != "success") alert("Error!");
+        } catch {
+          alert("Error!");
+        }
+
+        getContents();
       }
 
-      function editItem() {
-        alert("edit");
+      function editItem(id) {
+        alert("edit " + id);
       }
-
-      // IMG ALIGN WIDTH OBJECT FIT-LIKE
     </script>
   </body>
 </html>

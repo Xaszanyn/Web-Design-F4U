@@ -94,8 +94,10 @@
     </nav>
     <main class="container">
       <div class="mt-5 p-2 bg-white rounded">
-        <button type="button" class="btn btn-primary">İçerik Ekle <i class="fa-solid fa-plus"></i></button>
-        <button type="button" class="btn btn-secondary" onclick="getContents()">
+        <button onclick="createItem()" type="button" class="btn btn-primary">
+          İçerik Ekle <i class="fa-solid fa-plus"></i>
+        </button>
+        <button onclick="getContents()" type="button" class="btn btn-secondary">
           İçerikleri Yenile <i class="fa-solid fa-rotate-right"></i>
         </button>
       </div>
@@ -115,17 +117,23 @@
         <div class="container">
           <h3>İçerik Ekle</h3>
           <h5 class="mt-5">Başlık</h5>
-          <input type="text" />
+          <input id="title" type="text" />
           <h5 class="mt-4">Resim</h5>
           <button id="upload-image">Resim Seç</button>
           <h5 class="mt-4">İçerik</h5>
           <div class="mt-4">
-            <textarea></textarea>
+            <textarea id="content"></textarea>
           </div>
-          <button id="create-close" class="rounded-circle"><i class="fa-solid fa-xmark"></i></button>
+          <button onclick="closePopUp()" id="create-close" class="rounded-circle">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           <div id="create-footer" class="mt-4 p-2">
-            <button type="button" class="btn btn-danger">Vazgeç <i class="fa-solid fa-xmark"></i></button>
-            <button type="button" class="btn btn-success">Kaydet <i class="fa-solid fa-floppy-disk"></i></button>
+            <button onclick="closePopUp()" type="button" class="btn btn-danger">
+              Vazgeç <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button onclick="save()" type="button" class="btn btn-success">
+              Kaydet <i class="fa-solid fa-floppy-disk"></i>
+            </button>
           </div>
         </div>
       </section>
@@ -142,8 +150,13 @@
     <script src="https://kit.fontawesome.com/3b47d68fb0.js" crossorigin="anonymous"></script>
     <script>
       const table = document.querySelector("tbody");
+      const popUp = document.querySelector("#create-section");
+      const titleInput = document.querySelector("#title");
+
+      var mode = false;
 
       var contents = [];
+      var content = {};
 
       function reload() {
         table.innerHTML = "";
@@ -153,9 +166,9 @@
             i + 1
           }</th><td><img src="https://fitgelsin.com/assets/images/temporary/${content.picture}" /></td><td>${
             content.title
-          }</td><td>${content.description}</td><td><button class="btn btn-warning btn-sm" onclick="editItem(${
-            content.id
-          })">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteContent(${
+          }</td><td>${
+            content.description
+          }</td><td><button class="btn btn-warning btn-sm" onclick="editItem(${i})">Düzenle <i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm" onclick="deleteContent(${
             content.id
           })">Sil <i class="fa-solid fa-trash-can"></i></button></td></tr>`;
         });
@@ -206,8 +219,56 @@
         getContents();
       }
 
-      function editItem(id) {
-        alert("edit " + id);
+      function openPopUp(m) {
+        mode = m;
+
+        popUp.classList.remove("closed");
+      }
+
+      function closePopUp() {
+        popUp.classList.add("closed");
+      }
+
+      function editItem(i) {
+        content = contents[i];
+
+        titleInput.value = content.title;
+        tinymce.get("content").setContent(content.content);
+
+        openPopUp(true);
+      }
+
+      function createItem() {
+        content = {};
+
+        titleInput.value = "";
+        tinymce.get("content").setContent("");
+
+        openPopUp(false);
+      }
+
+      async function save() {
+        if (mode) if (!confirm("Değiştirmek istediğinizden emin misiniz?")) return;
+
+        try {
+          let response = await fetch("https://fitgelsin.com/services/admin.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              code: 139565,
+              action: mode ? "edit-content" : "create-content",
+              id: content.id,
+              title: titleInput.value,
+              picture: content.picture,
+              content: tinymce.get("content").getContent(),
+            }),
+          }).then((response) => response.json());
+
+          if (response.status != "success") alert("Error!");
+          else alert("İçerik başarıyla kaydedildi.");
+        } catch {
+          alert("Error!");
+        }
       }
     </script>
   </body>

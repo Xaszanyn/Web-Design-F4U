@@ -677,7 +677,7 @@ footer p {
 
 #notification {
   position: fixed;
-  z-index: 120;
+  z-index: 2000;
   top: -25rem;
   left: 5rem;
   width: 90rem;

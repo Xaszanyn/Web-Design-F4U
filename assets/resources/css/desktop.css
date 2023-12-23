@@ -1,4 +1,8 @@
 @media (min-aspect-ratio: 3/4) {
+  button {
+    cursor: pointer;
+  }
+
   hr {
     border: 0.125rem solid var(--gray) !important;
   }
@@ -108,24 +112,29 @@
 
   main {
     padding: 5rem 0 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .initial main {
     padding: 6rem 0 0rem;
   }
 
+  main > section {
+    min-height: calc(100vh - 22.5rem);
+  }
+
   main > section > h2 {
     font-size: 3rem;
-    margin: 2.5rem 0;
+    margin: 2.5rem 0 5rem;
   }
 
   main > section > p {
-    margin: 2.5rem 5rem;
+    margin: 5rem 25rem;
   }
 
   main > section > img {
-    margin: 2.5rem auto;
+    margin: 5rem auto;
+    border-radius: 0.5rem;
     display: block;
     max-height: 50vh;
     width: auto;
@@ -169,7 +178,6 @@
 
   #login button,
   #register button {
-    cursor: pointer;
     font-size: 1rem;
     padding: 0.5rem 1.5rem;
     margin-bottom: 2rem;
@@ -261,7 +269,6 @@
     position: absolute;
     width: 5rem;
     font-size: 2rem;
-    cursor: pointer;
   }
 
   #slide #slide-left {
@@ -274,5 +281,68 @@
 
   #slide > div > div {
     width: 30rem;
+  }
+
+  /* =========={ Main Page }========================================================================================== */
+
+  #highlighteds {
+    margin: 7.5rem 0;
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 3rem;
+  }
+
+  #highlighteds p {
+    margin-bottom: 0;
+  }
+
+  #highlighteds p:nth-of-type(even) {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  #highlighteds p i {
+    font-size: 3rem;
+    padding-right: 1rem;
+  }
+
+  #highlighteds p:nth-of-type(odd) i {
+    margin: 0;
+  }
+
+  #highlighteds p:nth-of-type(even) i {
+    margin: 0;
+  }
+
+  /* =========={ Menu, Language }================================================================================ */
+
+  #menu button,
+  #language button {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+  }
+
+  #language button img {
+    width: 5rem;
+    padding: 0.25rem 1rem;
+  }
+
+  /* =========={ Menus }========================================================================================== */
+
+  /* =========={ More }========================================================================================== */
+
+  /* =========={ Notification }========================================================================================== */
+
+  #notification {
+    top: -5rem;
+    left: 20rem;
+    width: 60rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  #notification.displayed {
+    top: 1rem;
   }
 }

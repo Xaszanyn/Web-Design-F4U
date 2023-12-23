@@ -3,6 +3,11 @@ window.addEventListener("scroll", (event) => {
   else document.body.classList.remove("initial");
 });
 
+window.addEventListener("resize", (event) => {
+  slide.style.transform = "translateX(0rem)";
+  slideWidth = window.innerWidth / window.innerHeight > 0.75 ? 30 : 100;
+});
+
 popUpsCloses.forEach((close) => {
   assign(close, closePopUp);
 });

@@ -1,7 +1,278 @@
-/* @media (min-aspect-ratio: 3/4) {
-  p {
-    color: blue !important;
+@media (min-aspect-ratio: 3/4) {
+  hr {
+    border: 0.125rem solid var(--gray) !important;
   }
 
-  /* rest... */
-} */
+  /* =========={ Loading }========================================================================================== */
+
+  #loading {
+    font-size: 2rem;
+  }
+
+  #loading img {
+    width: 20rem;
+  }
+
+  /* =========={ Navigation }========================================================================================== */
+
+  nav {
+    height: 5rem !important;
+    padding-left: 1rem;
+    border-bottom: 0.25rem solid var(--gray);
+  }
+
+  .initial nav {
+    height: 6rem !important;
+  }
+
+  h1 {
+    display: block;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  nav img {
+    height: 4rem;
+    margin-right: 1rem;
+  }
+
+  nav > span {
+    font-size: 1rem;
+  }
+
+  #navigation {
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  #navigation i {
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+  }
+
+  #navigation div {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+
+  #navigation div:last-of-type {
+    padding-right: 2.5rem;
+  }
+
+  /* =========={ Navigation Bottom }================================================================================ */
+
+  #navigation-bottom {
+    cursor: pointer;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    height: 4rem;
+    border: 0.25rem solid var(--gray);
+    border-bottom: none;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    font-size: 0.8rem;
+  }
+
+  #navigation-bottom div {
+    width: 5rem;
+  }
+
+  #navigation-bottom i {
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+  }
+
+  /* =========={ Pop-Up }========================================================================================== */
+
+  #pop-up h4 {
+    margin-bottom: 3rem;
+  }
+
+  #pop-up section {
+    border-radius: 0.5rem;
+    width: 40rem;
+    min-height: 0;
+    max-height: 90vh;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  #pop-up .close {
+    cursor: pointer;
+  }
+
+  /* =========={ Main }========================================================================================== */
+
+  main {
+    padding: 5rem 0 0;
+    font-size: 1.5rem;
+  }
+
+  .initial main {
+    padding: 6rem 0 0rem;
+  }
+
+  main > section > h2 {
+    font-size: 3rem;
+    margin: 2.5rem 0;
+  }
+
+  main > section > p {
+    margin: 2.5rem 5rem;
+  }
+
+  main > section > img {
+    margin: 2.5rem auto;
+    display: block;
+    max-height: 50vh;
+    width: auto;
+  }
+
+  /* =========={ Login, Register }========================================================================================== */
+
+  #login input,
+  #register input,
+  #register textarea {
+    border: 0.25rem solid var(--gray);
+    font-size: 1rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+  }
+
+  #login input:focus,
+  #register input:focus,
+  #register textarea:focus {
+    border: 0.25rem solid var(--blue);
+  }
+
+  #register textarea {
+    border-radius: 1.5rem;
+  }
+
+  #login > div,
+  #register #register-phase > div {
+    padding: 0 10rem;
+  }
+
+  #login > div > div,
+  #register #register-phase > div > div {
+    margin-bottom: 1rem;
+  }
+
+  #login > div > div i,
+  #register #register-phase > div > div i {
+    font-size: 1rem;
+    left: 1rem;
+  }
+
+  #login button,
+  #register button {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #login button i,
+  #register button i {
+    margin-right: 0.25rem;
+  }
+
+  #login hr,
+  #register hr {
+    margin-bottom: 2rem;
+  }
+
+  #login span,
+  #register span {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  #register-phase {
+    position: relative;
+    transition: height var(--slow);
+    height: 15rem;
+  }
+
+  #register-phase > div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity var(--fast);
+  }
+
+  #register-phase.second {
+    height: 10rem;
+  }
+
+  #register-phase.third {
+    height: 20rem;
+  }
+
+  /* =========={ Footer }========================================================================================== */
+
+  footer {
+    padding: 2.5rem;
+  }
+
+  footer h2 {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  footer span {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  footer span i {
+    margin-right: 0.25rem;
+  }
+
+  footer p {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    text-align: left;
+  }
+
+  /* =========={ Slide }========================================================================================== */
+
+  #slide-cover {
+    background-color: var(--black);
+  }
+
+  #slide {
+    overflow: hidden;
+    margin-left: 35rem;
+    width: 30rem;
+    height: 40rem;
+  }
+
+  #slide > div {
+    width: 150rem;
+  }
+
+  #slide button {
+    position: absolute;
+    width: 5rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  #slide #slide-left {
+    left: 0;
+  }
+
+  #slide #slide-right {
+    right: 0;
+  }
+
+  #slide > div > div {
+    width: 30rem;
+  }
+}

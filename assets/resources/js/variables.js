@@ -48,3 +48,5 @@ const loginSection = {
 };
 
 var slideTime = 0;
+
+var slideWidth = window.innerWidth / window.innerHeight > 0.75 ? 30 : 100;

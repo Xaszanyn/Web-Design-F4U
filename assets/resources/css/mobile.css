@@ -169,6 +169,7 @@ nav > span {
   top: 1rem;
   right: 1rem;
   color: var(--red);
+  z-index: 1000;
 }
 
 /* =========={ Main }========================================================================================== */
@@ -307,26 +308,16 @@ main > section > h2 {
   transition: opacity var(--fast);
 }
 
-#register-phase.first > :first-of-type {
-  opacity: 1;
-  transition: opacity var(--delayed-fast);
-  z-index: 110;
-}
-
 #register-phase.second {
   height: 25rem;
-}
-
-#register-phase.second > :nth-of-type(2) {
-  opacity: 1;
-  transition: opacity var(--delayed-fast);
-  z-index: 110;
 }
 
 #register-phase.third {
   height: 70rem;
 }
 
+#register-phase.first > :first-of-type,
+#register-phase.second > :nth-of-type(2),
 #register-phase.third > :last-of-type {
   opacity: 1;
   transition: opacity var(--delayed-fast);

@@ -63,9 +63,11 @@ function slideGoLeft(event) {
   slideLeft.classList.add("active");
   setTimeout(() => slideLeft.classList.remove("active"), 200);
 
-  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / 100);
+  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / slideWidth);
 
-  slide.style.transform = `translateX(-${(current ? current - 1 : parseInt(slide.dataset.slides - 1)) * 100}rem)`;
+  slide.style.transform = `translateX(-${
+    (current ? current - 1 : parseInt(slide.dataset.slides - 1)) * slideWidth
+  }rem)`;
 }
 
 function slideGoRight(event) {
@@ -76,9 +78,11 @@ function slideGoRight(event) {
   slideRight.classList.add("active");
   setTimeout(() => slideRight.classList.remove("active"), 200);
 
-  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / 100);
+  let current = Math.abs(parseInt(slide.style.transform.split("(")[1]) / slideWidth);
 
-  slide.style.transform = `translateX(-${(current == parseInt(slide.dataset.slides - 1) ? 0 : current + 1) * 100}rem)`;
+  slide.style.transform = `translateX(-${
+    (current == parseInt(slide.dataset.slides - 1) ? 0 : current + 1) * slideWidth
+  }rem)`;
 }
 
 function notify(message) {

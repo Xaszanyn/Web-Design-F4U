@@ -338,12 +338,12 @@ async function getContents() {
 
     blog.className = "blog";
 
-    blog.innerHTML = `<h4>${content.title}</h4><img src="./assets/images/temporary/${content.picture}" /><p>${content.description}</p><i onclick="closePopUp()" class="fa-solid fa-xmark close"></i><div class="blog-content">${content.content}</div>`;
+    blog.innerHTML = `<h4>${content.title}</h4><img src="./assets/images/temporary/${content.picture}" /><p>${content.description}</p><i class="fa-solid fa-xmark close"></i><div class="blog-content">${content.content}</div>`;
 
     more.appendChild(blog);
   });
 
   document.querySelectorAll(".blog").forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
 
-  // document.querySelectorAll(".blog .close").forEach((close) => assign(close, closePopUp));
+  document.querySelectorAll(".blog .close").forEach((close) => assign(close, closePopUp));
 }

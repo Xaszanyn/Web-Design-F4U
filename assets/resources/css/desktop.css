@@ -439,6 +439,7 @@
   }
 
   .blog .close {
+    display: none; /* Close button is not working apparently. */
     padding: 1rem 1.15rem;
   }
 

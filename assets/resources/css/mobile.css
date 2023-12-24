@@ -623,7 +623,7 @@ footer p {
   top: -10rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 110;
+  z-index: 3000;
   padding: 2rem 2.5rem;
   border-radius: 10rem;
   color: var(--red);

@@ -283,8 +283,6 @@ async function loginUser(event) {
 /* =========={ Public }======================================== */
 
 async function getMenus() {
-  return;
-
   menus.innerHTML = `<h2>Menüler</h2>`;
 
   let data = await get("services/menus.php");
@@ -319,8 +317,6 @@ async function getMenus() {
 }
 
 async function getContents() {
-  return;
-
   more.innerHTML = `<h2>Daha Fazla</h2>`;
 
   let data = await get("services/contents.php");

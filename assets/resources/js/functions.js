@@ -261,7 +261,7 @@ async function registerThirdPhase(event) {
     !registerSection.address.value ||
     !registerSection.password.value
   ) {
-    notify("Lütfen alanları eksizsiz giriniz.");
+    notify("Lütfen alanları eksiksiz giriniz.");
     return;
   }
 
@@ -334,6 +334,8 @@ async function loginUser(event) {
       break;
     case "success":
       createSession(email, password, new Date().getTime(), response.information);
+      closePopUp();
+      notify("Başarıyla giriş yapıldı.");
       break;
   }
 }

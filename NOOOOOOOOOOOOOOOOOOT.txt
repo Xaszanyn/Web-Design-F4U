@@ -2,8 +2,9 @@ REGİSTERİN ORTASINDA ÇIKINCA KOD ATIP TİMEOUT ATIYOR DİREKT REGİSTERASYON 
 
 INPUT VE TEXTAREALARIN VALUELERİN TEMİZLİĞİ LAZIM
 
+session fix lazım
 
-
+language ekle
 
 ***
 functions.js de getMenus funcunda image pathlar temporary üzerine habarın olsun

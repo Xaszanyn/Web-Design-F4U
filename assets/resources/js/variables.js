@@ -7,11 +7,11 @@ const navigation = document.querySelector("nav");
 const popUp = document.querySelector("#pop-up");
 const popUpsCloses = document.querySelectorAll("#pop-up .close");
 
-const [loginButton, menuButton] = document.querySelectorAll("#navigation > div");
+const [userButton, loginButton, menuButton] = document.querySelectorAll("#navigation > div");
 const [login, register, menu, language] = popUp.querySelectorAll("#pop-up > section");
 
 const [homeButton, menusButton, orderButton, moreButton] = document.querySelectorAll("#navigation-bottom > div");
-const [home, menus, order, more] = main.querySelectorAll("main > section");
+const [home, menus, order, more, user] = main.querySelectorAll("main > section");
 
 const slide = document.querySelector("#slide > div");
 const [slideLeft, slideRight] = document.querySelectorAll("#slide button");
@@ -50,3 +50,13 @@ const loginSection = {
 var slideTime = 0;
 
 var slideWidth = window.innerWidth / window.innerHeight > 0.75 ? 30 : 100;
+
+const uploadImageInput = document.querySelector("#upload-image");
+const uploadImageCanvas = document.querySelector("#upload-image-canvas");
+
+const userPicture = document.querySelector("#user #user-picture");
+const userPictureDefault = document.querySelector("#user #user-picture-default");
+const userName = document.querySelector("#user #user-name");
+const userEmail = document.querySelector("#user #user-email");
+const userPhone = document.querySelector("#user #user-phone");
+const userAddress = document.querySelector("#user #user-address");

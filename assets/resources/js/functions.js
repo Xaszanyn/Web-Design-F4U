@@ -22,7 +22,9 @@ function load(button, section) {
 
   document.querySelector("main > section.active").classList.remove("active");
 
-  document.querySelector("#navigation-bottom > div.selected").classList.remove("selected");
+  let currentSelectedButton = document.querySelector("#navigation-bottom > div.selected");
+  if (currentSelectedButton) currentSelectedButton.classList.remove("selected");
+
   button.classList.add("selected");
 
   section.classList.add("active");
@@ -85,7 +87,7 @@ function slideGoRight(event) {
   }rem)`;
 }
 
-function notify(message) {
+function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.") {
   notification.textContent = message;
   notification.classList.add("displayed");
   setTimeout(() => notification.classList.remove("displayed"), 2500);
@@ -104,6 +106,59 @@ function translate(index) {
       console.log("English");
       break;
   }
+}
+
+function uploadImage() {
+  if (!uploadImageInput.files[0]) {
+    notify();
+    return;
+  }
+
+  let fileReader = new FileReader();
+
+  fileReader.onload = (event) => {
+    let image = new Image();
+
+    image.onload = () => {
+      let context = uploadImageCanvas.getContext("2d");
+
+      uploadImageCanvas.width = 256;
+      uploadImageCanvas.height = 256;
+
+      let ratio = Math.min(256 / image.width, 256 / image.height);
+
+      let width = image.width * ratio;
+      let height = image.height * ratio;
+
+      ratio = 1;
+
+      if (width < 256) ratio = 256 / width;
+      if (Math.abs(ratio - 1) < 1e-14 && height < 256) ratio = 256 / height;
+
+      width = Math.min(image.width, image.width / ((width * ratio) / 256));
+      height = Math.min(image.height, image.height / ((height * ratio) / 256));
+
+      context.drawImage(
+        image,
+        Math.max(0, (image.width - width) * 0.5),
+        Math.max(0, (image.height - height) * 0.5),
+        width,
+        height,
+        0,
+        0,
+        256,
+        256
+      );
+
+      const base64 = uploadImageCanvas.toDataURL("image/png");
+
+      console.log(base64); // GOT BASE64
+    };
+
+    image.src = event.target.result;
+  };
+
+  fileReader.readAsDataURL(uploadImageInput.files[0]);
 }
 
 /* =========={ Connection }========================================================================================== */
@@ -146,7 +201,7 @@ async function registerFirstPhase(event) {
 
   switch (response.status) {
     case "error":
-      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      notify();
       break;
     case "email_invalid":
       notify("Lütfen geçerli bir e-posta adresi giriniz.");
@@ -175,7 +230,7 @@ async function registerSecondPhase(event) {
 
   switch (response.status) {
     case "error":
-      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      notify();
       break;
     case "timeout":
       notify("Doğrulama kodu zaman aşımına uğradı.");
@@ -223,7 +278,7 @@ async function registerThirdPhase(event) {
 
   switch (response.status) {
     case "error":
-      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      notify();
       break;
     case "timeout":
       notify("Üyelik kaydı zaman aşımına uğradı.");
@@ -260,24 +315,52 @@ async function loginUser(event) {
     return;
   }
 
+  let email = loginSection.email.value;
+  let password = loginSection.password.value;
+
   let response = await post("services/login.php", {
-    email: loginSection.email.value,
-    password: loginSection.password.value,
+    email,
+    password,
   });
 
   console.log(response);
 
   switch (response.status) {
     case "error":
-      notify("Bir hata oluştu, lütfen tekrar deneyiniz.");
+      notify();
       break;
     case "user_invalid":
       notify("E-posta veya şifre hatalı, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      alert(JSON.stringify(response));
+      createSession(email, password, new Date().getTime(), response.information);
       break;
   }
+}
+
+function createSession(email, password, time, information) {
+  localStorage.email = email;
+  localStorage.password = password;
+  localStorage.time = time;
+
+  userButton.style.display = "flex";
+  loginButton.style.display = "none";
+  menuLoginButton.style.display = "none";
+  document.querySelector("#menu hr").style.display = "none";
+
+  userName.innerHTML = information.name;
+  userEmail.innerHTML = email;
+  userPhone.innerHTML = information.phone;
+  userAddress.innerHTML = information.address;
+
+  if (information.picture == "-") {
+    userPicture.style.display = "none";
+  } else {
+    userPictureDefault.style.display = "none";
+    userPicture.src = information.picture;
+  }
+
+  load(userButton, user);
 }
 
 /* =========={ Public }======================================== */

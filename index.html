@@ -116,6 +116,10 @@
       <h1>Fit Gelsin</h1>
       <span>"Fit Lezzetler!"</span>
       <div id="navigation">
+        <div style="display: none">
+          <i class="fa-solid fa-user"></i>
+          Hesabım
+        </div>
         <div>
           <i class="fa-solid fa-user"></i>
           Giriş Yap
@@ -204,9 +208,38 @@
       <section id="menus">
         <h2>Menüler</h2>
       </section>
-      <section id="order">//init</section>
+      <section id="order">_e56</section>
       <section id="more">
         <h2>Daha Fazla</h2>
+      </section>
+      <section id="user">
+        <h2>Hesabım</h2>
+        <div id="user-information">
+          <img id="user-picture" alt="Profil Resmi" />
+          <i id="user-picture-default" class="fa-solid fa-circle-user"></i>
+          <div>
+            <span id="user-name">Kullanıcı İsmi</span>
+            <span id="user-email">Kullanıcı E-postası</span>
+            <span id="user-phone">Kullanıcı Telefonu</span>
+          </div>
+        </div>
+        <span>Adres</span>
+        <p id="user-address">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus voluptate necessitatibus alias!
+        </p>
+        <button id="user-edit"><i class="fa-solid fa-pen-to-square"></i> Bilgileri Düzenle</button>
+        <button id="user-logout"><i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap</button>
+        <span>Mevcut Paketler</span>
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet.</li>
+        </ul>
+        <span>Sipariş Geçmişi</span>
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet.</li>
+        </ul>
+        <input id="upload-image" type="file" accept="image/*" />
       </section>
       <footer>
         <h2>İletişim</h2>
@@ -217,6 +250,7 @@
         <p>Fit Gelsin &copy; 2023, Tüm hakları saklıdır.</p>
       </footer>
     </main>
+    <canvas id="upload-image-canvas"></canvas>
     <script src="./assets/resources/js/variables.js?v=0.2"></script>
     <script src="./assets/resources/js/functions.js?v=0.2"></script>
     <script src="./assets/resources/js/events.js?v=0.2"></script>

@@ -14,6 +14,7 @@ popUpsCloses.forEach((close) => {
 
 assign(popUp, closePopUp, popUp);
 
+assign(userButton, (event) => load(userButton, user));
 assign(loginButton, (event) => openPopUp(login));
 assign(menuButton, (event) => openPopUp(menu));
 
@@ -55,3 +56,5 @@ assign(registerSection.second, registerSecondPhase);
 assign(registerSection.third, registerThirdPhase);
 
 assign(loginUserButton, loginUser);
+
+uploadImageInput.addEventListener("change", uploadImage);

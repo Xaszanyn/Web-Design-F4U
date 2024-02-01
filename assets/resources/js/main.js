@@ -7,3 +7,11 @@ setInterval(() => {
     slideGoRight();
   }
 }, 1000);
+
+//
+
+//
+
+// DEBUG
+
+//

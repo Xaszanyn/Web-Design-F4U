@@ -51,3 +51,14 @@ hr {
   height: 0;
   border: 0.5rem solid var(--gray);
 }
+
+ul {
+  list-style-position: inside;
+  list-style-type: "➤ ";
+}
+
+/* =========={ Extra }========================================================================================== */
+
+#upload-image-canvas {
+  display: none;
+}

@@ -697,3 +697,89 @@ footer p {
   color: var(--red);
   text-align: center;
 }
+
+/* =========={ User }========================================================================================== */
+
+#user #user-information {
+  display: flex;
+  justify-content: center;
+  padding: 10rem 5rem 0;
+  max-width: 100rem;
+  overflow: hidden;
+}
+
+#user #user-information > div {
+  max-width: 60rem;
+  overflow-wrap: break-word;
+}
+
+#user #user-picture {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 100rem;
+}
+
+#user #user-picture-default {
+  font-size: 30rem;
+}
+
+#user #user-information > div {
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#user #user-information > div > span {
+  margin-bottom: 2.5rem;
+}
+
+#user #user-name {
+  font-size: 6rem;
+  font-weight: 600;
+  margin-left: -2rem;
+}
+
+#user #user-email {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+#user #user-phone {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 4rem;
+  margin-left: -2rem;
+}
+
+#user > span {
+  display: block;
+  color: var(--blue);
+  margin: 15rem 5rem 2rem;
+  font-weight: 600;
+}
+
+#user p,
+#user ul {
+  margin: 2rem 5rem 5rem;
+}
+
+#user button {
+  padding: 2rem 6rem;
+  font-size: 4rem;
+  color: var(--white);
+  border-radius: 10rem;
+  display: block;
+}
+
+#user #user-edit {
+  background-color: var(--blue);
+  margin: 7.5rem 5rem 2.5rem;
+}
+
+#user #user-logout {
+  background-color: var(--red);
+  margin: 0 5rem 10rem;
+}

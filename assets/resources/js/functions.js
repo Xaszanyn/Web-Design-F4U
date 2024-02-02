@@ -362,7 +362,9 @@ async function loginDirect(email, password, remembered = false) {
 }
 
 function loginRememberedUser() {
-  if (localStorage.time && (new Date().getTime() - parseInt(localStorage.time)) / (1000 * 60 * 60 * 24) > 30) {
+  if (!localStorage.time) return;
+
+  if ((new Date().getTime() - parseInt(localStorage.time)) / (1000 * 60 * 60 * 24) > 30) {
     localStorage.clear();
     return;
   }

@@ -306,7 +306,7 @@ async function registerThirdPhase(event) {
 
 /* =========={ Login }======================================== */
 
-async function loginUser(event) {
+function loginUser() {
   if (!loginSection.email.value) {
     notify("Lütfen e-posta adresinizi giriniz.");
     return;
@@ -315,15 +315,14 @@ async function loginUser(event) {
     return;
   }
 
-  let email = loginSection.email.value;
-  let password = loginSection.password.value;
+  loginDirect(loginSection.email.value, loginSection.password.value);
+}
 
+async function loginDirect(email, password, remembered = false) {
   let response = await post("services/login.php", {
     email,
     password,
   });
-
-  console.log(response);
 
   switch (response.status) {
     case "error":
@@ -333,36 +332,47 @@ async function loginUser(event) {
       notify("E-posta veya şifre hatalı, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      createSession(email, password, new Date().getTime(), response.information);
+      if (!remembered) {
+        localStorage.email = email;
+        localStorage.password = password;
+        localStorage.time = new Date().getTime();
+
+        userButton.style.display = "flex";
+        loginButton.style.display = "none";
+        menuLoginButton.style.display = "none";
+        document.querySelector("#menu hr").style.display = "none";
+
+        userName.innerHTML = response.information.name;
+        userEmail.innerHTML = email;
+        userPhone.innerHTML = response.information.phone;
+        userAddress.innerHTML = response.information.address;
+
+        if (response.information.picture == "-") {
+          userPicture.style.display = "none";
+        } else {
+          userPictureDefault.style.display = "none";
+          userPicture.src = response.information.picture;
+        }
+      }
       closePopUp();
       notify("Başarıyla giriş yapıldı.");
+      load(userButton, user);
       break;
   }
 }
 
-function createSession(email, password, time, information) {
-  localStorage.email = email;
-  localStorage.password = password;
-  localStorage.time = time;
-
-  userButton.style.display = "flex";
-  loginButton.style.display = "none";
-  menuLoginButton.style.display = "none";
-  document.querySelector("#menu hr").style.display = "none";
-
-  userName.innerHTML = information.name;
-  userEmail.innerHTML = email;
-  userPhone.innerHTML = information.phone;
-  userAddress.innerHTML = information.address;
-
-  if (information.picture == "-") {
-    userPicture.style.display = "none";
-  } else {
-    userPictureDefault.style.display = "none";
-    userPicture.src = information.picture;
+function loginRememberedUser() {
+  if (localStorage.time && (new Date().getTime() - parseInt(localStorage.time)) / (1000 * 60 * 60 * 24) > 30) {
+    localStorage.clear();
+    return;
   }
 
-  load(userButton, user);
+  loginDirect(localStorage.email, localStorage.password, true);
+}
+
+function logoutUser() {
+  localStorage.clear();
+  location.reload();
 }
 
 /* =========={ Public }======================================== */

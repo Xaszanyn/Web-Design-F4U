@@ -8,10 +8,4 @@ setInterval(() => {
   }
 }, 1000);
 
-//
-
-//
-
-// DEBUG
-
-//
+loginRememberedUser();

@@ -60,3 +60,6 @@ const userName = document.querySelector("#user #user-name");
 const userEmail = document.querySelector("#user #user-email");
 const userPhone = document.querySelector("#user #user-phone");
 const userAddress = document.querySelector("#user #user-address");
+
+const edit = document.querySelector("#user #user-edit");
+const logout = document.querySelector("#user #user-logout");

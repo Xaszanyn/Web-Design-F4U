@@ -58,3 +58,5 @@ assign(registerSection.third, registerThirdPhase);
 assign(loginUserButton, loginUser);
 
 uploadImageInput.addEventListener("change", uploadImage);
+
+assign(logout, logoutUser);

@@ -332,31 +332,32 @@ async function loginDirect(email, password, remembered = false) {
       notify("E-posta veya şifre hatalı, lütfen tekrar deneyiniz.");
       break;
     case "success":
+      userButton.style.display = "flex";
+      loginButton.style.display = "none";
+      menuLoginButton.style.display = "none";
+      document.querySelector("#menu hr").style.display = "none";
+
+      userName.innerHTML = response.information.name;
+      userEmail.innerHTML = response.information.email;
+      userPhone.innerHTML = response.information.phone;
+      userAddress.innerHTML = response.information.address;
+
+      if (response.information.picture == "-") {
+        userPicture.style.display = "none";
+      } else {
+        userPictureDefault.style.display = "none";
+        userPicture.src = response.information.picture;
+      }
+
       if (!remembered) {
         localStorage.email = email;
         localStorage.password = password;
         localStorage.time = new Date().getTime();
 
-        userButton.style.display = "flex";
-        loginButton.style.display = "none";
-        menuLoginButton.style.display = "none";
-        document.querySelector("#menu hr").style.display = "none";
-
-        userName.innerHTML = response.information.name;
-        userEmail.innerHTML = email;
-        userPhone.innerHTML = response.information.phone;
-        userAddress.innerHTML = response.information.address;
-
-        if (response.information.picture == "-") {
-          userPicture.style.display = "none";
-        } else {
-          userPictureDefault.style.display = "none";
-          userPicture.src = response.information.picture;
-        }
+        notify("Başarıyla giriş yapıldı.");
+        load(userButton, user);
+        closePopUp();
       }
-      closePopUp();
-      notify("Başarıyla giriş yapıldı.");
-      load(userButton, user);
       break;
   }
 }

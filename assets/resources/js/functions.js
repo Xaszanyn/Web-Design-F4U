@@ -90,7 +90,7 @@ function slideGoRight(event) {
 function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.") {
   notification.textContent = message;
   notification.classList.add("displayed");
-  setTimeout(() => notification.classList.remove("displayed"), 2500);
+  setTimeout(() => notification.classList.remove("displayed"), 4000);
 }
 
 /* =========={ Utility }========================================================================================== */
@@ -445,4 +445,19 @@ async function getContents() {
   document.querySelectorAll(".blog").forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
 
   document.querySelectorAll(".blog .close").forEach((close) => assign(close, closePopUp));
+}
+
+/* =========={ Order }======================================== */
+
+async function payment() {
+  let response = await post("services/payment", {
+    phase: "create",
+    code: registerSection.secondCode.value,
+    name: registerSection.name.value,
+    address: registerSection.address.value,
+    phone: registerSection.phone.value,
+    password: registerSection.password.value,
+  });
+
+  console.log(response);
 }

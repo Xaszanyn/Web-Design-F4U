@@ -197,7 +197,8 @@ async function registerFirstPhase(event) {
 
   let response = await post("services/register.php", { phase: "register", email: registerSection.email.value });
 
-  console.log(response);
+  console.log("notify sil");
+  notify(JSON.stringify(response));
 
   switch (response.status) {
     case "error":
@@ -210,6 +211,7 @@ async function registerFirstPhase(event) {
       notify("Bu e-posta adresi kullanımda, lütfen yeni bir e-posta adresi giriniz.");
       break;
     case "success":
+      localStorage.register = registerSection.email.value;
       registerSection.phase.classList.remove("first");
       registerSection.phase.classList.add("second");
       break;
@@ -223,8 +225,6 @@ async function registerSecondPhase(event) {
   }
 
   let response = await post("services/register.php", { phase: "confirm", code: registerSection.code.value });
-
-  console.log(response);
 
   registerSection.secondCode.value = response.code;
 
@@ -274,8 +274,6 @@ async function registerThirdPhase(event) {
     password: registerSection.password.value,
   });
 
-  console.log(response);
-
   switch (response.status) {
     case "error":
       notify();
@@ -300,6 +298,9 @@ async function registerThirdPhase(event) {
       registerSection.phase.classList.remove("third");
       registerSection.phase.classList.add("first");
       closePopUp();
+      let email = localStorage.register;
+      localStorage.clear();
+      loginDirect(email, registerSection.password.value);
       break;
   }
 }

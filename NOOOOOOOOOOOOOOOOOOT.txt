@@ -1,33 +1,51 @@
 Days yazılacak
 saat seçimlerini iste
+promosyon kodu yeri ekle
+promosyon check
+
+il ve ilçe database ve getirilmesi
+order componentlerinin funca taşınması
+PAYMENT
+  [pending order ve orderların saklanması] +servis...
+
+redirect pageden parametrelerle fitgelsine get ile yönlendirme.
+yönlendirilen getin func'u (profil sayfasına)
+
+servis için database servis yapısı, oluşacağı günlerin belirlenmesi vs.
+
+mevcut paketler ve sipariş geçmişi getirilmesi
+
+edit profile information
+image upload
+
+REDIRECT FROM HTTP TO HTTPS
+
+
+MAİL SERVİSİ!!!
+(sadece registiration, forgot password şimdilik dursun.)
+error code kapat
+
+
+menüdeki üye ol ile giriş yapı ayır
+menü solundaki ikonu duruma göre düzenle
+localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap
 
 
 
+footer telefon adres mail insta detay doldurup linkle
 
 
 
+_____________________________________________________________________________________
+...
 
 
-
-
-
-
-
-
-
-
-
-
+forgot password
 
 
 CSS BUG
 
-REDIRECT FROM HTTP TO HTTPS
-BİLGİ GÜNCELLEME WITH IMAGE UPLOAD
-
-...
-
-
+registerda il ve ilçe verilmesi (ekstra olarak siparişteki parametreler de kaydedilebilir.)
 load func -> scroll top
 
 
@@ -38,32 +56,27 @@ favicon
 
 
 
-error code kapat
+
 
 
 REGİSTERİN ORTASINDA ÇIKINCA KOD ATIP TİMEOUT ATIYOR DİREKT REGİSTERASYON KISMINDA HALLET
 
-INPUT VE TEXTAREALARIN VALUELERİN TEMİZLİĞİ LAZIM
+INPUT VE TEXTAREALARIN VALUELERİN TEMİZLİĞİ LAZIM (opsiyonel)
 
-session fix lazım
 
-language ekle
+
 
 ***
 functions.js de getMenus funcunda image pathlar temporary üzerine habarın olsun
 getContents aynı şekilde
 adminapnel aynı şekilde
+çoğu yerde+
 ***
 
 
 
 
-SİPARİŞ FORMU
 
-
-
-ÜYE OL & ŞİFREMİ UNUTTUM KISIMLARINI YAP
-ÜYE OL İLE GİRİŞ YAPI MENÜDEN AYIR
 
 
 ------------
@@ -71,26 +84,30 @@ SİPARİŞ FORMU
 ------------
 
 Kitle Endeksi (Size En Uygun Menü)
-İngilizce Çeviri
-
-Üyelik giriş şifreunuttum kısımları için form validasyon kontrolü
 
 
-
-
-input focuslarını kapat mobilde klavye açık kalıyor
-document.querySelector(":focus")
-
-
+İngilizce Çeviri langlar
 notify() localization
 
 
-registiration yarım kalınca oluşan bugların fixi
+Üyelik giriş şifreunuttum kısımları için form validasyon kontrolü
+(genel form validasyon gerekli)
 
 
 
-img "alt" kısımları
-localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap
+
+input focuslarını kapat mobilde klavye açık kalıyor??
+document.querySelector(":focus")
+
+
+
+
+
+registiration yarım kalınca varsa oluşan bugların kontrolü ve fixi
+
+
+
+img "alt" kısımları??
 
 
 
@@ -99,23 +116,7 @@ H3LER
 H4 İLETİŞİM SİL
 
 
-
-
-
 _____________________________________________________________________________________
-
-giriş, üyelik, şifre unutma fonksiyonları
-
-footer telefon adres mail insta detay doldurup linkle
-
-_____________________________________________________________________________________
-
-
-
-
-
-
-
 
 
 

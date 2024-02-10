@@ -1,6 +1,6 @@
-@import url("./variables.css?v=0.2");
-@import url("./mobile.css?v=0.2");
-@import url("./desktop.css?v=0.2");
+@import url("./variables.css?v=0.3");
+@import url("./mobile.css?v=0.3");
+@import url("./desktop.css?v=0.3");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {

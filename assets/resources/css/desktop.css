@@ -609,6 +609,10 @@
     border-radius: 1.5rem;
   }
 
+  #order #order-menu img {
+    margin-bottom: 2rem;
+  }
+
   #order #order-price {
     margin: 1rem 7.5rem;
     border: 0.25rem solid var(--green);

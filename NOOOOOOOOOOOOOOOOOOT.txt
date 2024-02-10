@@ -1,18 +1,35 @@
-load func -> scroll top
+Days yazılacak
+saat seçimlerini iste
 
-promosyon kodu
-fiyat görüntüleme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 CSS BUG
-PROFİL DESKTOP
+
 REDIRECT FROM HTTP TO HTTPS
 BİLGİ GÜNCELLEME WITH IMAGE UPLOAD
-ORDER VE MENÜ SATIN ALMA
+
 ...
+
+
+load func -> scroll top
+
 
 
 formların kontrolü double check

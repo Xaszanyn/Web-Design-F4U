@@ -369,6 +369,16 @@
     margin-bottom: 1rem;
   }
 
+  .menu .menu-heading > div button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .menu .menu-heading > div button i {
+    margin-right: 0.25rem;
+  }
+
   .menu .menu-body hr {
     margin-bottom: 2rem;
   }
@@ -596,7 +606,7 @@
   #order #order-menu {
     border: 0.25rem solid var(--red);
     padding: 1rem;
-    border-radius: 10rem;
+    border-radius: 1.5rem;
   }
 
   #order #order-price {

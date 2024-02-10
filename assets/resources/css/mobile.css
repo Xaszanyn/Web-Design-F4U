@@ -818,7 +818,7 @@ footer p {
   padding: 1rem 3rem;
 }
 
-#order span {
+#order > span {
   display: block;
   font-size: 4rem;
   font-style: italic;
@@ -844,6 +844,9 @@ footer p {
   cursor: pointer;
   color: var(--red);
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #order #order-menu img {
@@ -858,6 +861,13 @@ footer p {
   border-radius: 10rem;
   color: var(--green);
   font-weight: 600;
+}
+
+#order #order-price span {
+  font-size: 3rem;
+  color: var(--black);
+  text-decoration: line-through;
+  margin-left: 1rem;
 }
 
 #order button {

@@ -61,7 +61,12 @@ uploadImageInput.addEventListener("change", uploadImage);
 
 assign(logout, logoutUser);
 
-assign(orderMenu, (event) => {
-  getMenus();
-  load(menusButton, menus);
-});
+assign(
+  orderMenu,
+  (event) => {
+    getMenus();
+    load(menusButton, menus);
+  },
+  false,
+  true
+);

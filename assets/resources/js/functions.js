@@ -403,28 +403,26 @@ async function getMenus() {
 
     content.className = "menu";
 
-    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button class="menu-button" data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}"><i class="fa-solid fa-cart-shopping"></i> Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
+    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}"><i class="fa-solid fa-cart-shopping"></i> Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
 
     menus.appendChild(content);
   });
 
-  document
-    .querySelectorAll(".menu-heading")
-    .forEach((menuHeading) =>
-      assign(menuHeading, () => menuHeading.parentElement.classList.toggle("expanded"), false, true)
-    );
-
-  document.querySelectorAll(".menu-button").forEach((button) =>
+  document.querySelectorAll(".menu").forEach((menu) => {
+    assign(menu.children[0], () => menu.classList.toggle("expanded"), false, true);
+    assign(menu.children[1].children[0], () => menu.classList.toggle("expanded"), false, true);
+    assign(menu.children[1].children[1].children[0], () => menu.classList.toggle("expanded"), false, true);
+    assign(menu.children[1].children[1].children[1], () => menu.classList.toggle("expanded"), false, true);
     assign(
-      button,
+      menu.children[1].children[1].children[2],
       () => {
         selectedMenu = { ...button.dataset };
         selectMenu();
       },
       false,
       true
-    )
-  );
+    );
+  });
 }
 
 async function selectMenu() {

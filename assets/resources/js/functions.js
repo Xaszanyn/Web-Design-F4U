@@ -415,8 +415,8 @@ async function getMenus() {
     assign(menu.children[1].children[1].children[1], () => menu.classList.toggle("expanded"), false, true);
     assign(
       menu.children[1].children[1].children[2],
-      () => {
-        selectedMenu = { ...button.dataset };
+      (event) => {
+        selectedMenu = { ...event.target.dataset };
         selectMenu();
       },
       false,

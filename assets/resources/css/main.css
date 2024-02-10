@@ -31,11 +31,13 @@ iframe {
 
 button,
 input,
-textarea {
+textarea,
+select {
   outline: none;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
+  color: inherit;
 }
 
 textarea {

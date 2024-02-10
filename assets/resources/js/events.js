@@ -60,3 +60,8 @@ assign(loginUserButton, loginUser);
 uploadImageInput.addEventListener("change", uploadImage);
 
 assign(logout, logoutUser);
+
+assign(orderMenu, (event) => {
+  getMenus();
+  load(menusButton, menus);
+});

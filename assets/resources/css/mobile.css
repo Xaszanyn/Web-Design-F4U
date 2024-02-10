@@ -211,27 +211,34 @@ main > section > h2 {
   margin: 5rem 0 10rem;
 }
 
-/* =========={ Login, Register }========================================================================================== */
+/* =========={ Login, Register, Order }========================================================================================== */
 
 #login input,
 #register input,
-#register textarea {
+#register textarea,
+#order input,
+#order textarea,
+#order select {
   display: block;
   width: 100%;
   border: 1rem solid var(--gray);
   font-size: 4rem;
   transition: border var(--fast);
   border-radius: 10rem;
-  padding: 1rem 3rem 1rem 8rem;
+  padding: 1rem 3rem 1rem 9rem;
 }
 
 #login input:focus,
 #register input:focus,
-#register textarea:focus {
+#register textarea:focus,
+#order input:focus,
+#order textarea:focus,
+#order select:focus {
   border: 1rem solid var(--blue);
 }
 
-#register textarea {
+#register textarea,
+#order textarea {
   border-radius: 5rem;
 }
 
@@ -244,14 +251,16 @@ main > section > h2 {
 }
 
 #login > div > div,
-#register #register-phase > div > div {
+#register #register-phase > div > div,
+#order > div {
   position: relative;
   width: 100%;
   margin-bottom: 3rem;
 }
 
 #login > div > div i,
-#register #register-phase > div > div i {
+#register #register-phase > div > div i,
+#order > div i {
   color: var(--blue);
   position: absolute;
   top: 50%;
@@ -261,7 +270,8 @@ main > section > h2 {
 }
 
 #login button,
-#register button {
+#register button,
+#order button {
   font-size: 4rem;
   background-color: var(--blue);
   font-weight: 500;
@@ -272,7 +282,8 @@ main > section > h2 {
 }
 
 #login button i,
-#register button i {
+#register button i,
+#order button i {
   margin-right: 0.5rem;
 }
 
@@ -285,7 +296,6 @@ main > section > h2 {
 #register span {
   display: block;
   font-size: 4rem;
-  text-decoration: double;
   margin-bottom: 2rem;
 }
 
@@ -731,7 +741,7 @@ footer p {
   justify-content: center;
 }
 
-#user #user-information > div > span {
+#user #user-information > div > span:not(:last-of-type) {
   margin-bottom: 2.5rem;
 }
 
@@ -782,4 +792,58 @@ footer p {
 #user #user-logout {
   background-color: var(--red);
   margin: 0 5rem 10rem;
+}
+
+/* =========={ Order }========================================================================================== */
+
+#order {
+  padding: 0 15rem;
+}
+
+#order .normal {
+  padding: 1rem 3rem;
+}
+
+#order span {
+  display: block;
+  font-size: 4rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+#order hr {
+  margin: 15rem 0;
+}
+
+#order p {
+  margin: 3rem 0;
+  font-size: 4rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+#order #order-menu {
+  border: 1rem solid var(--red);
+  padding: 4rem;
+  text-align: center;
+  border-radius: 5rem;
+  cursor: pointer;
+  color: var(--red);
+  font-weight: 600;
+}
+
+#order #order-price {
+  margin: 3rem 15rem;
+  border: 1rem solid var(--green);
+  padding: 1rem 3rem;
+  text-align: center;
+  border-radius: 10rem;
+  color: var(--green);
+  font-weight: 600;
+}
+
+#order button {
+  display: block;
+  padding: 1.5rem 5rem;
+  margin: 10rem auto 20rem;
 }

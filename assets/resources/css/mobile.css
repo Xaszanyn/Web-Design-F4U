@@ -544,6 +544,20 @@ footer p {
   font-weight: 600;
 }
 
+.menu .menu-heading > div button {
+  color: var(--white);
+  background-color: var(--blue);
+  font-size: 4rem;
+  font-weight: 500;
+  padding: 1rem 5rem;
+  border-radius: 10rem;
+  margin-top: 2rem;
+}
+
+.menu .menu-heading > div button i {
+  margin-right: 0.5rem;
+}
+
 .menu .menu-body {
   overflow-y: hidden;
   max-height: 0;

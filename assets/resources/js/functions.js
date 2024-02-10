@@ -403,7 +403,7 @@ async function getMenus() {
 
     content.className = "menu";
 
-    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button class="menu-button" data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}">Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
+    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button class="menu-button" data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}"><i class="fa-solid fa-cart-shopping"></i> Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
 
     menus.appendChild(content);
   });
@@ -411,14 +411,19 @@ async function getMenus() {
   document
     .querySelectorAll(".menu-heading")
     .forEach((menuHeading) =>
-      assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
+      assign(menuHeading, () => menuHeading.parentElement.classList.toggle("expanded"), false, true)
     );
 
   document.querySelectorAll(".menu-button").forEach((button) =>
-    assign(button, (event) => {
-      selectedMenu = { ...button.dataset };
-      selectMenu();
-    })
+    assign(
+      button,
+      () => {
+        selectedMenu = { ...button.dataset };
+        selectMenu();
+      },
+      false,
+      true
+    )
   );
 }
 
@@ -436,8 +441,12 @@ async function selectMenu() {
       notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      orderMenu.innerHTML = `<img src="${selectedMenu.picture}"> ${selectedMenu.name}`;
-      orderPrice.innerHTML = `${response.price}₺ <span>${response.original}₺</span>`;
+      orderMenu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
+      orderPrice.innerHTML =
+        response.price == response.original
+          ? `${response.price}₺`
+          : `${response.price}₺ <span>${response.original}₺</span>`;
+      load(orderButton, order);
       break;
   }
 }

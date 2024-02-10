@@ -403,7 +403,7 @@ async function getMenus() {
 
     content.className = "menu";
 
-    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p></div></div><div class="menu-body"><hr />${menu.content}</div>`;
+    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button class="menu-button" data-id="${menu.id}" data-price="${menu.price}" data-discount="${menu.discount}">Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
 
     menus.appendChild(content);
   });
@@ -413,6 +413,12 @@ async function getMenus() {
     .forEach((menuHeading) =>
       assign(menuHeading, (event) => menuHeading.parentElement.classList.toggle("expanded"), false, true)
     );
+
+  document.querySelectorAll(".menu-button").forEach((button) =>
+    assign(button, (event) => {
+      /* */
+    })
+  );
 }
 
 async function getContents() {

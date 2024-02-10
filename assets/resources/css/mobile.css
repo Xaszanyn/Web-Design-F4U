@@ -857,7 +857,9 @@ footer p {
   margin: 3rem 15rem;
   border: 1rem solid var(--green);
   padding: 1rem 3rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10rem;
   color: var(--green);
   font-weight: 600;

@@ -589,7 +589,7 @@
     padding: 0.5rem 1rem;
   }
 
-  #order span {
+  #order > span {
     font-size: 1rem;
     margin-bottom: 0.25rem;
   }
@@ -612,8 +612,13 @@
   #order #order-price {
     margin: 1rem 7.5rem;
     border: 0.25rem solid var(--green);
-    padding: 1rem 3rem;
+    padding: 1rem 1rem;
     border-radius: 10rem;
+  }
+
+  #order #order-price span {
+    font-size: 1rem;
+    margin-left: 0.5rem;
   }
 
   #order button {

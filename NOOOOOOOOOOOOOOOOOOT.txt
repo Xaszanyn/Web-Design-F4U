@@ -1,3 +1,5 @@
+load func -> scroll top
+
 promosyon kodu
 fiyat görüntüleme
 

@@ -166,9 +166,11 @@ function changeProvince(event) {
     for (let index = 1; index < orderDistrict.children.length; index++)
       orderDistrict.children[index].classList.remove("disabled");
   else
-    for (let index = 1; index < orderDistrict.children.length; index++)
+    for (let index = 1; index < orderDistrict.children.length; index++) {
+      orderDistrict.children[index].classList.remove("disabled");
       if (orderProvince.selectedIndex != orderDistrict.children[index].dataset.province)
         orderDistrict.children[index].classList.add("disabled");
+    }
 }
 
 /* =========={ Connection }========================================================================================== */

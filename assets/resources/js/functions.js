@@ -459,7 +459,7 @@ async function getContents() {
 
     error.className = "fetch-error";
 
-    error.innerHTML = "İçerikler getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz";
+    error.innerHTML = "İçerikler getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz.";
 
     more.appendChild(error);
 
@@ -479,6 +479,26 @@ async function getContents() {
   document.querySelectorAll(".blog").forEach((blog) => assign(blog, (event) => openPopUp(blog), false, true));
 
   document.querySelectorAll(".blog .close").forEach((close) => assign(close, closePopUp));
+}
+
+async function getLocations() {
+  let data = await get("services/locations.php");
+
+  if (data.status == "error") {
+    notify("Konumlar getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz.");
+    return;
+  }
+
+  orderProvince.innerHTML = `<option hidden selected>İl</option>`;
+  orderDistrict.innerHTML = `<option hidden selected>İlçe</option>`;
+
+  data.provinces.forEach((province) => {
+    orderProvince.innerHTML += `<option value="${province.id}">${province.name}</option>`;
+  });
+
+  data.districts.forEach((district) => {
+    orderDistrict.innerHTML += `<option value="${district.id}" data-province="${district.provinceId}">${district.name}</option>`;
+  });
 }
 
 /* =========={ Order }======================================== */

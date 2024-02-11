@@ -214,13 +214,21 @@
         <div id="order-menu">Menü Seçiniz</div>
         <div>
           <select class="normal">
-            <option value="0">Zaman</option>
+            <option hidden selected>Gün Sayısı</option>
+            <option value="5">5 Gün</option>
+            <option value="10">10 Gün</option>
+            <option value="20">1 Aylık (20 İş Günü)</option>
+            <option value="60">3 Aylık (60 İş Günü)</option>
           </select>
         </div>
         <div>
           <select class="normal">
             <option value="0">Zaman</option>
           </select>
+        </div>
+        <div>
+          <input type="text" placeholder="Promosyon Kodu (Opsiyonel)" />
+          <i class="fa-solid fa-percent"></i>
         </div>
         <p id="order-price">0₺</p>
         <hr />
@@ -238,14 +246,10 @@
           <i class="fa-solid fa-envelope"></i>
         </div>
         <div>
-          <select class="normal">
-            <option value="0">İl</option>
-          </select>
+          <select id="order-province" class="normal"></select>
         </div>
         <div>
-          <select class="normal">
-            <option value="0">İlçe</option>
-          </select>
+          <select id="order-district" class="normal"></select>
         </div>
         <div>
           <textarea placeholder="Adres" rows="3"></textarea>

@@ -1,6 +1,5 @@
-Days yazılacak
+
 saat seçimlerini iste
-promosyon kodu yeri ekle
 promosyon check
 
 il ve ilçe database ve getirilmesi

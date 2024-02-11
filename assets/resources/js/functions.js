@@ -161,7 +161,9 @@ function uploadImage() {
   fileReader.readAsDataURL(uploadImageInput.files[0]);
 }
 
-function changeProvince(event) {
+function changeProvince() {
+  orderDistrict.selectedIndex = 0;
+
   if (!orderProvince.selectedIndex)
     for (let index = 1; index < orderDistrict.children.length; index++)
       orderDistrict.children[index].classList.remove("disabled");

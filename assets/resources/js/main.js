@@ -9,3 +9,5 @@ setInterval(() => {
 }, 1000);
 
 loginRememberedUser();
+
+getLocations();

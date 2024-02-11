@@ -161,6 +161,16 @@ function uploadImage() {
   fileReader.readAsDataURL(uploadImageInput.files[0]);
 }
 
+function changeProvince(event) {
+  if (!orderProvince.selectedIndex)
+    for (let index = 1; index < orderDistrict.children.length; index++)
+      orderDistrict.children[index].classList.remove("disabled");
+  else
+    for (let index = 1; index < orderDistrict.children.length; index++)
+      if (orderProvince.selectedIndex != orderDistrict.children[index].dataset.province)
+        orderDistrict.children[index].classList.add("disabled");
+}
+
 /* =========={ Connection }========================================================================================== */
 
 async function get(endpoint) {
@@ -497,7 +507,7 @@ async function getLocations() {
   });
 
   data.districts.forEach((district) => {
-    orderDistrict.innerHTML += `<option value="${district.id}" data-province="${district.provinceId}">${district.name}</option>`;
+    orderDistrict.innerHTML += `<option value="${district.id}" data-province="${district.province_id}">${district.name}</option>`;
   });
 }
 

@@ -70,3 +70,5 @@ assign(
   false,
   true
 );
+
+orderProvince.addEventListener("change", changeProvince);

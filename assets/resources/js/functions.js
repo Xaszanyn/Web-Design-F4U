@@ -418,6 +418,7 @@ async function getMenus() {
       (event) => {
         selectedMenu = { ...selectedMenu, ...event.target.dataset };
         selectMenu();
+        load(orderButton, order);
       },
       false,
       true
@@ -449,7 +450,6 @@ async function selectMenu(selected = true) {
         response.price == response.original
           ? `${response.price}₺`
           : `${response.price}₺ <span>${response.original}₺</span>`;
-      if (selected) load(orderButton, order);
       break;
   }
 }

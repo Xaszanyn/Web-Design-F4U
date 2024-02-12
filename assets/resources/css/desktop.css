@@ -180,7 +180,7 @@
 
   #login > div > div i,
   #register #register-phase > div > div i,
-  #order > div i {
+  #order > div > i {
     font-size: 1rem;
     left: 1rem;
   }
@@ -628,5 +628,14 @@
   #order button {
     padding: 0.5rem 3rem;
     margin: 2.5rem auto 7.5rem;
+  }
+
+  #order #order-promotion-status {
+    font-size: 1rem;
+    right: 1rem;
+  }
+
+  #order #order-promotion-status.success {
+    font-size: 1.5rem;
   }
 }

@@ -24,3 +24,12 @@
   --slide-4: url("../../images/temporary/s4.jpg");
   --slide-5: url("../../images/temporary/s5.jpg");
 }
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}

@@ -260,7 +260,7 @@ main > section > h2 {
 
 #login > div > div i,
 #register #register-phase > div > div i,
-#order > div i {
+#order > div > i {
   color: var(--blue);
   position: absolute;
   top: 50%;
@@ -880,4 +880,50 @@ footer p {
 
 #order .disabled {
   display: none;
+}
+
+#order #order-promotion-status {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+}
+
+#order #order-promotion-status i {
+  display: none;
+}
+
+#order #order-promotion-status.loading {
+  color: var(--black);
+}
+
+#order #order-promotion-status.success {
+  color: var(--green);
+}
+
+#order #order-promotion-status.error {
+  color: var(--red);
+}
+
+#order #order-promotion-status.loading i:nth-of-type(1) {
+  display: block;
+}
+
+#order #order-promotion-status.success i:nth-of-type(2) {
+  display: block;
+}
+
+#order #order-promotion-status.error i:nth-of-type(3) {
+  display: block;
+}
+
+#order #order-promotion-status.success + input {
+  font-weight: 600;
+  color: var(--green);
+}
+
+#order #order-promotion-status.error + input {
+  font-weight: 600;
+  color: var(--red);
 }

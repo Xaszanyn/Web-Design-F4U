@@ -176,11 +176,12 @@ function changeProvince() {
 }
 
 function changePromotion() {
-  //enable load
+  orderPromotionStatus.className = "loading";
 
   if (!orderPromotion.value) {
-    // recalculate
-    // remove load & tick
+    orderPromotionStatus.className = "";
+    delete selectedMenu.promotion;
+    selectMenu();
   }
 
   let code = orderPromotion.value;
@@ -192,10 +193,12 @@ function changePromotion() {
 
     switch (response.status) {
       case "error":
-        //no
+        orderPromotionStatus.className = "error";
         break;
       case "success":
-        //yes
+        orderPromotionStatus.className = "success";
+        selectedMenu.promotion = code;
+        selectMenu();
         break;
     }
   }, 1000);

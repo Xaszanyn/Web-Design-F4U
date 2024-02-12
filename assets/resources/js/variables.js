@@ -70,3 +70,4 @@ const orderPrice = document.querySelector("#order #order-price");
 const orderProvince = document.querySelector("#order #order-province");
 const orderDistrict = document.querySelector("#order #order-district");
 const orderPromotion = document.querySelector("#order #order-promotion");
+const orderPromotionStatus = document.querySelector("#order #order-promotion-status");

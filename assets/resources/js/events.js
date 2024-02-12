@@ -72,3 +72,5 @@ assign(
 );
 
 orderProvince.addEventListener("change", changeProvince);
+
+orderPromotion.addEventListener("input", changePromotion);

@@ -183,14 +183,12 @@ function changePromotion() {
     delete selectedMenu.promotion;
     selectMenu(false);
     return;
-  }
-
-  let code = orderPromotion.value;
+  } else selectedMenu.promotion = orderPromotion.value;
 
   setTimeout(async () => {
-    if (code != orderPromotion.value) return;
+    if (selectedMenu.promotion != orderPromotion.value) return;
 
-    let response = await post("promotion.php", { code });
+    let response = await post("promotion.php", { code: selectedMenu.promotion });
 
     switch (response.status) {
       case "error":
@@ -198,7 +196,6 @@ function changePromotion() {
         break;
       case "success":
         orderPromotionStatus.className = "success";
-        selectedMenu.promotion = code;
         selectMenu(false);
         break;
     }

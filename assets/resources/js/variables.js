@@ -64,7 +64,7 @@ const userAddress = document.querySelector("#user #user-address");
 const edit = document.querySelector("#user #user-edit");
 const logout = document.querySelector("#user #user-logout");
 
-var selectedMenu;
+var selectedMenu = {};
 const orderMenu = document.querySelector("#order #order-menu");
 const orderPrice = document.querySelector("#order #order-price");
 const orderProvince = document.querySelector("#order #order-province");

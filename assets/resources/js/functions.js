@@ -182,6 +182,7 @@ function changePromotion() {
     orderPromotionStatus.className = "";
     delete selectedMenu.promotion;
     selectMenu(false);
+    return;
   }
 
   let code = orderPromotion.value;

@@ -472,6 +472,8 @@ async function getMenus() {
 async function selectMenu(selected = true) {
   if (!selectedMenu.id) return;
 
+  if (selected) changePromotion();
+
   let response = await post("price.php", {
     id: selectedMenu.id,
     promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",

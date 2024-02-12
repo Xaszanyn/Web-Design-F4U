@@ -175,11 +175,37 @@ function changeProvince() {
     }
 }
 
+function changePromotion() {
+  //enable load
+
+  if (!orderPromotion.value) {
+    // recalculate
+    // remove load & tick
+  }
+
+  let code = orderPromotion.value;
+
+  setTimeout(async () => {
+    if (code != orderPromotion.value) return;
+
+    let response = await post("promotion.php", { code });
+
+    switch (response.status) {
+      case "error":
+        //no
+        break;
+      case "success":
+        //yes
+        break;
+    }
+  }, 1000);
+}
+
 /* =========={ Connection }========================================================================================== */
 
 async function get(endpoint) {
   try {
-    return await fetch(endpoint).then((response) => response.json());
+    return await fetch("services/" + endpoint).then((response) => response.json());
   } catch {
     return {
       status: "error",
@@ -189,7 +215,7 @@ async function get(endpoint) {
 
 async function post(endpoint, body) {
   try {
-    return await fetch(endpoint, {
+    return await fetch("services/" + endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -209,7 +235,7 @@ async function registerFirstPhase(event) {
     return;
   }
 
-  let response = await post("services/register.php", { phase: "register", email: registerSection.email.value });
+  let response = await post("register.php", { phase: "register", email: registerSection.email.value });
 
   console.log("notify sil");
   notify(JSON.stringify(response));
@@ -238,7 +264,7 @@ async function registerSecondPhase(event) {
     return;
   }
 
-  let response = await post("services/register.php", { phase: "confirm", code: registerSection.code.value });
+  let response = await post("register.php", { phase: "confirm", code: registerSection.code.value });
 
   registerSection.secondCode.value = response.code;
 
@@ -279,7 +305,7 @@ async function registerThirdPhase(event) {
     return;
   }
 
-  let response = await post("services/register.php", {
+  let response = await post("register.php", {
     phase: "create",
     code: registerSection.secondCode.value,
     name: registerSection.name.value,
@@ -334,7 +360,7 @@ function loginUser() {
 }
 
 async function loginDirect(email, password, remembered = false) {
-  let response = await post("services/login.php", {
+  let response = await post("login.php", {
     email,
     password,
   });
@@ -398,7 +424,7 @@ function logoutUser() {
 async function getMenus() {
   menus.innerHTML = `<h2>Menüler</h2>`;
 
-  let data = await get("services/menus.php");
+  let data = await get("menus.php");
 
   if (data.status == "error") {
     let error = document.createElement("p");
@@ -442,7 +468,7 @@ async function getMenus() {
 async function selectMenu() {
   if (!selectedMenu.id) return;
 
-  let response = await post("services/price.php", {
+  let response = await post("price.php", {
     id: selectedMenu.id,
     promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
     days: selectedMenu.days ? selectedMenu.days : 1,
@@ -466,7 +492,7 @@ async function selectMenu() {
 async function getContents() {
   more.innerHTML = `<h2>Daha Fazla</h2>`;
 
-  let data = await get("services/contents.php");
+  let data = await get("contents.php");
 
   if (data.status == "error") {
     let error = document.createElement("p");
@@ -496,7 +522,7 @@ async function getContents() {
 }
 
 async function getLocations() {
-  let data = await get("services/locations.php");
+  let data = await get("locations.php");
 
   if (data.status == "error") {
     notify("Konumlar getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz.");
@@ -518,7 +544,7 @@ async function getLocations() {
 /* =========={ Order }======================================== */
 
 async function payment() {
-  let response = await post("services/payment", {
+  let response = await post("payment", {
     phase: "create",
     code: registerSection.secondCode.value,
     name: registerSection.name.value,

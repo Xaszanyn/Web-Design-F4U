@@ -161,47 +161,6 @@ function uploadImage() {
   fileReader.readAsDataURL(uploadImageInput.files[0]);
 }
 
-function changeProvince() {
-  orderDistrict.selectedIndex = 0;
-
-  if (!orderProvince.selectedIndex)
-    for (let index = 1; index < orderDistrict.children.length; index++)
-      orderDistrict.children[index].classList.remove("disabled");
-  else
-    for (let index = 1; index < orderDistrict.children.length; index++) {
-      orderDistrict.children[index].classList.remove("disabled");
-      if (orderProvince.selectedIndex != orderDistrict.children[index].dataset.province)
-        orderDistrict.children[index].classList.add("disabled");
-    }
-}
-
-function changePromotion() {
-  orderPromotionStatus.className = "loading";
-
-  if (!orderPromotion.value) {
-    orderPromotionStatus.className = "";
-    delete selectedMenu.promotion;
-    selectMenu(false);
-    return;
-  } else selectedMenu.promotion = orderPromotion.value;
-
-  setTimeout(async () => {
-    if (selectedMenu.promotion != orderPromotion.value) return;
-
-    let response = await post("promotion.php", { code: selectedMenu.promotion });
-
-    switch (response.status) {
-      case "error":
-        orderPromotionStatus.className = "error";
-        break;
-      case "success":
-        orderPromotionStatus.className = "success";
-        selectMenu(false);
-        break;
-    }
-  }, 1000);
-}
-
 /* =========={ Connection }========================================================================================== */
 
 async function get(endpoint) {
@@ -545,6 +504,52 @@ async function getLocations() {
 }
 
 /* =========={ Order }======================================== */
+
+function changeProvince() {
+  orderDistrict.selectedIndex = 0;
+
+  if (!orderProvince.selectedIndex)
+    for (let index = 1; index < orderDistrict.children.length; index++)
+      orderDistrict.children[index].classList.remove("disabled");
+  else
+    for (let index = 1; index < orderDistrict.children.length; index++) {
+      orderDistrict.children[index].classList.remove("disabled");
+      if (orderProvince.selectedIndex != orderDistrict.children[index].dataset.province)
+        orderDistrict.children[index].classList.add("disabled");
+    }
+}
+
+function changePromotion() {
+  orderPromotionStatus.className = "loading";
+
+  if (!orderPromotion.value) {
+    orderPromotionStatus.className = "";
+    delete selectedMenu.promotion;
+    selectMenu(false);
+    return;
+  } else selectedMenu.promotion = orderPromotion.value;
+
+  setTimeout(async () => {
+    if (selectedMenu.promotion != orderPromotion.value) return;
+
+    let response = await post("promotion.php", { code: selectedMenu.promotion });
+
+    switch (response.status) {
+      case "error":
+        orderPromotionStatus.className = "error";
+        break;
+      case "success":
+        orderPromotionStatus.className = "success";
+        selectMenu(false);
+        break;
+    }
+  }, 1000);
+}
+
+function changeDays() {
+  selectedMenu.days = orderDays.value;
+  selectMenu(false);
+}
 
 async function payment() {
   let response = await post("payment", {

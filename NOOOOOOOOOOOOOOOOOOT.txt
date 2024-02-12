@@ -1,6 +1,4 @@
-
-promosyon check
-
+days ellemezsen 1 gönderecek onu günlük yazman lazım
 
 order componentlerinin funca taşınması
 PAYMENT

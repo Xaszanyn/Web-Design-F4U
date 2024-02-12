@@ -416,7 +416,7 @@ async function getMenus() {
     assign(
       menu.children[1].children[1].children[2],
       (event) => {
-        selectedMenu = { ...event.target.dataset };
+        selectedMenu = { ...selectedMenu, ...event.target.dataset };
         selectMenu();
       },
       false,
@@ -428,7 +428,10 @@ async function getMenus() {
 async function selectMenu(selected = true) {
   if (!selectedMenu.id) return;
 
-  if (selected) changePromotion();
+  if (selected) {
+    changePromotion();
+    return;
+  }
 
   let response = await post("price.php", {
     id: selectedMenu.id,
@@ -540,9 +543,10 @@ function changePromotion() {
         break;
       case "success":
         orderPromotionStatus.className = "success";
-        selectMenu(false);
         break;
     }
+
+    selectMenu(false);
   }, 1000);
 }
 

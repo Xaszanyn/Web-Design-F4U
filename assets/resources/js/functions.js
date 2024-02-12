@@ -468,7 +468,7 @@ async function getMenus() {
   });
 }
 
-async function selectMenu(load = true) {
+async function selectMenu(selected = true) {
   if (!selectedMenu.id) return;
 
   let response = await post("price.php", {
@@ -487,7 +487,7 @@ async function selectMenu(load = true) {
         response.price == response.original
           ? `${response.price}₺`
           : `${response.price}₺ <span>${response.original}₺</span>`;
-      if (load) load(orderButton, order);
+      if (selected) load(orderButton, order);
       break;
   }
 }

@@ -181,7 +181,7 @@ function changePromotion() {
   if (!orderPromotion.value) {
     orderPromotionStatus.className = "";
     delete selectedMenu.promotion;
-    selectMenu();
+    selectMenu(false);
   }
 
   let code = orderPromotion.value;
@@ -198,7 +198,7 @@ function changePromotion() {
       case "success":
         orderPromotionStatus.className = "success";
         selectedMenu.promotion = code;
-        selectMenu();
+        selectMenu(false);
         break;
     }
   }, 1000);
@@ -468,7 +468,7 @@ async function getMenus() {
   });
 }
 
-async function selectMenu() {
+async function selectMenu(load = true) {
   if (!selectedMenu.id) return;
 
   let response = await post("price.php", {
@@ -487,7 +487,7 @@ async function selectMenu() {
         response.price == response.original
           ? `${response.price}₺`
           : `${response.price}₺ <span>${response.original}₺</span>`;
-      load(orderButton, order);
+      if (load) load(orderButton, order);
       break;
   }
 }

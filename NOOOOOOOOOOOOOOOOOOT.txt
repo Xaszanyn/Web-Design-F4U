@@ -2,7 +2,7 @@
 saat seçimlerini iste
 promosyon check
 
-il ve ilçe database ve getirilmesi
+
 order componentlerinin funca taşınması
 PAYMENT
   [pending order ve orderların saklanması] +servis...

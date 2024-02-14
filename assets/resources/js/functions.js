@@ -586,12 +586,12 @@ async function completeOrder() {
     return;
   }
 
-  if (!orderSection.province.selectedIndex <= 0) {
+  if (orderSection.province.selectedIndex <= 0) {
     notify("Lütfen ilinizi seçiniz.");
     return;
   }
 
-  if (!orderSection.district.selectedIndex <= 0) {
+  if (orderSection.district.selectedIndex <= 0) {
     notify("Lütfen ilçenizi seçiniz.");
     return;
   }

@@ -1,6 +1,3 @@
-days ellemezsen 1 gönderecek onu günlük yazman lazım
-
-order componentlerinin funca taşınması
 PAYMENT
   [pending order ve orderların saklanması] +servis...
 
@@ -11,15 +8,27 @@ servis için database servis yapısı, oluşacağı günlerin belirlenmesi vs.
 
 mevcut paketler ve sipariş geçmişi getirilmesi
 
-edit profile information
-image upload
+MAİL SERVİSİ!!!
+(sadece registiration, forgot password şimdilik dursun.)
+deletecodeyi sil
+
+
 
 REDIRECT FROM HTTP TO HTTPS
 
 
-MAİL SERVİSİ!!!
-(sadece registiration, forgot password şimdilik dursun.)
-error code kapat
+
+
+
+
+
+
+------- not fatal -----------------------------------------------------
+
+edit profile information
+extended profile
+image upload
+order auto fill
 
 
 menüdeki üye ol ile giriş yapı ayır
@@ -27,8 +36,13 @@ menü solundaki ikonu duruma göre düzenle
 localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap
 
 
-
 footer telefon adres mail insta detay doldurup linkle
+
+
+
+
+
+console.logları kaldır
 
 
 

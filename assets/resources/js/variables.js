@@ -65,10 +65,25 @@ const edit = document.querySelector("#user #user-edit");
 const logout = document.querySelector("#user #user-logout");
 
 var selectedMenu = {};
-const orderMenu = document.querySelector("#order #order-menu");
-const orderPrice = document.querySelector("#order #order-price");
-const orderProvince = document.querySelector("#order #order-province");
-const orderDistrict = document.querySelector("#order #order-district");
-const orderPromotion = document.querySelector("#order #order-promotion");
-const orderPromotionStatus = document.querySelector("#order #order-promotion-status");
-const orderDays = document.querySelector("#order #order-days");
+const orderSection = {
+  menu: document.querySelector("#order #order-menu"),
+  price: document.querySelector("#order #order-price"),
+  province: document.querySelector("#order #order-province"),
+  district: document.querySelector("#order #order-district"),
+  promotion: document.querySelector("#order #order-promotion"),
+  promotionStatus: document.querySelector("#order #order-promotion-status"),
+  days: document.querySelector("#order #order-days"),
+  time: document.querySelector("#order #order-time"),
+  name: document.querySelector("#order #order-name"),
+  phone: document.querySelector("#order #order-phone"),
+  email: document.querySelector("#order #order-email"),
+  address: document.querySelector("#order #order-address"),
+  gender: document.querySelector("#order #order-gender"),
+  height: document.querySelector("#order #order-height"),
+  weight: document.querySelector("#order #order-weight"),
+  allergy: document.querySelector("#order #order-allergy"),
+  disease: document.querySelector("#order #order-disease"),
+  occupation: document.querySelector("#order #order-occupation"),
+  extra: document.querySelector("#order #order-extra"),
+  complete: document.querySelector("#order #order-complete"),
+};

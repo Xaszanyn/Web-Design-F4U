@@ -62,7 +62,7 @@ uploadImageInput.addEventListener("change", uploadImage);
 assign(logout, logoutUser);
 
 assign(
-  orderMenu,
+  orderSection.menu,
   (event) => {
     getMenus();
     load(menusButton, menus);
@@ -71,8 +71,7 @@ assign(
   true
 );
 
-orderProvince.addEventListener("change", changeProvince);
-
-orderPromotion.addEventListener("input", changePromotion);
-
-orderDays.addEventListener("change", changeDays);
+orderSection.province.addEventListener("change", changeProvince);
+orderSection.promotion.addEventListener("input", changePromotion);
+orderSection.days.addEventListener("change", changeDays);
+assign(orderSection, completeOrder);

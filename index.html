@@ -222,7 +222,7 @@
           </select>
         </div>
         <div>
-          <select class="normal">
+          <select id="order-time" class="normal">
             <option hidden selected>Teslimat Saati</option>
             <option value="11.00 - 13.30">11.00 - 13.30</option>
             <option value="13.30 - 16.00">13.30 - 16.00</option>
@@ -241,15 +241,15 @@
         <hr />
         <p>Sipariş Bilgileri</p>
         <div>
-          <input type="text" placeholder="İsim Soyisim" />
+          <input id="order-name" type="text" placeholder="İsim Soyisim" />
           <i class="fa-solid fa-user"></i>
         </div>
         <div>
-          <input type="text" placeholder="Telefon" />
+          <input id="order-phone" type="text" placeholder="Telefon" />
           <i class="fa-solid fa-phone"></i>
         </div>
         <div>
-          <input type="text" placeholder="E-posta" />
+          <input id="order-email" type="text" placeholder="E-posta" />
           <i class="fa-solid fa-envelope"></i>
         </div>
         <div>
@@ -259,13 +259,13 @@
           <select id="order-district" class="normal"></select>
         </div>
         <div>
-          <textarea placeholder="Adres" rows="3"></textarea>
+          <textarea id="order-address" placeholder="Adres" rows="3"></textarea>
           <i class="fa-solid fa-location-dot"></i>
         </div>
         <hr />
         <p>Kişisel Bilgiler</p>
         <div>
-          <select class="normal">
+          <select id="order-gender" class="normal">
             <option hidden selected>Cinsiyet</option>
             <option value="0">Erkek</option>
             <option value="1">Kadın</option>
@@ -273,29 +273,29 @@
         </div>
         <div>
           <span>Boyunuz</span>
-          <input class="normal" type="number" placeholder="cm" />
+          <input id="order-height" class="normal" type="number" placeholder="cm" />
         </div>
         <div>
           <span>Kilonuz</span>
-          <input class="normal" type="number" placeholder="kg" />
+          <input id="order-weight" class="normal" type="number" placeholder="kg" />
         </div>
         <div>
           <span>Alerjiniz varsa belirtiniz.</span>
-          <input class="normal" type="text" />
+          <input id="order-allergy" class="normal" type="text" />
         </div>
         <div>
           <span>Kronik hastalığınız varsa belirtiniz.</span>
-          <input class="normal" type="text" />
+          <input id="order-disease" class="normal" type="text" />
         </div>
         <div>
           <span>Mesleğiniz</span>
-          <input class="normal" type="text" />
+          <input id="order-occupation" class="normal" type="text" />
         </div>
         <div>
           <span>Eklemek istediğiniz varsa belirtiniz.</span>
-          <textarea class="normal" rows="3"></textarea>
+          <textarea id="order-extra" class="normal" rows="3"></textarea>
         </div>
-        <button><i class="fa-solid fa-credit-card"></i> Ödemeyi Tamamla</button>
+        <button id="order-complete"><i class="fa-solid fa-credit-card"></i> Ödemeyi Tamamla</button>
       </section>
       <section id="more">
         <h2>Daha Fazla</h2>

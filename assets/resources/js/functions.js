@@ -445,8 +445,8 @@ async function selectMenu(selected = true) {
       notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      orderMenu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
-      orderPrice.innerHTML =
+      orderSection.menu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
+      orderSection.price.innerHTML =
         response.price == response.original
           ? `${response.price}₺`
           : `${response.price}₺ <span>${response.original}₺</span>`;
@@ -494,55 +494,55 @@ async function getLocations() {
     return;
   }
 
-  orderProvince.innerHTML = `<option hidden selected>İl</option>`;
-  orderDistrict.innerHTML = `<option hidden selected>İlçe</option>`;
+  orderSection.province.innerHTML = `<option hidden selected>İl</option>`;
+  orderSection.district.innerHTML = `<option hidden selected>İlçe</option>`;
 
   data.provinces.forEach((province) => {
-    orderProvince.innerHTML += `<option value="${province.id}">${province.name}</option>`;
+    orderSection.province.innerHTML += `<option value="${province.id}">${province.name}</option>`;
   });
 
   data.districts.forEach((district) => {
-    orderDistrict.innerHTML += `<option value="${district.id}" data-province="${district.province_id}">${district.name}</option>`;
+    orderSection.district.innerHTML += `<option value="${district.id}" data-province="${district.province_id}">${district.name}</option>`;
   });
 }
 
 /* =========={ Order }======================================== */
 
 function changeProvince() {
-  orderDistrict.selectedIndex = 0;
+  orderSection.district.selectedIndex = 0;
 
-  if (!orderProvince.selectedIndex)
-    for (let index = 1; index < orderDistrict.children.length; index++)
-      orderDistrict.children[index].classList.remove("disabled");
+  if (!orderSection.province.selectedIndex)
+    for (let index = 1; index < orderSection.district.children.length; index++)
+      orderSection.district.children[index].classList.remove("disabled");
   else
-    for (let index = 1; index < orderDistrict.children.length; index++) {
-      orderDistrict.children[index].classList.remove("disabled");
-      if (orderProvince.selectedIndex != orderDistrict.children[index].dataset.province)
-        orderDistrict.children[index].classList.add("disabled");
+    for (let index = 1; index < orderSection.district.children.length; index++) {
+      orderSection.district.children[index].classList.remove("disabled");
+      if (orderSection.province.selectedIndex != orderSection.district.children[index].dataset.province)
+        orderSection.district.children[index].classList.add("disabled");
     }
 }
 
 function changePromotion() {
-  orderPromotionStatus.className = "loading";
+  orderSection.promotionStatus.className = "loading";
 
-  if (!orderPromotion.value) {
-    orderPromotionStatus.className = "";
+  if (!orderSection.promotion.value) {
+    orderSection.promotionStatus.className = "";
     delete selectedMenu.promotion;
     selectMenu(false);
     return;
-  } else selectedMenu.promotion = orderPromotion.value;
+  } else selectedMenu.promotion = orderSection.promotion.value;
 
   setTimeout(async () => {
-    if (selectedMenu.promotion != orderPromotion.value) return;
+    if (selectedMenu.promotion != orderSection.promotion.value) return;
 
     let response = await post("promotion.php", { code: selectedMenu.promotion });
 
     switch (response.status) {
       case "error":
-        orderPromotionStatus.className = "error";
+        orderSection.promotionStatus.className = "error";
         break;
       case "success":
-        orderPromotionStatus.className = "success";
+        orderSection.promotionStatus.className = "success";
         break;
     }
 
@@ -551,19 +551,100 @@ function changePromotion() {
 }
 
 function changeDays() {
-  selectedMenu.days = orderDays.value;
+  selectedMenu.days = orderSection.days.value;
   selectMenu(false);
 }
 
-async function payment() {
-  let response = await post("payment", {
-    phase: "create",
-    code: registerSection.secondCode.value,
-    name: registerSection.name.value,
-    address: registerSection.address.value,
-    phone: registerSection.phone.value,
-    password: registerSection.password.value,
+async function completeOrder() {
+  if (!selectedMenu.id) {
+    notify("Lütfen menü seçiniz.");
+    return;
+  }
+
+  if (!orderSection.days.selectedIndex) {
+    notify("Lütfen gün sayısını seçiniz.");
+    return;
+  }
+
+  if (!orderSection.time.selectedIndex) {
+    notify("Lütfen teslimat saatini seçiniz.");
+    return;
+  }
+
+  if (!orderSection.name.value) {
+    notify("Lütfen isminizi giriniz.");
+    return;
+  }
+
+  if (!orderSection.phone.value) {
+    notify("Lütfen telefonunuzu giriniz.");
+    return;
+  }
+
+  if (!orderSection.email.value) {
+    notify("Lütfen e-posta adresinizi giriniz.");
+    return;
+  }
+
+  if (!orderSection.province.selectedIndex <= 0) {
+    notify("Lütfen ilinizi seçiniz.");
+    return;
+  }
+
+  if (!orderSection.district.selectedIndex <= 0) {
+    notify("Lütfen ilçenizi seçiniz.");
+    return;
+  }
+
+  if (!orderSection.address.value) {
+    notify("Lütfen adresinizi giriniz.");
+    return;
+  }
+
+  if (!orderSection.gender.selectedIndex) {
+    notify("Lütfen cinsiyetinizi seçiniz.");
+    return;
+  }
+
+  if (!orderSection.height.value) {
+    notify("Lütfen boyunuzu giriniz.");
+    return;
+  }
+
+  if (!orderSection.weight.value) {
+    notify("Lütfen kilonuzu giriniz.");
+    return;
+  }
+
+  let response = await post("order.php", {
+    id: selectedMenu.id,
+    days: selectedMenu.days,
+    time: orderSection.time.value,
+    promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
+    name: orderSection.name.value,
+    phone: orderSection.phone.value,
+    email: orderSection.email.value,
+    province: orderSection.province.value,
+    district: orderSection.district.value,
+    address: orderSection.address.value,
+    height: orderSection.height.value,
+    weight: orderSection.weight.value,
+    allergy: orderSection.allergy.value ? orderSection.allergy.value : "-",
+    disease: orderSection.disease.value ? orderSection.disease.value : "-",
+    occupation: orderSection.occupation.value ? orderSection.occupation.value : "-",
+    extra: orderSection.extra.value ? orderSection.extra.value : "-",
   });
 
-  console.log(response);
+  // switch (response.status) {
+  //   case "error":
+  //     notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");
+  //     break;
+  //   case "success":
+  //     orderSection.menu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
+  //     orderSection.price.innerHTML =
+  //       response.price == response.original
+  //         ? `${response.price}₺`
+  //         : `${response.price}₺ <span>${response.original}₺</span>`;
+  //     break;
+  // }
 }

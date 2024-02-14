@@ -43,7 +43,7 @@ const registerSection = {
 const loginUserButton = document.querySelector("#login button");
 
 const loginSection = {
-  email: document.querySelector("#login input[type='text']"),
+  email: document.querySelector("#login input[type='email']"),
   password: document.querySelector("#login input[type='password']"),
 };
 

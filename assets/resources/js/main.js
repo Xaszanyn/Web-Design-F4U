@@ -11,3 +11,5 @@ setInterval(() => {
 loginRememberedUser();
 
 getLocations();
+
+redirectOrder();

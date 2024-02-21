@@ -88,9 +88,12 @@ function slideGoRight(event) {
 }
 
 function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.") {
-  notification.textContent = message;
+  notification.innerHTML = message;
   notification.classList.add("displayed");
-  setTimeout(() => notification.classList.remove("displayed"), 5000);
+  setTimeout(() => {
+    notification.classList.remove("displayed");
+    setTimeout(() => (notification.innerHTML = ""), 500);
+  }, 5000);
 }
 
 /* =========={ Utility }========================================================================================== */
@@ -644,5 +647,17 @@ async function completeOrder() {
         location.href = response.result.returnUrl;
       } else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
+  }
+}
+
+function redirectOrder() {
+  let parameters = new Proxy(new URLSearchParams(location.search), {
+    get: (parameters, property) => parameters.get(property),
+  });
+
+  if (parameters.payment) {
+    notify(
+      `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor. İşlem yoğunluğuna göre en geç birkaç dakika içinde sisteme düşecektir.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilmiştir.`
+    );
   }
 }

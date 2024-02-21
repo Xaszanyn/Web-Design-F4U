@@ -1,8 +1,7 @@
-PAYMENT
-  [pending order ve orderların saklanması] +servis...
+COMPLETED_ORDERS
 
-redirect pageden parametrelerle fitgelsine get ile yönlendirme.
-yönlendirilen getin func'u (profil sayfasına)
+redirecte eklemeler
+
 
 servis için database servis yapısı, oluşacağı günlerin belirlenmesi vs.
 

@@ -50,6 +50,8 @@ ________________________________________________________________________________
 ...
 
 
+warningler ve varsa errorlar printlenmemeli
+
 forgot password
 
 

@@ -90,7 +90,7 @@ function slideGoRight(event) {
 function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.") {
   notification.textContent = message;
   notification.classList.add("displayed");
-  setTimeout(() => notification.classList.remove("displayed"), 4000);
+  setTimeout(() => notification.classList.remove("displayed"), 5000);
 }
 
 /* =========={ Utility }========================================================================================== */
@@ -635,18 +635,14 @@ async function completeOrder() {
     extra: orderSection.extra.value ? orderSection.extra.value : "-",
   });
 
-  console.log(response);
-
-  // switch (response.status) {
-  //   case "error":
-  //     notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");
-  //     break;
-  //   case "success":
-  //     orderSection.menu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
-  //     orderSection.price.innerHTML =
-  //       response.price == response.original
-  //         ? `${response.price}₺`
-  //         : `${response.price}₺ <span>${response.original}₺</span>`;
-  //     break;
-  // }
+  switch (response.status) {
+    case "error":
+      notify("Sipariş tamamlanırken bir problem oluştu, lütfen tekrar deneyiniz.");
+      break;
+    case "success":
+      if (response.result.status == "return_url") {
+        location.href = response.result.returnUrl;
+      } else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
+      break;
+  }
 }

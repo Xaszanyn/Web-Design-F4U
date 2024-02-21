@@ -635,6 +635,8 @@ async function completeOrder() {
     extra: orderSection.extra.value ? orderSection.extra.value : "-",
   });
 
+  console.log(response);
+
   // switch (response.status) {
   //   case "error":
   //     notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");

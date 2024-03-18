@@ -606,21 +606,6 @@ async function completeOrder() {
     return;
   }
 
-  if (!orderSection.gender.selectedIndex) {
-    notify("Lütfen cinsiyetinizi seçiniz.");
-    return;
-  }
-
-  if (!orderSection.height.value) {
-    notify("Lütfen boyunuzu giriniz.");
-    return;
-  }
-
-  if (!orderSection.weight.value) {
-    notify("Lütfen kilonuzu giriniz.");
-    return;
-  }
-
   if (company) {
     if (
       !orderSection.taxNumber.value ||
@@ -630,6 +615,21 @@ async function completeOrder() {
       !orderSection.companyAddress.value
     ) {
       notify("Lütfen şirket bilgilerini eksiksiz doldurunuz.");
+      return;
+    }
+  } else {
+    if (!orderSection.gender.selectedIndex) {
+      notify("Lütfen cinsiyetinizi seçiniz.");
+      return;
+    }
+
+    if (!orderSection.height.value) {
+      notify("Lütfen boyunuzu giriniz.");
+      return;
+    }
+
+    if (!orderSection.weight.value) {
+      notify("Lütfen kilonuzu giriniz.");
       return;
     }
   }

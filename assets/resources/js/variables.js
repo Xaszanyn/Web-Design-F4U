@@ -86,4 +86,15 @@ const orderSection = {
   occupation: document.querySelector("#order #order-occupation"),
   extra: document.querySelector("#order #order-extra"),
   complete: document.querySelector("#order #order-complete"),
+
+  individual: document.querySelector("#order #order-individual"),
+  company: document.querySelector("#order #order-company"),
+  taxNumber: document.querySelector("#order #order-tax-number"),
+  companyName: document.querySelector("#order #order-company-name"),
+  taxAdministration: document.querySelector("#order #order-tax-administration"),
+  taxMethod: document.querySelector("#order #order-tax-method"),
+  companyAddress: document.querySelector("#order #order-company-address"),
 };
+
+const companies = document.querySelectorAll("#order .company");
+const individuals = document.querySelectorAll("#order .individual");

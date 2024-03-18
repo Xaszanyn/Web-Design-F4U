@@ -57,7 +57,7 @@ assign(registerSection.third, registerThirdPhase);
 
 assign(loginUserButton, loginUser);
 
-uploadImageInput.addEventListener("change", uploadImage);
+// uploadImageInput.addEventListener("change", uploadImage);
 
 assign(logout, logoutUser);
 
@@ -75,3 +75,6 @@ orderSection.province.addEventListener("change", changeProvince);
 orderSection.promotion.addEventListener("input", changePromotion);
 orderSection.days.addEventListener("change", changeDays);
 assign(orderSection.complete, completeOrder);
+
+assign(orderSection.individual, () => switchOrderType(false));
+assign(orderSection.company, () => switchOrderType(true));

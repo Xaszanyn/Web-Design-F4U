@@ -559,6 +559,8 @@ function changeDays() {
 }
 
 async function completeOrder() {
+  let company = orderSection.company.classList.contains("active");
+
   if (!selectedMenu.id) {
     notify("Lütfen menü seçiniz.");
     return;
@@ -619,24 +621,62 @@ async function completeOrder() {
     return;
   }
 
-  let response = await post("order.php", {
-    id: selectedMenu.id,
-    days: selectedMenu.days,
-    time: orderSection.time.value,
-    promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
-    name: orderSection.name.value,
-    phone: orderSection.phone.value,
-    email: orderSection.email.value,
-    province: orderSection.province.value,
-    district: orderSection.district.value,
-    address: orderSection.address.value,
-    height: orderSection.height.value,
-    weight: orderSection.weight.value,
-    allergy: orderSection.allergy.value ? orderSection.allergy.value : "-",
-    disease: orderSection.disease.value ? orderSection.disease.value : "-",
-    occupation: orderSection.occupation.value ? orderSection.occupation.value : "-",
-    extra: orderSection.extra.value ? orderSection.extra.value : "-",
-  });
+  if (company) {
+    if (
+      !orderSection.taxNumber.value ||
+      !orderSection.companyName.value ||
+      !orderSection.taxAdministration.value ||
+      !orderSection.taxMethod.value ||
+      !orderSection.companyAddress.value
+    ) {
+      notify("Lütfen şirket bilgilerini eksiksiz doldurunuz.");
+      return;
+    }
+  }
+
+  let response;
+
+  if (company)
+    response = await post("company-order.php", {
+      id: selectedMenu.id,
+      days: selectedMenu.days,
+      time: orderSection.time.value,
+      promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
+      name: orderSection.name.value,
+      phone: orderSection.phone.value,
+      email: orderSection.email.value,
+      province: orderSection.province.value,
+      district: orderSection.district.value,
+      address: orderSection.address.value,
+      allergy: orderSection.allergy.value ? orderSection.allergy.value : "-",
+      disease: orderSection.disease.value ? orderSection.disease.value : "-",
+      extra: orderSection.extra.value ? orderSection.extra.value : "-",
+      taxNumber: orderSection.taxNumber.value,
+      companyName: orderSection.companyName.value,
+      taxAdministration: orderSection.taxAdministration.value,
+      taxMethod: orderSection.taxMethod.value,
+      companyAddress: orderSection.companyAddress.value,
+    });
+  else
+    response = await post("order.php", {
+      id: selectedMenu.id,
+      days: selectedMenu.days,
+      time: orderSection.time.value,
+      promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
+      name: orderSection.name.value,
+      phone: orderSection.phone.value,
+      email: orderSection.email.value,
+      province: orderSection.province.value,
+      district: orderSection.district.value,
+      address: orderSection.address.value,
+      gender: orderSection.gender.value,
+      height: orderSection.height.value,
+      weight: orderSection.weight.value,
+      allergy: orderSection.allergy.value ? orderSection.allergy.value : "-",
+      disease: orderSection.disease.value ? orderSection.disease.value : "-",
+      occupation: orderSection.occupation.value ? orderSection.occupation.value : "-",
+      extra: orderSection.extra.value ? orderSection.extra.value : "-",
+    });
 
   switch (response.status) {
     case "error":
@@ -659,5 +699,19 @@ function redirectOrder() {
     notify(
       `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor. İşlem yoğunluğuna göre en geç birkaç dakika içinde sisteme düşecektir.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilmiştir.`
     );
+  }
+}
+
+function switchOrderType(company) {
+  if (company) {
+    orderSection.individual.classList.remove("active");
+    orderSection.company.classList.add("active");
+    companies.forEach((company) => (company.style.display = "block"));
+    individuals.forEach((individual) => (individual.style.display = "none"));
+  } else {
+    orderSection.individual.classList.add("active");
+    orderSection.company.classList.remove("active");
+    companies.forEach((company) => (company.style.display = "none"));
+    individuals.forEach((individual) => (individual.style.display = "block"));
   }
 }

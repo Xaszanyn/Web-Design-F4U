@@ -241,6 +241,10 @@
         <p id="order-price">0₺</p>
         <hr />
         <p>Sipariş Bilgileri</p>
+        <div id="order-type">
+          <button class="active" id="order-individual">Bireysel</button>
+          <button id="order-company">Kurumsal</button>
+        </div>
         <div>
           <input id="order-name" type="text" placeholder="İsim Soyisim" />
           <i class="fa-solid fa-user"></i>
@@ -253,42 +257,62 @@
           <input id="order-email" type="email" placeholder="E-posta" />
           <i class="fa-solid fa-envelope"></i>
         </div>
+        <div class="company">
+          <input id="order-tax-number" type="text" placeholder="Vergi No / TCKN" />
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <div class="company">
+          <input id="order-company-name" type="text" placeholder="Şirket Ünvanı" />
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <div class="company">
+          <input id="order-tax-administration" type="text" placeholder="Vergi Dairesi" />
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <div class="company">
+          <input id="order-tax-method" type="text" placeholder="E-Fatura / E-Arşiv" />
+          <i class="fa-solid fa-building"></i>
+        </div>
         <div>
           <select id="order-province" class="normal"></select>
         </div>
         <div>
           <select id="order-district" class="normal"></select>
         </div>
+        <div class="company">
+          <textarea id="order-company-address" placeholder="Şirket Adresi" rows="3"></textarea>
+          <i class="fa-solid fa-building"></i>
+        </div>
         <div>
-          <textarea id="order-address" placeholder="Adres" rows="3"></textarea>
+          <textarea id="order-address" placeholder="Teslimat Adresi" rows="3"></textarea>
           <i class="fa-solid fa-location-dot"></i>
         </div>
         <hr />
-        <p>Kişisel Bilgiler</p>
-        <div>
+        <p class="individual">Kişisel Bilgiler</p>
+        <div class="individual">
           <select id="order-gender" class="normal">
             <option hidden selected>Cinsiyet</option>
             <option value="0">Erkek</option>
             <option value="1">Kadın</option>
           </select>
         </div>
-        <div>
+        <div class="individual">
           <span>Boyunuz</span>
           <input id="order-height" class="normal" type="number" placeholder="cm" />
         </div>
-        <div>
+        <div class="individual">
           <span>Kilonuz</span>
           <input id="order-weight" class="normal" type="number" placeholder="kg" />
         </div>
         <div>
-          <span>Alerjiniz varsa belirtiniz.</span>
+          <span>Alerji durumu varsa belirtiniz.</span>
           <input id="order-allergy" class="normal" type="text" />
         </div>
         <div>
-          <span>Kronik hastalığınız varsa belirtiniz.</span>
+          <span>Kronik hastalık durumu varsa belirtiniz.</span>
           <input id="order-disease" class="normal" type="text" />
         </div>
-        <div>
+        <div class="individual">
           <span>Mesleğiniz</span>
           <input id="order-occupation" class="normal" type="text" />
         </div>
@@ -330,11 +354,11 @@
           <li>Lorem ipsum dolor sit amet.</li> -->
           -
         </ul>
-        <br />
+        <!-- <br />
         <br />
         <br />
         <p>DEBUG IMAGE UPLOADER</p>
-        <input id="upload-image" type="file" accept="image/*" />
+        <input id="upload-image" type="file" accept="image/*" /> -->
       </section>
       <footer>
         <h2>İletişim</h2>

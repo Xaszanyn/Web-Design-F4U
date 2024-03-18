@@ -927,3 +927,24 @@ footer p {
   font-weight: 600;
   color: var(--red);
 }
+
+#order-type {
+  display: flex;
+  align-items: center;
+}
+
+#order #order-individual,
+#order #order-company {
+  margin: 5rem auto;
+  background-color: var(--gray);
+  transition: background-color var(--fast);
+}
+
+#order #order-individual.active,
+#order #order-company.active {
+  background-color: var(--blue);
+}
+
+#order .company {
+  display: none;
+}

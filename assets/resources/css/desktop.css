@@ -638,4 +638,9 @@
   #order #order-promotion-status.success {
     font-size: 1.5rem;
   }
+
+  #order #order-individual,
+  #order #order-company {
+    margin: 1rem auto;
+  }
 }

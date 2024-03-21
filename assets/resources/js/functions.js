@@ -335,6 +335,7 @@ async function loginDirect(email, password, remembered = false) {
     case "success":
       userButton.style.display = "flex";
       loginButton.style.display = "none";
+      registerButton.style.display = "none";
       menuLoginButton.style.display = "none";
       document.querySelector("#menu hr").style.display = "none";
 

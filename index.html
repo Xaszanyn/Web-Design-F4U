@@ -35,7 +35,7 @@
           <button><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</button>
         </div>
         <hr />
-        <span><u>Şifremi Unuttum</u></span>
+        <span id="forgot-password-from-login"><u>Şifremi Unuttum</u></span>
         <span id="register-from-login"
           >Üye değil misiniz? Hemen <i class="fa-solid fa-user-pen"></i> <u>Üye Ol</u></span
         >
@@ -110,6 +110,11 @@
           English
         </button>
       </section>
+      <section id="forgot-password">
+        <i class="fa-solid fa-xmark close"></i>
+        Eğer şifrenizi unuttuysanız durumu <a href="mailto:destek@fitgelsin.com">destek@fitgelsin.com</a> adresimize
+        mail olarak iletebilirsiniz.
+      </section>
     </section>
     <nav>
       <img src="./assets/images/temporary/logo.jpg" alt="Logo" />
@@ -120,9 +125,13 @@
           <i class="fa-solid fa-user"></i>
           Hesabım
         </div>
-        <div>
+        <div style="display: none">
           <i class="fa-solid fa-user"></i>
           Giriş Yap
+        </div>
+        <div>
+          <i class="fa-solid fa-user"></i>
+          Üye Ol
         </div>
         <div>
           <i class="fa-solid fa-bars"></i>
@@ -150,6 +159,7 @@
     </section>
     <main>
       <section id="home" class="active">
+        <div id="redirected-notification"></div>
         <div id="slide-cover">
           <div id="slide">
             <div data-slides="5" style="transform: translateX(0rem)">
@@ -342,18 +352,8 @@
         </p>
         <button id="user-edit"><i class="fa-solid fa-pen-to-square"></i> Bilgileri Düzenle</button>
         <button id="user-logout"><i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap</button>
-        <span>Mevcut Paketler</span>
-        <ul>
-          -
-          <!-- <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li> -->
-        </ul>
-        <span>Sipariş Geçmişi</span>
-        <ul>
-          <!-- <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li> -->
-          -
-        </ul>
+        <span>Tüm Siparişlerim</span>
+        <ul id="user-orders"></ul>
         <!-- <br />
         <br />
         <br />

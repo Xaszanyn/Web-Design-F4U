@@ -16,6 +16,7 @@ assign(popUp, closePopUp, popUp);
 
 assign(userButton, (event) => load(userButton, user));
 assign(loginButton, (event) => openPopUp(login));
+assign(registerButton, (event) => openPopUp(register));
 assign(menuButton, (event) => openPopUp(menu));
 
 assign(homeButton, (event) => load(homeButton, home));
@@ -49,6 +50,7 @@ assign(languageTr, (event) => translate(0));
 assign(languageEn, (event) => translate(1));
 
 assign(registerFromLogin, (event) => openAnotherPopUp(register));
+assign(forgotPasswordFromLogin, (event) => openAnotherPopUp(forgotPassword));
 assign(loginFromRegister, (event) => openAnotherPopUp(login));
 
 assign(registerSection.first, registerFirstPhase);

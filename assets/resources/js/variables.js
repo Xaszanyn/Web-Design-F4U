@@ -7,8 +7,8 @@ const navigation = document.querySelector("nav");
 const popUp = document.querySelector("#pop-up");
 const popUpsCloses = document.querySelectorAll("#pop-up .close");
 
-const [userButton, loginButton, menuButton] = document.querySelectorAll("#navigation > div");
-const [login, register, menu, language] = popUp.querySelectorAll("#pop-up > section");
+const [userButton, loginButton, registerButton, menuButton] = document.querySelectorAll("#navigation > div");
+const [login, register, menu, language, forgotPassword] = popUp.querySelectorAll("#pop-up > section");
 
 const [homeButton, menusButton, orderButton, moreButton] = document.querySelectorAll("#navigation-bottom > div");
 const [home, menus, order, more, user] = main.querySelectorAll("main > section");
@@ -22,8 +22,10 @@ const [menuLoginButton, menuHomeButton, menuMenusButton, menuOrderButton, menuMo
 const [languageTr, languageEn] = document.querySelectorAll("#language button");
 
 const notification = document.querySelector("#notification");
+const redirectedNotification = document.querySelector("#redirected-notification");
 
 const registerFromLogin = document.querySelector("#register-from-login");
+const forgotPasswordFromLogin = document.querySelector("#forgot-password-from-login");
 const loginFromRegister = document.querySelector("#login-from-register");
 
 const registerSection = {
@@ -60,6 +62,7 @@ const userName = document.querySelector("#user #user-name");
 const userEmail = document.querySelector("#user #user-email");
 const userPhone = document.querySelector("#user #user-phone");
 const userAddress = document.querySelector("#user #user-address");
+const userOrders = document.querySelector("#user #user-orders");
 
 const edit = document.querySelector("#user #user-edit");
 const logout = document.querySelector("#user #user-logout");

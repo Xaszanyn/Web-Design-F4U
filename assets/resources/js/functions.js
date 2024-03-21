@@ -87,13 +87,13 @@ function slideGoRight(event) {
   }rem)`;
 }
 
-function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.") {
+function notify(message = "Bir hata oluştu, lütfen tekrar deneyiniz.", duration = 5000) {
   notification.innerHTML = message;
   notification.classList.add("displayed");
   setTimeout(() => {
     notification.classList.remove("displayed");
     setTimeout(() => (notification.innerHTML = ""), 500);
-  }, 5000);
+  }, duration);
 }
 
 /* =========={ Utility }========================================================================================== */
@@ -199,9 +199,6 @@ async function registerFirstPhase(event) {
   }
 
   let response = await post("register.php", { phase: "register", email: registerSection.email.value });
-
-  console.log("notify sil");
-  notify(JSON.stringify(response));
 
   switch (response.status) {
     case "error":
@@ -345,6 +342,30 @@ async function loginDirect(email, password, remembered = false) {
       userEmail.innerHTML = response.information.email;
       userPhone.innerHTML = response.information.phone;
       userAddress.innerHTML = response.information.address;
+
+      response.information.orders.individual.forEach((order) => {
+        userOrders.innerHTML += `<li>
+          <span>Tarih: ${order.date}</span>
+          <span>Menü: ${order.menu_id}</span>
+          <span>Gün Sayısı: ${order.days}</span>
+          <span>Teslimat Saati: ${order.time}</span>
+          <span>Adres: ${order.province_id} ${order.district_id} ${order.address}</span>
+        </li>`;
+      });
+
+      response.information.orders.company.forEach((order) => {
+        userOrders.innerHTML += `<li>
+          <span>Şirket: ${order.company_name}</span>
+          <span>Tarih: ${order.date}</span>
+          <span>Gün Sayısı: ${order.days}</span>
+          <span>Teslimat Saati: ${order.time}</span>
+          <span>Teslimat Adresi: ${order.province_id} ${order.district_id} ${order.address}</span>
+          <span>Menü: ${order.menu_id}</span>
+          <span>Alerji Durumu: ${order.allergy}</span>
+          <span>Hastalık Durumu: ${order.disease}</span>
+          <span>Ek Açıklama: ${order.extra}</span>
+        </li>`;
+      });
 
       if (response.information.picture == "-") {
         userPicture.style.display = "none";
@@ -696,9 +717,8 @@ function redirectOrder() {
   });
 
   if (parameters.payment) {
-    notify(
-      `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor. İşlem yoğunluğuna göre en geç birkaç dakika içinde sisteme düşecektir.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilmiştir.`
-    );
+    redirectedNotification.innerHTML = `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor. İşlem yoğunluğuna göre en geç birkaç dakika içinde sisteme düşecektir.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilmiştir.`;
+    redirectedNotification.style.display = "block";
   }
 }
 

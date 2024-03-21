@@ -1,19 +1,18 @@
-COMPLETED_ORDERS
+MAIL SPAM CRISIS
 
-redirecte eklemeler
+after_order mail
 
+
+display orders
+
+order amount (order section, backend, calculate, database, display orders,)
+
+
+
+
+___ AFTER 1.0 ___
 
 servis için database servis yapısı, oluşacağı günlerin belirlenmesi vs.
-
-mevcut paketler ve sipariş geçmişi getirilmesi
-
-MAİL SERVİSİ!!!
-(sadece registiration, forgot password şimdilik dursun.)
-deletecodeyi sil
-
-
-
-REDIRECT FROM HTTP TO HTTPS
 
 
 
@@ -37,7 +36,7 @@ localstorageyle kalınan sayfayı ve giriş yap üye ol buton değişimini yap
 
 footer telefon adres mail insta detay doldurup linkle
 
-
+mail structure temp imge bağlı
 
 
 

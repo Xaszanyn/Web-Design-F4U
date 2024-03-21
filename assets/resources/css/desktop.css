@@ -108,6 +108,15 @@
     cursor: pointer;
   }
 
+  #pop-up #forgot-password {
+    font-size: 1.25rem;
+    padding: 2.5rem;
+  }
+
+  #pop-up #forgot-password a {
+    color: var(--blue);
+  }
+
   /* =========={ Main }========================================================================================== */
 
   main {
@@ -510,6 +519,10 @@
 
   #notification.displayed {
     top: 1rem;
+  }
+
+  #redirected-notification {
+    padding: 2.5rem;
   }
 
   /* =========={ User }========================================================================================== */

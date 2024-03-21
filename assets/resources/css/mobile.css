@@ -722,6 +722,13 @@ footer p {
   text-align: center;
 }
 
+#redirected-notification {
+  padding: 10rem;
+  color: var(--blue);
+  font-weight: 500;
+  display: none;
+}
+
 /* =========={ User }========================================================================================== */
 
 #user #user-information {

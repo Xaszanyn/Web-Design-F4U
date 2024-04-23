@@ -80,3 +80,5 @@ assign(orderSection.complete, completeOrder);
 
 assign(orderSection.individual, () => switchOrderType(false));
 assign(orderSection.company, () => switchOrderType(true));
+
+document.querySelectorAll("nav > img, nav h1").forEach((element) => assign(element, () => (location = "/")));

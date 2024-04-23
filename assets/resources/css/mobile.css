@@ -48,8 +48,13 @@ nav {
   height: 18rem;
 }
 
+nav > img {
+  cursor: pointer;
+}
+
 h1 {
   display: none;
+  cursor: pointer;
 }
 
 nav > span {

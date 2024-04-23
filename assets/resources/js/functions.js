@@ -628,6 +628,16 @@ async function completeOrder() {
     return;
   }
 
+  if (!orderSection.allergy.value) {
+    notify("Lütfen alerji durumunuzu belirtiniz.");
+    return;
+  }
+
+  if (!orderSection.disease.value) {
+    notify("Lütfen kronik hastalık durumunuzu belirtiniz.");
+    return;
+  }
+
   if (company) {
     if (
       !orderSection.taxNumber.value ||

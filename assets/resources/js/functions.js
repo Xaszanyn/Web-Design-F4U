@@ -468,6 +468,7 @@ async function selectMenu(selected = true) {
     id: selectedMenu.id,
     promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
     days: selectedMenu.days ? selectedMenu.days : 1,
+    amount: selectedMenu.amount ? selectedMenu.amount : 1,
   });
 
   switch (response.status) {
@@ -585,6 +586,11 @@ function changeDays() {
   selectMenu(false);
 }
 
+function changeAmount() {
+  selectedMenu.amount = orderSection.amount.value;
+  selectMenu(false);
+}
+
 async function completeOrder() {
   let company = orderSection.company.classList.contains("active");
 
@@ -689,6 +695,7 @@ async function completeOrder() {
       days: selectedMenu.days,
       time: orderSection.time.value,
       promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
+      amount: selectedMenu.amount,
       name: orderSection.name.value,
       phone: orderSection.phone.value,
       email: orderSection.email.value,
@@ -710,6 +717,7 @@ async function completeOrder() {
       days: selectedMenu.days,
       time: orderSection.time.value,
       promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
+      amount: selectedMenu.amount,
       name: orderSection.name.value,
       phone: orderSection.phone.value,
       email: orderSection.email.value,

@@ -75,6 +75,7 @@ const orderSection = {
   district: document.querySelector("#order #order-district"),
   promotion: document.querySelector("#order #order-promotion"),
   promotionStatus: document.querySelector("#order #order-promotion-status"),
+  amount: document.querySelector("#order #order-amount"),
   days: document.querySelector("#order #order-days"),
   time: document.querySelector("#order #order-time"),
   name: document.querySelector("#order #order-name"),

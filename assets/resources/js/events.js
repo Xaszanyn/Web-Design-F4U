@@ -76,6 +76,7 @@ assign(
 orderSection.province.addEventListener("change", changeProvince);
 orderSection.promotion.addEventListener("input", changePromotion);
 orderSection.days.addEventListener("change", changeDays);
+orderSection.amount.addEventListener("change", changeAmount);
 assign(orderSection.complete, completeOrder);
 
 assign(orderSection.individual, () => switchOrderType(false));

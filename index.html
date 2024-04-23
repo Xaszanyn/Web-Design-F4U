@@ -252,6 +252,17 @@
           <input id="order-promotion" type="text" placeholder="Promosyon Kodu (Opsiyonel)" />
           <i class="fa-solid fa-percent"></i>
         </div>
+        <div>
+          <span>Sipariş Adeti</span>
+          <input
+            id="order-amount"
+            type="number"
+            min="1"
+            value="1"
+            class="normal"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+          />
+        </div>
         <p id="order-price">0₺</p>
         <hr />
         <p>Sipariş Bilgileri</p>

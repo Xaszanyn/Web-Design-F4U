@@ -198,6 +198,11 @@ async function registerFirstPhase(event) {
     return;
   }
 
+  if (!registerSalesContract.classList.contains("checked")) {
+    notify("Lütfen KVKK metnini kabul ediniz.");
+    return;
+  }
+
   let response = await post("register.php", { phase: "register", email: registerSection.email.value });
 
   switch (response.status) {
@@ -638,12 +643,22 @@ async function completeOrder() {
     return;
   }
 
+  if (!salesContract.classList.contains("checked")) {
+    notify("Lütfen Satış Sözleşmesi metnini kabul ediniz.");
+    return;
+  }
+
+  if (!KVKK.classList.contains("checked")) {
+    notify("Lütfen KVKK metnini kabul ediniz.");
+    return;
+  }
+
   if (company) {
     if (
       !orderSection.taxNumber.value ||
       !orderSection.companyName.value ||
       !orderSection.taxAdministration.value ||
-      !orderSection.taxMethod.value ||
+      !orderSection.taxMethod.selectedIndex ||
       !orderSection.companyAddress.value
     ) {
       notify("Lütfen şirket bilgilerini eksiksiz doldurunuz.");

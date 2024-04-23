@@ -312,7 +312,6 @@ main > section > h2 {
 #register-phase {
   position: relative;
   transition: height var(--slow);
-  height: 40rem;
 }
 
 #register-phase > div {
@@ -321,6 +320,25 @@ main > section > h2 {
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity var(--fast);
+}
+
+#register-phase.first .checkbox {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  margin: 0 1rem 0 0;
+  border: 1rem solid var(--red);
+  background-color: transparent;
+  transition: border-color var(--fast), background-color var(--fast);
+}
+
+#register-phase.first .checkbox.checked {
+  border-color: var(--dark-green);
+  background-color: var(--green);
+}
+
+#register-phase.first {
+  height: 50rem;
 }
 
 #register-phase.second {
@@ -337,6 +355,34 @@ main > section > h2 {
   opacity: 1;
   transition: opacity var(--delayed-fast);
   z-index: 110;
+}
+
+#order > div.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+#order > div.checkbox > .checkbox {
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  margin: 0 2.5rem 0 0;
+  border: 1rem solid var(--red);
+  background-color: transparent;
+  transition: border-color var(--fast), background-color var(--fast);
+}
+
+#order > div.checkbox > .checkbox.checked {
+  border-color: var(--dark-green);
+  background-color: var(--green);
+}
+
+#order > div.checkbox > span {
+  width: calc(100% - 7.5rem);
+}
+
+#order > div.checkbox > span > a {
+  color: var(--blue);
 }
 
 /* =========={ Footer }========================================================================================== */

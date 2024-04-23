@@ -98,6 +98,7 @@ const orderSection = {
   taxMethod: document.querySelector("#order #order-tax-method"),
   companyAddress: document.querySelector("#order #order-company-address"),
 };
+const [registerSalesContract, salesContract, KVKK] = document.querySelectorAll("button.checkbox");
 
 const companies = document.querySelectorAll("#order .company");
 const individuals = document.querySelectorAll("#order .individual");

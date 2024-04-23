@@ -49,6 +49,10 @@
               <input type="email" placeholder="E-posta" />
               <i class="fa-solid fa-envelope"></i>
             </div>
+            <span>
+              <button class="checkbox"></button>
+              <a href="./kvkk-onay-sözleşmesi.html" target="_blank">KVKK Onay Sözleşmesi</a> metnini kabul ediyorum.
+            </span>
             <button id="register-first"><i class="fa-solid fa-right-to-bracket"></i> Devam</button>
             <hr />
             <span id="login-from-register"
@@ -280,7 +284,11 @@
           <i class="fa-solid fa-building"></i>
         </div>
         <div class="company">
-          <input id="order-tax-method" type="text" placeholder="E-Fatura / E-Arşiv" />
+          <select id="order-tax-method">
+            <option hidden selected>E-Fatura / E-Arşiv</option>
+            <option value="e-fatura">E-Fatura</option>
+            <option value="e-arşiv">E-Arşiv</option>
+          </select>
           <i class="fa-solid fa-building"></i>
         </div>
         <div>
@@ -330,6 +338,19 @@
           <span>Eklemek istediğiniz varsa belirtiniz.</span>
           <textarea id="order-extra" class="normal" rows="3"></textarea>
         </div>
+        <div class="checkbox">
+          <button class="checkbox"></button>
+          <span>
+            <a href="./satış-sözleşmesi.html" target="_blank">Satış Sözleşmesi</a> metnini okudum ve kabul ediyorum
+          </span>
+        </div>
+        <div class="checkbox">
+          <button class="checkbox"></button>
+          <span>
+            <a href="./kvkk-onay-sözleşmesi.html" target="_blank">KVKK Onay Sözleşmesi</a> metnini okudum ve kabul
+            ediyorum
+          </span>
+        </div>
         <button id="order-complete"><i class="fa-solid fa-credit-card"></i> Ödemeyi Tamamla</button>
       </section>
       <section id="more">
@@ -347,10 +368,8 @@
           </div>
         </div>
         <span>Adres</span>
-        <p id="user-address">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus voluptate necessitatibus alias!
-        </p>
-        <button id="user-edit"><i class="fa-solid fa-pen-to-square"></i> Bilgileri Düzenle</button>
+        <p id="user-address">Adresi Bilgisi</p>
+        <!-- <button id="user-edit"><i class="fa-solid fa-pen-to-square"></i> Bilgileri Düzenle</button> -->
         <button id="user-logout"><i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap</button>
         <span>Tüm Siparişlerim</span>
         <ul id="user-orders"></ul>
@@ -358,11 +377,13 @@
       </section>
       <footer>
         <h2>İletişim</h2>
-        <span><i class="fa-solid fa-location-dot"></i> İçmeler Mahallesi 124. Sokak 82C, Marmaris / İzmir</span>
+        <span>
+          <i class="fa-solid fa-location-dot"></i> Köprülü Veysipaşa Mahallesi 1609. Sokak No:1 Efeler / Aydın</span
+        >
         <span><i class="fa-solid fa-envelope"></i> info@fitgelsin.com</span>
         <span><i class="fa-solid fa-phone"></i> +90 212 360 50 45</span>
         <span><i class="fa-brands fa-instagram"></i> fitgelsin</span>
-        <p>Fit Gelsin &copy; 2023, Tüm hakları saklıdır.</p>
+        <p>Fit Gelsin &copy; Tüm hakları saklıdır.</p>
       </footer>
     </main>
     <canvas id="upload-image-canvas"></canvas>

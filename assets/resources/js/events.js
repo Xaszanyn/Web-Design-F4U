@@ -82,3 +82,7 @@ assign(orderSection.individual, () => switchOrderType(false));
 assign(orderSection.company, () => switchOrderType(true));
 
 document.querySelectorAll("nav > img, nav h1").forEach((element) => assign(element, () => (location = "/")));
+
+assign(registerSalesContract, () => registerSalesContract.classList.toggle("checked"));
+assign(salesContract, () => salesContract.classList.toggle("checked"));
+assign(KVKK, () => KVKK.classList.toggle("checked"));

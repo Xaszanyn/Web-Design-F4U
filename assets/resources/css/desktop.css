@@ -609,12 +609,16 @@
     display: inline-block;
   }
 
-  #user #user-edit {
+  /* #user #user-edit {
     margin: 0 1rem 0 25rem;
-  }
+  } */
+
+  /* #user #user-logout {
+    margin: 0;
+  } */
 
   #user #user-logout {
-    margin: 0;
+    margin: 0 1rem 0 25rem;
   }
 
   /* =========={ Order }========================================================================================== */

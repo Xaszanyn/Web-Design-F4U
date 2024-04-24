@@ -864,14 +864,19 @@ footer p {
   display: block;
 }
 
-#user #user-edit {
+/* #user #user-edit {
   background-color: var(--green);
   margin: 7.5rem 5rem 2.5rem;
-}
+} */
+
+/* #user #user-logout {
+  background-color: var(--red);
+  margin: 0 5rem 10rem;
+} */
 
 #user #user-logout {
   background-color: var(--red);
-  margin: 0 5rem 10rem;
+  margin: 7.5rem 5rem 2.5rem;
 }
 
 /* =========={ Order }========================================================================================== */

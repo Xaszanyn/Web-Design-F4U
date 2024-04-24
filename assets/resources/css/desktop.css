@@ -598,8 +598,7 @@
     margin: 2.5rem 25rem 1rem;
   }
 
-  #user p,
-  #user ul {
+  #user p {
     margin: 1rem 25rem 2.5rem;
   }
 
@@ -619,6 +618,18 @@
 
   #user #user-logout {
     margin: 0 1rem 0 25rem;
+  }
+
+  #user ul {
+    margin: 0 25rem 2.5rem;
+  }
+
+  #user li {
+    margin-top: 2rem;
+  }
+
+  #user li span:not(:first-of-type) {
+    margin-left: 1.6rem;
   }
 
   /* =========={ Order }========================================================================================== */

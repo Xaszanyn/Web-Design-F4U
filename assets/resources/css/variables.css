@@ -20,11 +20,11 @@
 
   --delay: 0s 0.3s;
 
-  --slide-1: url("../../images/temporary/s1.jpg");
-  --slide-2: url("../../images/temporary/s2.jpg");
-  --slide-3: url("../../images/temporary/s3.jpg");
-  --slide-4: url("../../images/temporary/s4.jpg");
-  --slide-5: url("../../images/temporary/s5.jpg");
+  --slide-1: url("../../images/slide/1.JPG");
+  --slide-2: url("../../images/slide/2.jpg");
+  --slide-3: url("../../images/slide/3.jpg");
+  --slide-4: url("../../images/slide/4.JPG");
+  --slide-5: url("../../images/slide/5.jpg");
 }
 
 @keyframes spin {

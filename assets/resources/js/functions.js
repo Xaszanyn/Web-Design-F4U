@@ -520,13 +520,13 @@ async function getContents() {
 async function getLocations() {
   let data = await get("locations.php");
 
+  orderSection.province.innerHTML = `<option hidden selected>İl</option>`;
+  orderSection.district.innerHTML = `<option hidden selected>İlçe</option>`;
+
   if (data.status == "error") {
     notify("Konumlar getirilirken bir problem oluştu. Lütfen sayfayı yenileyiniz.");
     return;
   }
-
-  orderSection.province.innerHTML = `<option hidden selected>İl</option>`;
-  orderSection.district.innerHTML = `<option hidden selected>İlçe</option>`;
 
   data.provinces.forEach((province) => {
     orderSection.province.innerHTML += `<option value="${province.id}">${province.name}</option>`;
@@ -544,12 +544,12 @@ function changeProvince() {
 
   if (!orderSection.province.selectedIndex)
     for (let index = 1; index < orderSection.district.children.length; index++)
-      orderSection.district.children[index].classList.remove("disabled");
+      orderSection.district.children[index].hidden = false;
   else
     for (let index = 1; index < orderSection.district.children.length; index++) {
-      orderSection.district.children[index].classList.remove("disabled");
+      orderSection.district.children[index].hidden = false;
       if (orderSection.province.selectedIndex != orderSection.district.children[index].dataset.province)
-        orderSection.district.children[index].classList.add("disabled");
+        orderSection.district.children[index].hidden = true;
     }
 }
 
@@ -751,7 +751,7 @@ function redirectOrder() {
   });
 
   if (parameters.payment) {
-    redirectedNotification.innerHTML = `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor. İşlem yoğunluğuna göre en geç birkaç dakika içinde sisteme düşecektir.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilmiştir.`;
+    redirectedNotification.innerHTML = `Ödemeniz başarıyla alınmıştır, siparişiniz şu an işleniyor.<br>${parameters.payment} numaralı siparişinizin detayları mail olarak iletilecektir. Uzman diyetisyen ekibimiz kayıtlı telefonunuzdan sizinle bir iş günü içinde iletişime geçecektir. Sağlıklı günler dileriz.`;
     redirectedNotification.style.display = "block";
   }
 }

@@ -337,12 +337,17 @@ main > section > h2 {
   background-color: var(--green);
 }
 
+#register-phase.second p {
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
 #register-phase.first {
   height: 50rem;
 }
 
 #register-phase.second {
-  height: 25rem;
+  height: 50rem;
 }
 
 #register-phase.third {

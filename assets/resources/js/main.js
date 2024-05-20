@@ -13,3 +13,5 @@ loginRememberedUser();
 getLocations();
 
 redirectOrder();
+
+orderSection.days.value = 1; // For iPhone browsers.

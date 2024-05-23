@@ -433,7 +433,7 @@ async function getMenus() {
 
     content.className = "menu";
 
-    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/temporary/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}"><i class="fa-solid fa-cart-shopping"></i> Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
+    content.innerHTML = `<i class="fa-solid fa-caret-left expand"></i><div class="menu-heading"><img src="./assets/images/menus/${menu.picture}" alt="Menü" /><div><h4>${menu.name}</h4><p>${menu.description}</p><button data-id="${menu.id}" data-name="${menu.name}" data-picture="${menu.picture}"><i class="fa-solid fa-cart-shopping"></i> Menüyü Seç</button></div></div><div class="menu-body"><hr />${menu.content}</div>`;
 
     menus.appendChild(content);
   });
@@ -476,7 +476,7 @@ async function selectMenu(selected = true) {
       notify("Fiyat getirilirken bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      orderSection.menu.innerHTML = `<img src="./assets/images/temporary/${selectedMenu.picture}"> ${selectedMenu.name}`;
+      orderSection.menu.innerHTML = `<img src="./assets/images/menus/${selectedMenu.picture}"> ${selectedMenu.name}`;
       orderSection.price.innerHTML =
         response.price == response.original
           ? `${response.price}₺`

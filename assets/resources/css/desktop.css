@@ -436,6 +436,7 @@
   .menu .menu-body video,
   .menu .menu-body iframe {
     width: 100%;
+    max-height: 50rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
   }

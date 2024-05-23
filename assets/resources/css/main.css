@@ -27,6 +27,7 @@ iframe {
   display: block;
   width: auto;
   height: auto;
+  object-fit: cover;
 }
 
 button,

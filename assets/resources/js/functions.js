@@ -599,7 +599,7 @@ async function completeOrder() {
     return;
   }
 
-  if (!orderSection.days.selectedIndex) {
+  if (orderSection.days.selectedIndex <= 0) {
     notify("Lütfen gün sayısını seçiniz.");
     return;
   }
@@ -717,7 +717,7 @@ async function completeOrder() {
       days: selectedMenu.days,
       time: orderSection.time.value,
       promotion: selectedMenu.promotion ? selectedMenu.promotion : "-",
-      amount: selectedMenu.amount,
+      amount: selectedMenu.amount ? selectedMenu.amount : 1, // For iPhone browsers.
       name: orderSection.name.value,
       phone: orderSection.phone.value,
       email: orderSection.email.value,

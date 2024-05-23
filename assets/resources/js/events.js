@@ -24,7 +24,11 @@ assign(menusButton, (event) => {
   getMenus();
   load(menusButton, menus);
 });
-assign(orderButton, (event) => load(orderButton, order));
+assign(orderButton, (event) => {
+  load(orderButton, order);
+  orderSection.days.selectedIndex = 0; // For iPhone browsers.
+  orderSection.amount.value = 1;
+});
 assign(moreButton, (event) => {
   getContents();
   load(moreButton, more);
@@ -38,7 +42,11 @@ assign(menuMenusButton, (event) => {
   getMenus();
   closePopUpThenLoad(menusButton, menus);
 });
-assign(menuOrderButton, (event) => closePopUpThenLoad(orderButton, order));
+assign(menuOrderButton, (event) => {
+  closePopUpThenLoad(orderButton, order);
+  orderSection.days.selectedIndex = 0; // For iPhone browsers.
+  orderSection.amount.value = 1;
+});
 assign(menuMoreButton, (event) => {
   getContents();
   closePopUpThenLoad(moreButton, more);

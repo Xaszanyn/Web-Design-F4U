@@ -192,16 +192,14 @@ async function post(endpoint, body) {
 
 async function post2(endpoint, body) {
   try {
-    return await fetch("services/" + endpoint, {
+    let x = await fetch("services/" + endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    })
-      .then((response) => response.text())
-      .then((response) => {
-        notify(response);
-        return response.json();
-      });
+    }).then((response) => response.json());
+
+    notify(JSON.stringify(x));
+    return x;
   } catch {
     return {
       status: "error",

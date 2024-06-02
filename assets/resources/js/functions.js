@@ -190,23 +190,6 @@ async function post(endpoint, body) {
   }
 }
 
-async function post2(endpoint, body) {
-  try {
-    let x = await fetch("services/" + endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).then((response) => response.json());
-
-    notify(JSON.stringify(x));
-    return x;
-  } catch {
-    return {
-      status: "error",
-    };
-  }
-}
-
 /* =========={ Register }======================================== */
 
 async function registerFirstPhase(event) {
@@ -707,7 +690,7 @@ async function completeOrder() {
   let response;
 
   if (company)
-    response = await post2("company-order.php", {
+    response = await post("company-order.php", {
       id: selectedMenu.id,
       days: selectedMenu.days,
       time: orderSection.time.value,
@@ -729,7 +712,7 @@ async function completeOrder() {
       companyAddress: orderSection.companyAddress.value,
     });
   else
-    response = await post2("order.php", {
+    response = await post("order.php", {
       id: selectedMenu.id,
       days: selectedMenu.days,
       time: orderSection.time.value,
@@ -752,13 +735,12 @@ async function completeOrder() {
 
   switch (response.status) {
     case "error":
-      // notify("Sipariş tamamlanırken bir problem oluştu, lütfen tekrar deneyiniz.");
+      notify("Sipariş tamamlanırken bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
     case "success":
-      if (response.result.status == "return_url") {
-        location.href = response.result.returnUrl;
-      }
-      // } else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
+      if (response.result.status == "return_url") location.href = response.result.returnUrl;
+      else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
+
       break;
   }
 }

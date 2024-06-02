@@ -752,12 +752,13 @@ async function completeOrder() {
 
   switch (response.status) {
     case "error":
-      notify("Sipariş tamamlanırken bir problem oluştu, lütfen tekrar deneyiniz.");
+      // notify("Sipariş tamamlanırken bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
     case "success":
       if (response.result.status == "return_url") {
         location.href = response.result.returnUrl;
-      } else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
+      }
+      // } else notify("Sipariş tamamlanırken ödeme ile ilgili bir problem oluştu, lütfen tekrar deneyiniz.");
       break;
   }
 }

@@ -190,6 +190,25 @@ async function post(endpoint, body) {
   }
 }
 
+async function post2(endpoint, body) {
+  try {
+    return await fetch("services/" + endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.text())
+      .then((response) => {
+        notify(response);
+        return response.json();
+      });
+  } catch {
+    return {
+      status: "error",
+    };
+  }
+}
+
 /* =========={ Register }======================================== */
 
 async function registerFirstPhase(event) {
@@ -690,7 +709,7 @@ async function completeOrder() {
   let response;
 
   if (company)
-    response = await post("company-order.php", {
+    response = await post2("company-order.php", {
       id: selectedMenu.id,
       days: selectedMenu.days,
       time: orderSection.time.value,
@@ -712,7 +731,7 @@ async function completeOrder() {
       companyAddress: orderSection.companyAddress.value,
     });
   else
-    response = await post("order.php", {
+    response = await post2("order.php", {
       id: selectedMenu.id,
       days: selectedMenu.days,
       time: orderSection.time.value,

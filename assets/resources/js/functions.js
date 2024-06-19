@@ -321,13 +321,11 @@ async function registerThirdPhase(event) {
       break;
     case "success":
       notify("Üyelik kaydı başarıyla oluşturuldu.");
-      registerSection.phase.classList.remove("third");
-      registerSection.phase.classList.add("first");
       closePopUp();
-      registerReturn();
       let email = localStorage.register;
       localStorage.clear();
       loginDirect(email, registerSection.password.value);
+      registerReturn();
       break;
   }
 }

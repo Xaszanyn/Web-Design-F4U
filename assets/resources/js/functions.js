@@ -282,7 +282,7 @@ async function registerThirdPhase(event) {
     return;
   }
 
-  if (registerSection.password != registerSection.passwordCheck) {
+  if (registerSection.password.value != registerSection.passwordCheck.value) {
     notify("Şifreler eşleşmiyor, lütfen tekrar deneyiniz.");
     return;
   }

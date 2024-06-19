@@ -9,7 +9,8 @@
 
   /* =========={ Loading }========================================================================================== */
 
-  #loading {
+  #loading,
+  #input-loading {
     font-size: 2rem;
   }
 
@@ -254,7 +255,7 @@
   }
 
   #register-phase.third {
-    height: 20rem;
+    height: 25rem;
   }
 
   #order > div.checkbox > .checkbox {

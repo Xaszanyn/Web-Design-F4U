@@ -198,12 +198,20 @@ async function registerFirstPhase(event) {
     return;
   }
 
+  if (!registerSection.email.value.includes("@") || !registerSection.email.value.includes(".")) {
+    notify("E-posta adresiniz geçerli değildir, lütfen tekrar deneyiniz.");
+  }
+
   if (!registerSalesContract.classList.contains("checked")) {
     notify("Lütfen KVKK metnini kabul ediniz.");
     return;
   }
 
+  inputLoading.classList.add("loading");
+
   let response = await post("register.php", { phase: "register", email: registerSection.email.value });
+
+  inputLoading.classList.remove("loading");
 
   switch (response.status) {
     case "error":
@@ -229,7 +237,11 @@ async function registerSecondPhase(event) {
     return;
   }
 
+  inputLoading.classList.add("loading");
+
   let response = await post("register.php", { phase: "confirm", code: registerSection.code.value });
+
+  inputLoading.classList.remove("loading");
 
   registerSection.secondCode.value = response.code;
 
@@ -241,13 +253,13 @@ async function registerSecondPhase(event) {
       notify("Doğrulama kodu zaman aşımına uğradı.");
       registerSection.phase.classList.remove("second");
       registerSection.phase.classList.add("first");
-      closePopUp();
+      registerReturn();
       break;
     case "maximum_attempt":
       notify("Deneme hakkınızı doldurdunuz.");
       registerSection.phase.classList.remove("second");
       registerSection.phase.classList.add("first");
-      closePopUp();
+      registerReturn();
       break;
     case "code_invalid":
       notify("Hatalı kod girdiniz, lütfen tekrar deneyiniz.");
@@ -270,6 +282,13 @@ async function registerThirdPhase(event) {
     return;
   }
 
+  if (registerSection.password != registerSection.passwordCheck) {
+    notify("Şifreler eşleşmiyor, lütfen tekrar deneyiniz.");
+    return;
+  }
+
+  inputLoading.classList.add("loading");
+
   let response = await post("register.php", {
     phase: "create",
     code: registerSection.secondCode.value,
@@ -279,6 +298,8 @@ async function registerThirdPhase(event) {
     password: registerSection.password.value,
   });
 
+  inputLoading.classList.remove("loading");
+
   switch (response.status) {
     case "error":
       notify();
@@ -287,13 +308,13 @@ async function registerThirdPhase(event) {
       notify("Üyelik kaydı zaman aşımına uğradı.");
       registerSection.phase.classList.remove("third");
       registerSection.phase.classList.add("first");
-      closePopUp();
+      registerReturn();
       break;
     case "maximum_attempt":
       notify("Deneme hakkınızı doldurdunuz.");
       registerSection.phase.classList.remove("third");
       registerSection.phase.classList.add("first");
-      closePopUp();
+      registerReturn();
       break;
     case "code_invalid":
       notify("Hatalı kod girdiniz, lütfen tekrar deneyiniz.");
@@ -303,11 +324,22 @@ async function registerThirdPhase(event) {
       registerSection.phase.classList.remove("third");
       registerSection.phase.classList.add("first");
       closePopUp();
+      registerReturn();
       let email = localStorage.register;
       localStorage.clear();
       loginDirect(email, registerSection.password.value);
       break;
   }
+}
+
+function registerReturn() {
+  registerSection.phase.className = "first";
+  registerSection.code.value = "";
+  registerSection.name.value = "";
+  registerSection.phone.value = "";
+  registerSection.address.value = "";
+  registerSection.password.value = "";
+  registerSection.passwordCheck.value = "";
 }
 
 /* =========={ Login }======================================== */
@@ -325,10 +357,14 @@ function loginUser() {
 }
 
 async function loginDirect(email, password, remembered = false) {
+  inputLoading.classList.add("loading");
+
   let response = await post("login.php", {
     email,
     password,
   });
+
+  inputLoading.classList.remove("loading");
 
   switch (response.status) {
     case "error":
@@ -689,6 +725,8 @@ async function completeOrder() {
 
   let response;
 
+  inputLoading.classList.add("loading");
+
   if (company)
     response = await post("company-order.php", {
       id: selectedMenu.id,
@@ -732,6 +770,8 @@ async function completeOrder() {
       occupation: orderSection.occupation.value ? orderSection.occupation.value : "-",
       extra: orderSection.extra.value ? orderSection.extra.value : "-",
     });
+
+  inputLoading.classList.remove("loading");
 
   switch (response.status) {
     case "error":

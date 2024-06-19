@@ -10,12 +10,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/resources/css/main.css?v=0.8" />
+    <link rel="stylesheet" href="./assets/resources/css/main.css?v=0.9" />
     <title>Fit4U</title>
   </head>
   <body class="initial">
     <section id="loading">
       <img src="./assets/images/temporary/logo.jpg" alt="Logo" />
+      <i class="fa-solid fa-circle-notch fa-spin"></i>
+    </section>
+    <section id="input-loading">
       <i class="fa-solid fa-circle-notch fa-spin"></i>
     </section>
     <section id="notification"></section>
@@ -60,12 +63,18 @@
             >
           </div>
           <div>
-            <p>Doğrulama kodunu bulamadıysanız spam klasörünü kontrol ediniz.</p>
+            <p>
+              Servis yoğunluğuna göre süre etkilenecektir, lütfen bekleyiniz. Doğrulama kodunu bulamadıysanız spam
+              klasörünü kontrol ediniz.
+            </p>
             <div>
               <input type="text" placeholder="Doğrulama Kodu" />
               <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <button id="register-second"><i class="fa-solid fa-right-to-bracket"></i> Devam</button>
+            <p class="button">
+              <button id="register-second"><i class="fa-solid fa-right-to-bracket"></i> Devam</button>
+              <button class="cancel" id="register-second"><i class="fa-solid fa-rotate-left"></i> İptal</button>
+            </p>
           </div>
           <div>
             <div>
@@ -84,8 +93,13 @@
               <input type="password" placeholder="Şifre" />
               <i class="fa-solid fa-key"></i>
             </div>
+            <div>
+              <input type="password-check" placeholder="Şifre (Tekrar)" />
+              <i class="fa-solid fa-check"></i>
+            </div>
             <input type="hidden" />
             <button id="register-third"><i class="fa-solid fa-id-card"></i> Üyeliği Tamamla</button>
+            <button class="cancel" id="register-second"><i class="fa-solid fa-rotate-left"></i> İptal</button>
           </div>
         </div>
       </section>
@@ -396,9 +410,9 @@
       </footer>
     </main>
     <canvas id="upload-image-canvas"></canvas>
-    <script src="./assets/resources/js/variables.js?v=0.8"></script>
-    <script src="./assets/resources/js/functions.js?v=0.8"></script>
-    <script src="./assets/resources/js/events.js?v=0.8"></script>
-    <script src="./assets/resources/js/main.js?v=0.8"></script>
+    <script src="./assets/resources/js/variables.js?v=0.9"></script>
+    <script src="./assets/resources/js/functions.js?v=0.9"></script>
+    <script src="./assets/resources/js/events.js?v=0.9"></script>
+    <script src="./assets/resources/js/main.js?v=0.9"></script>
   </body>
 </html>

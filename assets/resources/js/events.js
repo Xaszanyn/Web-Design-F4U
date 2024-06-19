@@ -95,3 +95,7 @@ document.querySelectorAll("nav > img, nav h1").forEach((element) => assign(eleme
 assign(registerSalesContract, () => registerSalesContract.classList.toggle("checked"));
 assign(salesContract, () => salesContract.classList.toggle("checked"));
 assign(KVKK, () => KVKK.classList.toggle("checked"));
+
+document.querySelectorAll(".cancel").forEach((cancel) => {
+  assign(cancel, registerReturn);
+});

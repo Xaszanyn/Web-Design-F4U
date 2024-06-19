@@ -1,4 +1,5 @@
 const loading = document.querySelector("#loading");
+const inputLoading = document.querySelector("#input-loading");
 
 const main = document.querySelector("main");
 
@@ -35,10 +36,11 @@ const registerSection = {
   code: document.querySelector("#register-phase > :nth-of-type(2) input"),
   second: document.querySelector("#register-second"),
   secondCode: document.querySelector("#register-phase > :last-of-type > input[type='hidden']"),
-  name: document.querySelector("#register-phase > :last-of-type > :first-of-type > input"),
+  name: document.querySelector("#register-phase > :last-of-type > :nth-of-type(1) > input"),
   phone: document.querySelector("#register-phase > :last-of-type > :nth-of-type(2) > input"),
   address: document.querySelector("#register-phase > :last-of-type > :nth-of-type(3) > textarea"),
-  password: document.querySelector("#register-phase > :last-of-type > :last-of-type > input"),
+  password: document.querySelector("#register-phase > :last-of-type > :nth-of-type(4) > input"),
+  passwordCheck: document.querySelector("#register-phase > :last-of-type > :nth-of-type(5) > input"),
   third: document.querySelector("#register-third"),
 };
 

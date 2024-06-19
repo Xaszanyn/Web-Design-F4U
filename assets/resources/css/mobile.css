@@ -1,20 +1,30 @@
 /* =========={ Loading }========================================================================================== */
 
-#loading {
+#loading,
+#input-loading {
   width: 110rem;
   height: 110vh;
   position: fixed;
   top: -5vh;
   left: -115rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 10rem;
-  background-color: var(--white);
-  z-index: 80;
   opacity: 0;
   transition: opacity var(--fast), left var(--delay);
+}
+
+#loading {
+  flex-direction: column;
+  background-color: var(--white);
+  z-index: 80;
+}
+
+#input-loading {
+  color: var(--white);
+  background-color: var(--fade-black);
+  z-index: 150;
 }
 
 #loading img {
@@ -23,6 +33,12 @@
 }
 
 #loading.loading {
+  left: -5rem;
+  opacity: 1;
+  transition: left 0s;
+}
+
+#input-loading.loading {
   left: -5rem;
   opacity: 1;
   transition: left 0s;
@@ -351,7 +367,7 @@ main > section > h2 {
 }
 
 #register-phase.third {
-  height: 70rem;
+  height: 90rem;
 }
 
 #register-phase.first > :first-of-type,
@@ -396,6 +412,18 @@ main > section > h2 {
 
 #register span a {
   color: var(--blue);
+}
+
+#register .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
+.cancel {
+  background-color: var(--red) !important;
 }
 
 /* =========={ Footer }========================================================================================== */

@@ -105,3 +105,5 @@ const [registerSalesContract, salesContract, KVKK] = document.querySelectorAll("
 
 const companies = document.querySelectorAll("#order .company");
 const individuals = document.querySelectorAll("#order .individual");
+
+var information;

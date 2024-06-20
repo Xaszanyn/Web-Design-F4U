@@ -378,12 +378,14 @@ async function loginDirect(email, password, remembered = false) {
       menuLoginButton.style.display = "none";
       document.querySelector("#menu hr").style.display = "none";
 
-      userName.innerHTML = response.information.name;
-      userEmail.innerHTML = response.information.email;
-      userPhone.innerHTML = response.information.phone;
-      userAddress.innerHTML = response.information.address;
+      information = response.information;
 
-      response.information.orders.individual.forEach((order) => {
+      userName.innerHTML = information.name;
+      userEmail.innerHTML = information.email;
+      userPhone.innerHTML = information.phone;
+      userAddress.innerHTML = information.address;
+
+      information.orders.individual.forEach((order) => {
         userOrders.innerHTML += `<li>
           <span>Tarih: ${order.date}</span>
           <span>Menü: ${order.menu_id}</span>
@@ -393,7 +395,7 @@ async function loginDirect(email, password, remembered = false) {
         </li>`;
       });
 
-      response.information.orders.company.forEach((order) => {
+      information.orders.company.forEach((order) => {
         userOrders.innerHTML += `<li>
           <span>Şirket: ${order.company_name}</span>
           <span>Tarih: ${order.date}</span>
@@ -407,11 +409,11 @@ async function loginDirect(email, password, remembered = false) {
         </li>`;
       });
 
-      if (response.information.picture == "-") {
+      if (information.picture == "-") {
         userPicture.style.display = "none";
       } else {
         userPictureDefault.style.display = "none";
-        userPicture.src = response.information.picture;
+        userPicture.src = information.picture;
       }
 
       if (!remembered) {
@@ -806,4 +808,16 @@ function switchOrderType(company) {
     companies.forEach((company) => (company.style.display = "none"));
     individuals.forEach((individual) => (individual.style.display = "block"));
   }
+}
+
+function auto() {
+  orderSection.days.selectedIndex = 0; // For iPhone browsers.
+  orderSection.amount.value = 1;
+
+  if (!information) return;
+
+  orderSection.name = information.name;
+  orderSection.phone = information.phone;
+  orderSection.email = information.email;
+  orderSection.address = information.address;
 }

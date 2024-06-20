@@ -816,8 +816,8 @@ function auto() {
 
   if (!information) return;
 
-  orderSection.name = information.name;
-  orderSection.phone = information.phone;
-  orderSection.email = information.email;
-  orderSection.address = information.address;
+  orderSection.name.value = information.name;
+  orderSection.phone.value = information.phone;
+  orderSection.email.value = information.email;
+  orderSection.address.value = information.address;
 }
